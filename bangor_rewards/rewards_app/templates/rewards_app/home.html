@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width" />
+    <title>Title</title>
+    <link rel="stylesheet" type="text/css" href="../../static/rewards_app/home.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <script type="text/javascript">
+
+        var points = 1000;
+        var goal = 10000;
+        function addToPoints(increment)
+        {
+            var currentWidth = (points/goal) * 100;
+            points += increment;
+            var desiredWidth = (points/goal) * 100;
+
+            var elem = document.getElementById("bar");
+            var pointsTotal = document.getElementById("pointsTotal");
+            pointsTotal.innerText = points + " points";
+            var id = setInterval(frame, 10);
+            function frame() {
+                if (currentWidth >= desiredWidth)
+                {
+                    clearInterval(id);
+                }
+                else
+                {
+                    currentWidth++;
+                    elem.style.width = currentWidth + '%';
+                }
+            }
+        }
+        function addFriendUpdate()
+        {
+            var colors = ["#be0000", "Blue", "#037d50", "#8E4585", "#40e0d0"];
+            var color = colors[Math.floor(Math.random()*colors.length)];
+
+
+            var parent = document.getElementById("friendFeed");
+            var div = document.createElement('div');
+            div.className = "card friendUpdate";
+            div.style.color = color;
+
+            var user = document.createElement('div');
+            user.className = " text textSmall friendUpdateUsername";
+            user.style.color= color;
+            user.innerText = "Friend's Username";
+
+            var text = document.createElement('div');
+            text.className = " text textSmall gray friendUpdateText";
+            text.innerText = "Friend volunteered at X location"
+
+            var profPic = document.createElement('div');
+            profPic.className = "profilePic";
+            profPic.style.backgroundColor= color;
+
+            div.appendChild(profPic);
+            div.appendChild(user);
+            div.appendChild(text);
+
+            if (parent != null) {
+                if (!parent.hasChildNodes())
+                    parent.appendChild(div);
+                else
+                    parent.insertBefore(div, parent.firstElementChild);
+            }
+            var times = [ 6000, 5000,];
+            var time = times[Math.floor(Math.random()*times.length)];
+            setTimeout(addFriendUpdate, time);
+        }
+        setTimeout(addFriendUpdate, 1000);
+
+    </script>
+</head>
+<body>
+<ul class="topnav">
+    <!--<li><a class="active">Settings</a></li>-->
+    <div class="titleFont"><a>Home</a></div>
+
+</ul>
+<div class="background" style="">
+
+    <div class="card marginBottom" style="height:20%; min-height: 85px;">
+        <div class="halfHorizontalDiv">
+            <div class="text textNormal gray">Charity Donationson</div>
+            <div class="text textSmall gray">Grandmaster of Giving</div>
+        </div>
+        <div class="halfHorizontalDiv centerAlign">
+            <div class="text textXLarge blue" style="height:50%; vertical-align: text-bottom;" id="pointsTotal">1000 points</div>
+            <div class="halfVerticalDivDiv">
+                 <div class="halfVerticalDiv">
+                    <div class="progressBar">
+                        <div class="progressBackground">
+                            <div id="bar" class="progressForeground greenBackground" style="width:10%"></div>
+                        </div>
+                    </div>
+                 </div>
+                <div class="halfVerticalDiv">
+                    <div class="text textSmall gray " style="vertical-align: central" >Next Goal: 10,000</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div style="height:10%; min-height: 40px;">
+        <div class="halfHorizontalDiv" style="width:49%; margin-right:1%" >
+            <button class="pointActionButton"  onclick="addToPoints(750)">
+                <div class="actionButtonTable">
+                    <span  class="actionButtonTextCell">Check Purchases</span>
+                    <span class="actionButtonIconCell"><i class="material-icons " >credit_card</i></span>
+                </div>
+            </button>
+        </div>
+        <div class="halfHorizontalDiv" style="width:49%; margin-left:1%">
+            <button class="pointActionButton"  >
+                <div class="actionButtonTable">
+                    <span  class="actionButtonTextCell">Check In</span>
+                    <span class="actionButtonIconCell"><i class="material-icons " >beenhere</i></span>
+                </div>
+            </button>
+        </div>
+    </div>
+    <div style="height:55%; margin-top: 5%">
+        <div class="text textLarge blue centerAlign" style=" height: 10%; width:100%;">Friend Feed</div>
+        <div class="card" style="margin-top: 15px; height:90%; overflow: scroll; padding:10px" id="friendFeed"></div>
+    </div>
+</div>
+</body>
+</html>
