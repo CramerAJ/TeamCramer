@@ -28,7 +28,6 @@ class Profile(models.Model):
 	achievements = models.ManyToManyField("Achievement",blank=True)
 	user = models.OneToOneField(User, on_delete=models.CASCADE) # connected to admin user
 
-
 	def __str__(self):
 		return self.name
 
@@ -53,7 +52,6 @@ class Activity(models.Model):
 
 	def __str__(self):
 		if self.charity:
-			return self.profile + " donated " + self.points + " points to " + self.charity
+			return "Donated " + str(self.points) + " points to " + self.charity
 		else:
-			return self.profile + " earned " + self.points + " points"
-
+			return "Earned " + str(self.points) + " points"

@@ -5,15 +5,16 @@ from django.http import HttpResponse
 from django.http import HttpResponseRedirect
 
 from .models import Charity
+from .models import Activity
 from .models import Profile
 from .forms import FriendForm
 
 
 # Shows list of charities in DB
-def index(request):
+"""def index(request):
     latest_charity_list = Charity.objects.order_by('-name')[:5]
     context = {'latest_charity_list': latest_charity_list}
-    return render(request, 'rewards_app/index.html', context)
+    return render(request, 'rewards_app/index.html', context)"""
 
 
 #forms tutorial...
@@ -34,16 +35,24 @@ def add_friend(request):
     # if a GET (or any other method) we'll create a blank form
     else:
         form = FriendForm()
-
+    
+    
     # /rewards_app/friends/ part...
-	profiles = Profile.objects.order_by('-name')
-	# friends = request.user.inlines.Profile.friends.objects.order_by('-name')
-	# print(request.user.username)
-	
-	context = {
-        'form':form,
-        'profiles':profiles,
-        # 'friends':friends,
-    }
+    profiles = Profile.objects.order_by('-name')
+    # friends = request.user.inlines.Profile.friends.objects.order_by('-name')
+    # print(request.user.username)
+
+    context = {
+          'form':form,
+          'profiles':profiles,
+          # 'friends':friends,
+      }
 
     return render(request, 'rewards_app/friends.html', context)
+
+def index(request):
+    user = Profile.objects.filter(pk=1)[0]
+    friends = user.friends.all()
+    friend_ids = [f.pk for f in friends]
+    feed = Activity.objects.filter(profile_id__in=friend_ids).order_by('timestamp')
+    return render(request, 'rewards_app/home.html', {'feed': feed})
