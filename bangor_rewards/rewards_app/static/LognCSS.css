@@ -1,3 +1,4 @@
+
 .login-page {
     width: 360px;
     padding: 8% 0 0;
@@ -24,6 +25,7 @@
     box-sizing: border-box;
     font-size: 14px;
 }
+
 .form button {
     font-family: "Roboto", sans-serif;
     text-transform: uppercase;
@@ -50,6 +52,11 @@
     color: #43A;
     text-decoration: none;
 }
+.form .errorText{
+    font-size: 12px;
+    color: #d80000;
+}
+
 .form .register-form {
     display: none;
 }
