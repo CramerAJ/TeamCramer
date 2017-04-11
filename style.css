@@ -1,0 +1,136 @@
+.header{
+    background-color: #fafafa;
+    left: 0;
+    top: 0;
+    text-align: center;
+    width: 100%;
+}
+
+#header-text{
+    color: #584d51;
+    font-family: 'Raleway', 'Roboto', sans-serif;
+    font-size: 450%;
+    font-weight: 300;
+    text-align: center;
+    text-transform: none;
+    padding-left: 5%;
+    padding-right: 3.5%;
+}
+
+.header-list{
+    color: #584d51;
+    display: inline-block;
+    font-family: 'Abel', sans-serif;
+    font-size: 20px;
+    font-weight: 200;
+    margin: 1.5% 0%;
+    text-transform: uppercase;
+    min-width: 85%;
+    align: center;
+}
+
+#search img{
+    max-width: 40px;
+    min-height: 40px;
+}
+
+#add-friend img{
+    max-width: 50px;
+    min-height: 50px;
+}
+
+ul{
+    padding:0;
+}
+
+.shift-left{
+    margin-left:5%;
+}
+
+li{
+    display: inline-block;
+    margin: auto 1%;
+}
+
+body {
+    /*background-color: #eeeeee;*/
+    background: #EF3B3A; /* fallback for old browsers */
+    background: -webkit-linear-gradient(right,  #c6d1e1, #688ec2, #c6d1e1);
+    background: -moz-linear-gradient(right, #c6d1e1, #688ec2, #c6d1e1);
+    background: -o-linear-gradient(right, #c6d1e1, #688ec2, #c6d1e1);
+    background: linear-gradient(to left, #c6d1e1, #688ec2, #c6d1e1);
+    font-family: "Roboto", sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    margin: 0;
+    padding: 0;
+    overflow:scroll;
+}
+
+.friend{
+    background: #fafafa;
+    box-sizing: border-box;
+    min-height: 100px;
+    border-radius: 20px;
+    width: 90%;
+    margin: 1.5% auto;
+    padding:20px;
+    text-align: left;
+}
+
+.friend-info{
+    display: inline-block;
+    min-width:400px;
+    max-width:700px;
+    font-family: 'Raleway', 'Roboto', sans-serif;
+    text-align:left;
+    margin-bottom: 2%;
+    margin-left: 1%;
+}
+
+.name{
+    display: inline-block;
+    font-weight: 400;
+    font-size: 35px;
+    color: #584d51;
+}
+
+#title{
+    display: inline-block;
+    font-weight: 300;
+    font-style:italic;
+    font-size: 20px;
+    color: #584d51;
+}
+
+#points{
+    display: inline-block;
+    font-weight: 400;
+    font-size: 20px;
+    color: #584d51;
+}
+
+.friend img{
+    max-width: 90px;
+    min-height:90px;
+    width: 100%;
+    height:100%;
+    border-radius: 100%;
+    text-align: left;
+}
+
+.friend-charities{
+    min-width:100px;
+    max-width:1000px;
+}
+
+.charity{
+    display: inline-block;
+    font-family: 'Raleway', 'Roboto', sans-serif;
+    color: #584d51;
+}
+
+.charity img{
+    max-width: 60px;
+    min-height: 60px;
+}
