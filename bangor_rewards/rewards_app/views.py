@@ -35,8 +35,8 @@ def add_friend(request):
     # if a GET (or any other method) we'll create a blank form
     else:
         form = FriendForm()
-    
-    
+
+
     # /rewards_app/friends/ part...
     profiles = Profile.objects.order_by('-name')
     # friends = request.user.inlines.Profile.friends.objects.order_by('-name')
@@ -49,6 +49,9 @@ def add_friend(request):
       }
 
     return render(request, 'rewards_app/friends.html', context)
+
+def charities(request):
+    return render(request, 'rewards_app/charities.html')
 
 def index(request):
     user = Profile.objects.filter(pk=1)[0]
