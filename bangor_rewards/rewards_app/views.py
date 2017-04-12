@@ -54,8 +54,9 @@ def charities(request):
     return render(request, 'rewards_app/charities.html')
 
 def index(request):
-    user = Profile.objects.filter(pk=1)[0]
-    friends = user.friends.all()
-    friend_ids = [f.pk for f in friends]
-    feed = Activity.objects.filter(profile_id__in=friend_ids).order_by('timestamp')
-    return render(request, 'rewards_app/home.html', {'feed': feed})
+    u = request.user
+    profile = Profile.objects.get(user=u)
+    friends = profile.friends.all()
+    friend_ids = [f.id for f in friends]
+    feed = Activity.objects.filter(profile_id__in=friend_ids).order_by('timestamp')[::-1]
+    return render(request, 'rewards_app/home.html', {'feed': feed, 'name': profile.name, 'points': profile.current_points})

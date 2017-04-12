@@ -1,0 +1,78 @@
+<!DOCTYPE>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="/static/LognCSS.css">
+    <!--<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script> -->
+</head>
+
+<body>
+
+
+
+    <!--<div class="form">
+
+        <form class="register-form">
+            <input type="text" placeholder="name"/>
+            <input type="password" placeholder="password"/>
+            <input type="text" placeholder="email address"/>
+            <button>create</button>
+            <p class="message">Already registered? <a href="#">Sign In</a></p>
+        </form>
+        <form class="login-form">
+            <input type="text" placeholder="username"/>
+            <input type="password" placeholder="password"/>
+            <button>login</button>
+            <p class="message">Not registered? <a href="#">Create an account</a></p>
+        </form>
+    </div>-->
+    {% block content %}
+
+
+
+
+    <div class="form">
+
+        <center>
+            {% if next %}
+            {% if user.is_authenticated %}
+
+            <p class="message">Your account doesn't have access to this page. To proceed,
+                please login with an account that has access.</p>
+            {% else %}
+
+            <p class="message">Please login to see this page.</p>
+            {% endif %}
+            {% endif %}
+        </center>
+        <form class="login-form" method="post" action="{% url 'login' %}">
+        {% csrf_token %}
+            <div class="input-group">
+
+                <input id="{{ form.username.id_for_label }}" maxlength="60" name="{{ form.username.html_name }}"  type="text" placeholder="{{form.username.html_name}}" required="true" />
+                <input id="{{ form.password.id_for_label }}" maxlength="60" name="{{ form.password.html_name }}"  type="password" placeholder="{{form.password.html_name}}" required="true" />
+            </div>
+
+            <p class="bs-component">
+                <center>
+                    {% if form.errors %}
+                        <p class="errorText">No such username/password combination exists</p>
+                    {% endif %}
+                    <input class="btn btn-success btn-sm" type="submit" value="Log in" />
+                    <p class="message">Not registered? <a href="#">Create an account</a></p>
+                </center>
+            </p>
+
+            <input type="hidden" name="next" value="{{ next }}" />
+
+        </form>
+    </div>
+
+
+    {% endblock %}
+
+</body>
+
+</html>
+
+
+
