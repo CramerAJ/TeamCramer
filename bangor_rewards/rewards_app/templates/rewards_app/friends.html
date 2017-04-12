@@ -27,11 +27,13 @@
 {% endfor %}
 
 
+<h4> Current User </h4>
+{{ user }}
 <h4>List of All Friends</h4>
 
-{% for v in friends %}
+{% for v in friendslist %}
 	-
-    {{ v.name }}:
-    {{ v.current_points }},
+    {{ v.name }}
+    {{ v.current_points }}
     <br></br>
 {% endfor %}

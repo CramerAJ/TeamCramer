@@ -19,35 +19,27 @@ from .forms import FriendForm
 
 #forms tutorial...
 def add_friend(request):
-	# /rewards_app/add_friend/ part...
-    # if this is a POST request we need to process the form data
+    u = request.user
+    profile = Profile.objects.get(user=u)
+    friendslist = profile.friends.all()
     if request.method == 'POST':
+    	print("xdddddddddd")
         # create a form instance and populate it with data from the request:
         form = FriendForm(request.POST)
         # check whether it's valid:
         if form.is_valid():
-            # process the data in form.cleaned_data as required
-            # ...
-            # redirect to a new URL:
-            # print("FRIEND FORM IS HERE::"+form.errors.as_data())
-            return HttpResponseRedirect('/thanks/')
+        	print("valid")
 
-    # if a GET (or any other method) we'll create a blank form
-    else:
-        form = FriendForm()
-    
-    
-    # /rewards_app/friends/ part...
-    profiles = Profile.objects.order_by('-name')
-    # friends = request.user.inlines.Profile.friends.objects.order_by('-name')
-    # print(request.user.username)
-
+            
+        else:
+        	form = FriendForm()
+    #friend_ids = [f.id for f in friends]
+    #feed = Activity.objects.filter(profile_id__in=friend_ids).order_by('timestamp')[::-1]
     context = {
-          'form':form,
-          'profiles':profiles,
-          # 'friends':friends,
-      }
-
+    'form':form,
+    'user':u,
+    'friendslist':friendslist,
+ 	 }
     return render(request, 'rewards_app/friends.html', context)
 
 def index(request):
@@ -57,3 +49,4 @@ def index(request):
     friend_ids = [f.id for f in friends]
     feed = Activity.objects.filter(profile_id__in=friend_ids).order_by('timestamp')[::-1]
     return render(request, 'rewards_app/home.html', {'feed': feed, 'name': profile.name, 'points': profile.current_points})
+
