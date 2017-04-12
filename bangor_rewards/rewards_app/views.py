@@ -19,6 +19,10 @@ from .forms import FriendForm
 
 #forms tutorial...
 def add_friend(request):
+    u = request.user
+    profile = Profile.objects.get(user=u)
+    friends = profile.friends.all()
+    friend_ids = [f.id for f in friends]
 	# /rewards_app/add_friend/ part...
     # if this is a POST request we need to process the form data
     if request.method == 'POST':
@@ -45,7 +49,8 @@ def add_friend(request):
     context = {
           'form':form,
           'profiles':profiles,
-          # 'friends':friends,
+          'friends':friend_ids,
+          'user':friends,
       }
 
     return render(request, 'rewards_app/friends.html', context)

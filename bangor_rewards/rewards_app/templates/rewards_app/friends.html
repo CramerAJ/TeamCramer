@@ -1,5 +1,5 @@
 {% load static %}
-<link rel="stylesheet" type="text/css" href="{% static 'rewards_app/style.css' %}" />
+<link rel="stylesheet" type="text/css" href="../../static/rewards_app/friends.css" />
 
 <h1>Friends List</h1>
 
@@ -17,21 +17,17 @@
 </form>	
 
 
-<h4>List of All Profiles</h4>
-
-{% for u in profiles %}
-	-
-    {{ u.name }}:
-    {{ u.current_points }},
-    <br></br>
-{% endfor %}
-
-
-<h4>List of All Friends</h4>
-
-{% for v in friends %}
-	-
-    {{ v.name }}:
-    {{ v.current_points }},
-    <br></br>
-{% endfor %}
+ <div style="height:55%; margin-top: 5%">
+        <div class="text textLarge blue centerAlign" style=" height: 10%; width:100%;">Friend List</div>
+        <div class="card" style="margin-top: 15px; height:90%; overflow: scroll; padding:10px" id="friendFeed">
+            
+            {% for line in user %}
+                <div class="card friendUpdate">
+                    <div class="profilePic" style="background-color: #FF0000"></div>
+                    <div class=" text textSmall friendUpdateUsername">
+                        <a href="{{ line }}">{{ line }}</a>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
