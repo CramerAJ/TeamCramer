@@ -48,7 +48,8 @@ def add_friend(request):
           # 'friends':friends,
       }
 
-    return render(request, 'rewards_app/friends.html', context)
+    return render(request, 'rewards_app/FriendsTest.html', context)
+    #return render(request, 'rewards_app/friends.html', context)
 
 def charities(request):
     return render(request, 'rewards_app/charities.html')

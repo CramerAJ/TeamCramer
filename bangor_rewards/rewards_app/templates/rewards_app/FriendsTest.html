@@ -109,25 +109,24 @@
 
 
 <div class="navbar navbar-static-top">
-<div class="header">
-        <div id="header" class="row">
-            <div id="search" class="col-xs-4"><button type="button" class="btn btn-default btn-circle btn-lg"><img src="http://www.freeiconspng.com/uploads/search-icon-png-20.png"></button></div>
-            <div id="header-text" class="col-xs-4">Friends</div>
-            <div id="add-friend" class="col-xs-4"><button type="button" class="btn btn-default btn-circle btn-lg"><img src="http://www.freeiconspng.com/uploads/plus-icon-black-2.png"></button></div>
-        </div>
-    </ul>
-</div>
+  <div class="header">
+    <div id="header" class="row">
+        <div id="search" class="col-xs-4"><button type="button" class="btn btn-default btn-circle btn-lg"><img src="http://www.freeiconspng.com/uploads/search-icon-png-20.png"></button></div>
+        <div id="header-text" class="col-xs-4">Friends</div>
+        <div id="add-friend" class="col-xs-4"><button type="button" class="btn btn-default btn-circle btn-lg" onclick="addFriend()"><img src="http://www.freeiconspng.com/uploads/plus-icon-black-2.png"></button></div>
+    </div>
+  </div>
 </div>
 
-<!-- >{% for u in profiles %}<-->
+
 <div id="friends" class="container">
+{% for u in profiles %}
     <div id="friend" class="container-fluid">
         <div id="contents">
             <div class="row">
                 <div class="col-xs-3 col-md-2 col-lg-2"><img src="https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png"></div>
-
                 <div  class="col-xs-9 col-md-4 col-lg-4">
-                    <div id="friend-name"><!--{{ u.name }}-->Katie Manzo</div>
+                    <div id="friend-name">{{ u.name }}</div>
                     <br />
                     <div id="title">Amateur Philanthropist</div>
                     <div id="points"> {{ u.current_points }}</div>
@@ -150,7 +149,10 @@
                 </div>
             </div>
         </div>
-        </div>
     </div>
+{% endfor %}
 </div>
-<!--{% endfor %}-->
+
+
+</body>
+</html>
