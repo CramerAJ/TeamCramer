@@ -52,7 +52,11 @@ def add_friend(request):
     #return render(request, 'rewards_app/friends.html', context)
 
 def charities(request):
-    return render(request, 'rewards_app/charities.html')
+    charities = Charity.objects.order_by('-name')
+    context = {
+          'charities':charities,
+      }
+    return render(request, 'rewards_app/charities.html', context)
 
 def index(request):
     u = request.user
