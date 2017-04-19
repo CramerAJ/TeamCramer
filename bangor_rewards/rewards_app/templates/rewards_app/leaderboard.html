@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+{% load static %}
+<head lang="en">
+    <link rel="stylesheet" type="text/css" href="styleLeaderboard.css">
+    <meta charset="UTF-8">
+    <!-- ><script src="Leaderboard.js"></script><-->
+    <link href="https://fonts.googleapis.com/css?family=Roboto:100,200,300|Raleway:100,200,300,400,500,600,700,800,900" rel="stylesheet">
+
+    <title>Leaderboards</title> <!-- >Gives a name in the tab on the browser<-->
+</head>
+<body>
+
+<div class="header">
+    <div id="header-text">Leaderboards</div>
+</div>
+
+<div class="table">
+    <div class="table-cell">
+        <ul class="leaderboard">
+            {% for u in userList %}
+            <li>
+                <span class="list_num">{{ u.total_points }}</span>
+                <img src="https://scontent.fzty2-1.fna.fbcdn.net/v/t1.0-1/p50x50/17352380_10210296445705985_1842584503715947657_n.jpg?oh=844de14015721e9220c6762735a07fb7&oe=5961F7D0">
+                <h2>{{ u.name }}<span class="number">{{ u.total_points }}</span></h2>
+            </li>
+            {% endfor %}
+        </ul>
+    </div>
+</div>
+</body>
+</html>
