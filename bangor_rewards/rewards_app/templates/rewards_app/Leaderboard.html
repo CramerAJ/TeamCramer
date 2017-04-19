@@ -1,10 +1,15 @@
 <!DOCTYPE html>
 <html>
+{% load static %}
 <head lang="en">
-    <link rel="stylesheet" type="text/css" href="styleLeaderboard.css">
+
     <meta charset="UTF-8">
     <!-- ><script src="Leaderboard.js"></script><-->
     <link href="https://fonts.googleapis.com/css?family=Roboto:100,200,300|Raleway:100,200,300,400,500,600,700,800,900" rel="stylesheet">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="../../static/rewards_app/styleLeaderboard.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
     <title>Leaderboards</title> <!-- >Gives a name in the tab on the browser<-->
 </head>
@@ -14,50 +19,69 @@
     <div id="header-text">Leaderboards</div>
 </div>
 
-<div class="table">
-    <div class="table-cell">
-        <ul class="leader">
-            <li>
-                <span class="list_num">1</span>
-                <img src="https://scontent.fzty2-1.fna.fbcdn.net/v/t1.0-1/p50x50/17352380_10210296445705985_1842584503715947657_n.jpg?oh=844de14015721e9220c6762735a07fb7&oe=5961F7D0">
-                <h2>Katie<span class="number">9,735</span></h2>
-            </li>
-            <li>
-                <span class="list_num">2</span>
-                <h2>Jake <span class="number">8,364</span</h2>
-            </li>
-            <li>
-                <span class="list_num">3</span>
-                <h2>Jackson<span class="number">7,621</span</h2>
-            </li>
-            <li>
-                <span class="list_num">4</span>
-                <img src="https://scontent.fzty2-1.fna.fbcdn.net/v/t1.0-1/c27.0.160.160/p160x160/13645222_1816567371910753_5821064296161356209_n.jpg?oh=37dcb891bf729563eccc249a5d5f5ba0&oe=596B748D">
-                <h2>Cramer<span class="number">4,582</span</h2>
-            </li>
-            <li>
-                <span class="list_num">5</span>
-                <h2>Ben<span class="number">2,651</span</h2>
-            </li>
-            <li>
-                <span class="list_num">5</span>
-                <h2>Katrina<span class="number">2,651</span</h2>
-            </li>
-            <li>
-                <span class="list_num">5</span>
-                <h2>Kevin<span class="number">2,651</span</h2>
-            </li>
-            <li>
-                <span class="list_num">8</span>
-                <h2>Mitchell<span class="number">69</span</h2>
-            </li>
-            <li>
-                <span class="list_num">9</span>
-                <h2>Nathan<span class="number">.00000000000000001</span</h2>
-            </li>
 
-        </ul>
+<div class="container">
+
+    <ul class="nav nav-tabs nav-justified">
+        <li class="active"><a data-toggle="tab" href="#friends">Friends</a></li>
+        <li><a data-toggle="tab" href="#allUsers">All Users</a></li>
+        <li><a data-toggle="tab" href="#charities">Charities</a></li>
+    </ul>
+
+    <div class="tab-content">
+        <div id="friends" class="tab-pane fade in active">
+            <div class="table">
+                <div class="table-cell">
+                    <ul class="leader">
+                        {% for line in friendBoard %}
+                        <li>
+                            <span class="list_num">{{forloop.counter}}</span>
+                            <img src="https://scontent.fzty2-1.fna.fbcdn.net/v/t1.0-1/p50x50/17352380_10210296445705985_1842584503715947657_n.jpg?oh=844de14015721e9220c6762735a07fb7&oe=5961F7D0">
+                            <h2>{{ line.name }}<span class="number">{{line.total_points}}</span></h2>
+                        </li>
+                        {% endfor %}
+
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div id="allUsers" class="tab-pane fade">
+            <div class="table">
+                <div class="table-cell">
+                    <ul class="leader">
+                        {% for line in userBoard %}
+                        <li>
+                            <span class="list_num">{{forloop.counter}}</span>
+                            <img src="https://scontent.fzty2-1.fna.fbcdn.net/v/t1.0-1/p50x50/17352380_10210296445705985_1842584503715947657_n.jpg?oh=844de14015721e9220c6762735a07fb7&oe=5961F7D0">
+                            <h2>{{ line.name }}<span class="number">{{line.total_points}}</span></h2>
+                        </li>
+                        {% endfor %}
+
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div id="charities" class="tab-pane fade">
+            <div class="table">
+                <div class="table-cell">
+                    <ul class="leader">
+                        {% for line in charityBoard %}
+                        <li>
+                            <span class="list_num">{{forloop.counter}}</span>
+                            <img src="https://scontent.fzty2-1.fna.fbcdn.net/v/t1.0-1/p50x50/17352380_10210296445705985_1842584503715947657_n.jpg?oh=844de14015721e9220c6762735a07fb7&oe=5961F7D0">
+                            <h2>{{ line.name }}<span class="number">{{line.points}}</span></h2>
+                        </li>
+                        {% endfor %}
+
+                    </ul>
+                </div>
+            </div>
+        </div>
+
     </div>
 </div>
+
+
+
 </body>
 </html>
