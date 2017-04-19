@@ -8,4 +8,6 @@ urlpatterns = [
     url(r'^add_friend/', views.add_friend, name='add_friend'), 	# /rewards_app/add_friend/
     url(r'^charities/', views.charities, name='charities'),     # /rewards_app/charities/
     url(r'^home/', views.index, name='home'),
+    url(r'^leaderboard/', views.leaderboard, name='leaderboard'),
+    url(r'^profile/', views.profile, name='profile'),
 ]

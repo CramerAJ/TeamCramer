@@ -80,14 +80,16 @@
 
 <!--Scrollable charities-->
 <div id="charities" class="container">
-    <div id="charity-scroll">
+
+    {% for c in charityList %}
+       <div id="charity-scroll">
         <div id="name" class="container-fluid">
             <div id="contents">
               <div class="row">
                 <div class="col-xs-12 col-md-2 col-lg-2"><img src="https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png"></img></div>
                 <div class="col-xs-12 col-md-8 col-lg-8">
-                  <h3 style="margin-top: 10px">Bangor Humane Society</h3>
-                  <p>Dogs r awesome, this is where we would have a description about how awesome dogs r.</p>
+                  <h3 style="margin-top: 10px">{{ c.name }}</h3>
+                  <p>{{ c.description }}</p>
                   <i class="fa fa-facebook-official" style="font-size:24px"></i>
                   <i class="fa fa fa-twitter" style="font-size:24px"></i>
                 </div>
@@ -98,6 +100,7 @@
             </div>
         </div>
     </div>
+{% endfor %}
 </div>
 
 
