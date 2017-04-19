@@ -74,6 +74,13 @@ a:hover{
     text-decoration: none;
     color: #a3969b;
 }
+
+@media all and (max-device-width: 500px){
+    #header-text {
+        font-size: 48px;
+    }
+}
+
 </style>
 
 <body>
@@ -99,7 +106,7 @@ a:hover{
               <h3 style="margin-top: 10px">{{ u.name }}   <small><a href="{{ u.website }}" class="fa-external-link"></a></small></h3>
               <p>{{ u.description }}</p>
               <a href="https://facebook.com"><i class="fa fa-facebook-official" style="font-size:24px"></i></a>
-              <a href="https://twitter.com"><i class="fa fa fa-twitter" style="font-size:24px"></i></a> 
+              <a href="https://twitter.com"><i class="fa fa fa-twitter" style="font-size:24px"></i></a>
             </div>
             <div class="col-xs-offset-4 col-xs-4 col-sm-2 col-sm-offset-5 col-md-2 col-md-offset-0 col-lg-2 col-lg-offset-0" style="padding-top: 30px">
               <button class="btn btn-default">Donate</button>
