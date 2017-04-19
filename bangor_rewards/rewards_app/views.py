@@ -56,7 +56,7 @@ def charities(request):
     context = {
           'charities':charities,
       }
-    return render(request, 'rewards_app/charities.html', context)
+    return render(request, 'rewards_app/Charities.html', context)
 
 def index(request):
     u = request.user
