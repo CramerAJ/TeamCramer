@@ -52,11 +52,23 @@ def add_friend(request):
     #return render(request, 'rewards_app/friends.html', context)
 
 def charities(request):
-    charities = Charity.objects.order_by('-name')
-    context = {
-          'charities':charities,
-      }
-    return render(request, 'rewards_app/Charities.html', context)
+    u = request.user
+    profile = Profile.objects.get(user=u)
+
+    charities = Charity.objects.order_by('-total_points')
+
+    return render(request, 'rewards_app/Charities.html', {'charities': charities, 'profile': profile})
+
+
+def leaderboard(request):
+    u = request.user
+    profile = Profile.objects.get(user=u)
+
+    userList = Profile.objects.order_by('-total_points')
+    return render(request, 'rewards_app/Leaderboard.html', {'userList': userList, 'profile': profile})
+
+def profile(request):
+    return render(request, 'rewards_app/profile.html')
 
 def index(request):
     u = request.user
