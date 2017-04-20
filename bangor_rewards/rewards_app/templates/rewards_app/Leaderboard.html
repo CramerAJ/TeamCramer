@@ -1,63 +1,139 @@
 <!DOCTYPE html>
 <html>
 <head lang="en">
-    <link rel="stylesheet" type="text/css" href="styleLeaderboard.css">
     <meta charset="UTF-8">
-    <!-- ><script src="Leaderboard.js"></script><-->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <link href="https://fonts.googleapis.com/css?family=Roboto:100,200,300|Raleway:100,200,300,400,500,600,700,800,900" rel="stylesheet">
-
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <title>Leaderboards</title> <!-- >Gives a name in the tab on the browser<-->
 </head>
+
+<style>
+    #header{
+        background-color: #fafafa;
+        text-align: center;
+        width:100%;
+        margin: 0;
+        min-height: 100px;
+        border-bottom: 5px solid #939598;
+        display: flex;
+        align-items: center;
+    }
+
+    #header-text{
+        color: #584d51;
+        font-family: 'Raleway', 'Roboto', sans-serif;
+        font-size: 450%;
+        font-weight: 300;
+        text-align: center;
+        margin: 1.5% 0%;
+    }
+
+    @media all and (max-device-width: 500px){
+        #header-text {
+            font-size: 35px;
+        }
+    }
+
+    @media all and (min-device-width: 1000px){
+        #num {
+            text-align:center;
+        }
+
+        #prof-pic{
+            text-align:center;
+        }
+    }
+
+    body {
+        background-color: #1251a7;
+        font-family: "Roboto", sans-serif;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+        overflow:scroll;
+    }
+
+    #friend{
+        padding-top: 4px;
+        padding-bottom: 4px;
+        box-sizing: border-box;
+        background: #fafafa;
+        border-radius: 20px;
+        width: 90%;
+        margin: 1.5% auto;
+        min-height: 130px;
+    }
+
+    #num{
+        font-size: 2em;
+        color: #584d51;
+    }
+
+    #friend-name{
+        display: inline-block;
+        font-weight: 400;
+        font-size: 250%;
+        color: #584d51;
+    }
+
+    #contents{
+        margin:1.5em 1.5em;
+    }
+
+    #contents img{
+        max-width: 65px;
+        min-height:65px;
+        width: 100%;
+        height:100%;
+        border-radius: 100%;
+        text-align: left;
+    }
+
+    .container-fluid{
+        border-bottom: 5px solid #939598;
+        border-left: 5px solid #939598;
+    }
+
+    .vcenter{
+        display: inline-block;
+        vertical-align: middle;
+        float: none;
+    }
+
+    a{
+        color: #584d51;
+    }
+
+    a:hover{
+        text-decoration: none;
+        color: #a3969b;
+    }
+</style>
 <body>
 
-<div class="header">
-    <div id="header-text">Leaderboards</div>
-</div>
-
-<div class="table">
-    <div class="table-cell">
-        <ul class="leader">
-            <li>
-                <span class="list_num">1</span>
-                <img src="https://scontent.fzty2-1.fna.fbcdn.net/v/t1.0-1/p50x50/17352380_10210296445705985_1842584503715947657_n.jpg?oh=844de14015721e9220c6762735a07fb7&oe=5961F7D0">
-                <h2>Katie<span class="number">9,735</span></h2>
-            </li>
-            <li>
-                <span class="list_num">2</span>
-                <h2>Jake <span class="number">8,364</span</h2>
-            </li>
-            <li>
-                <span class="list_num">3</span>
-                <h2>Jackson<span class="number">7,621</span</h2>
-            </li>
-            <li>
-                <span class="list_num">4</span>
-                <img src="https://scontent.fzty2-1.fna.fbcdn.net/v/t1.0-1/c27.0.160.160/p160x160/13645222_1816567371910753_5821064296161356209_n.jpg?oh=37dcb891bf729563eccc249a5d5f5ba0&oe=596B748D">
-                <h2>Cramer<span class="number">4,582</span</h2>
-            </li>
-            <li>
-                <span class="list_num">5</span>
-                <h2>Ben<span class="number">2,651</span</h2>
-            </li>
-            <li>
-                <span class="list_num">5</span>
-                <h2>Katrina<span class="number">2,651</span</h2>
-            </li>
-            <li>
-                <span class="list_num">5</span>
-                <h2>Kevin<span class="number">2,651</span</h2>
-            </li>
-            <li>
-                <span class="list_num">8</span>
-                <h2>Mitchell<span class="number">69</span</h2>
-            </li>
-            <li>
-                <span class="list_num">9</span>
-                <h2>Nathan<span class="number">.00000000000000001</span</h2>
-            </li>
-
-        </ul>
+<div class="navbar navbar-static-top">
+    <div id="header" class="row">
+        <div id="header-text" class="col-xs-12 col-md-12 col-lg-12">Leaderboards</div>
     </div>
 </div>
+
+
+<div id="friends" class="container">
+    <!--{% for u in profiles %}-->
+    <div id="friend" class="container-fluid">
+        <div id="contents">
+            <div class="row">
+                <div id="num" class="col-xs-2 col-md-1 col-lg-1 vcenter">#1</div>
+                <div id="prof-pic" class="col-xs-9 col-md-2 col-lg-2 vcenter"><a href="https://facebook.com"><img src="https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png" alt="Go to user profile"></a></div>
+                <div class="col-xs-12 col-md-4 col-lg-5 vcenter"><div id="friend-name"><a href="https://facebook.com">{{ u.name }}</a></div></div>
+                <div id="num" class="col-xs-12 col-md-3 col-lg-3 vcenter"> 9,000 points</div>
+            </div>
+        </div>
+    </div>
+    <!--{% endfor %}-->
+</div>
+
 </body>
 </html>
