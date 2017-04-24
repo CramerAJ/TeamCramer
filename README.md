@@ -2,11 +2,11 @@
 
 ### Team Members
 - Nathan Mathis
-- Kevin Lewis???
-- Jake wuz here
-- Katie is here
-- Cramer (Isabel Hernandez)
-- xxJacksonHeyxx
-- Katrina
+- Kevin Lewis
+- Jake Collupy
+- Katie Manzo
+- Andrew Cramer
+- Jackson Hey
+- Katrina Stinson
 - Ben Jeffrey
 - Mitchell Smith
