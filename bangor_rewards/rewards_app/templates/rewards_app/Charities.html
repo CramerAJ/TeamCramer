@@ -116,16 +116,16 @@
 <!--Scrollable charities-->
 <div id="charities" class="container">
     <div id="charity-scroll">
-        <!--{% for u in charities %}-->
+       {% for c in charities %}
         <div id="name" class="container-fluid">
             <div id="contents">
                 <div class="row">
-                    <div class="col-xs-12 col-md-2 col-lg-2"><img src="{{ u.image_url }}"></img></div>
+                    <div class="col-xs-12 col-md-2 col-lg-2"><img src= {{ c.image_url }}></img></div>
                     <div class="col-xs-12 col-md-8 col-lg-8">
-                        <h3 style="margin-top: 10px">{{ u.name }}   <small><a href="{{ u.website }}" class="fa-external-link"></a></small></h3>
-                        <p>{{ u.description }}</p>
-                        <a href="https://facebook.com"><i class="fa fa-facebook-official" style="font-size:24px"></i></a>
-                        <a href="https://twitter.com"><i class="fa fa fa-twitter" style="font-size:24px"></i></a>
+                        <h3 style="margin-top: 10px">{{ c.name }}   <small><a href="{{ c.website }}" class="fa-external-link"></a></small></h3>
+                        <p>{{ c.description }}</p>
+                        <a href={{ c.facebook_url }}><i class="fa fa-facebook-official" style="font-size:24px"></i></a>
+                        <a href={{ c.twitter_url }}><i class="fa fa fa-twitter" style="font-size:24px"></i></a>
                     </div>
                     <div class="col-xs-offset-4 col-xs-4 col-sm-2 col-sm-offset-5 col-md-2 col-md-offset-0 col-lg-2 col-lg-offset-0" style="padding-top: 30px">
                         <button class="btn btn-default">Donate</button>
@@ -133,7 +133,8 @@
                 </div>
             </div>
         </div>
-        <!--{% endfor %}-->
+       {% endfor %}
+ 
     </div>
 </div>
 

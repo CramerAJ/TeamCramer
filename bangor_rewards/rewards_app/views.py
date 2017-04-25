@@ -71,7 +71,7 @@ def charities(request):
     u = request.user
     profile = Profile.objects.get(user=u)
 
-    charities = Charity.objects.order_by('-total_points')
+    charities = Charity.objects.order_by('-points')
 
     return render(request, 'rewards_app/Charities.html', {'charities': charities, 'profile': profile})
 
@@ -84,7 +84,9 @@ def leaderboard(request):
     return render(request, 'rewards_app/Leaderboard.html', {'userList': userList, 'profile': profile})
 
 def profile(request):
-    return render(request, 'rewards_app/profile.html')
+    u = request.user
+    profile = Profile.objects.get(user=u)    
+    return render(request, 'rewards_app/profile.html',{'profile': profile})
 
 def index(request):
     u = request.user
