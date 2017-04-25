@@ -98,17 +98,80 @@
         text-decoration: none;
         color: #a3969b;
     }
+
+
+.nav ul {
+    list-style: none;
+    background-color: #00338e;
+    text-align: center;
+    padding: 0;
+    margin: 0;
+}
+.nav li {
+    font-family: 'Oswald', sans-serif;
+    font-size: 1.2em;
+    line-height: 40px;
+    height: 40px;
+    border-bottom: 1px solid #888;
+}
+
+.nav a {
+    text-decoration: none;
+    color: #fff;
+    display: block;
+    transition: .3s background-color;
+}
+
+.nav a:hover {
+    background-color: #245580;
+}
+
+.nav a.active {
+    background-color: #fff;
+    color: #00338e;
+    cursor: default;
+}
+
+@media screen and (min-width: 600px) {
+    .nav li {
+        width: 10%;
+        border-bottom: none;
+        height: 50px;
+        line-height: 50px;
+        font-size: 1.4em;
+    }
+    /* Options 2 - Float
+    .nav li {
+      float: left;
+    }
+    .nav ul {
+      overflow: auto;
+      width: 600px;
+      margin: 0 auto;
+    }
+    .nav {
+      background-color: #444;
+    }
+    */
+     /* Option 1 - Display Inline */
+    .nav li {
+        display: inline-block;
+        margin-right: -4px;
+    }
+}
 </style>
 
 <body>
 <!--Header, Profile pic, Name-->
 
-<div class="navbar navbar-static-top">
-    <div id="header" class="row">
-        <div id="search" class="col-xs-2 col-md-3 col-lg-3"><button type="button" class="btn btn-default btn-circle btn-lg"><img src="http://www.freeiconspng.com/uploads/search-icon-png-20.png"></button></div>
-        <div id="header-text" class="col-xs-10 col-md-6 col-lg-6">Charities</div>
-        <div class="col-xs-0 col-md-3 col-lg-3"></div>
-    </div>
+<div class="nav">
+    <ul>
+        <li class="leaderb"><a href="127.0.0.1:8000/rewards_app/friends">Leaderboard</a></li>
+        <li class="prof"><a href="127.0.0.1:8000/rewards_app/profile">Profile</a></li>
+        <li class="home"><a href="127.0.0.1:8000/rewards_app/home">Home</a></li>
+        <li class="friends"><a href = "127.0.0.1:8000/rewards_app/friends">Friends</a></li>
+        <li class="char"><a class = "active" href="127.0.0.1:8000/rewards_app/charities">Charities</a></li>
+    </ul>
 </div>
 
 
