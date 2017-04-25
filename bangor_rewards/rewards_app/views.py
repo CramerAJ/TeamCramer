@@ -32,10 +32,18 @@ def add_friend(request):
             # ...
             # redirect to a new URL:
             # print("FRIEND FORM IS HERE::"+form.errors.as_data())
-            name = form.cleaned_data['friend_name']
-            profiles = Profile.objects.filter(name__contains=name)
-            if len(profiles) == 0:
-                profiles = "Nothing Found"
+            if (request.POST.get("search")):
+                name = form.cleaned_data['friend_name']
+                profiles = Profile.objects.filter(name__contains=name)
+                if len(profiles) == 0:
+                    profiles = "Nothing Found"
+            else:
+                name = request.POST.getlist("add")[0]
+                newFriend = Profile.objects.filter(name=name)[0]
+                u = request.user
+                p = Profile.objects.get(user=u)
+                p.friends.add(newFriend)
+
 
     # if a GET (or any other method) we'll create a blank form
     else:

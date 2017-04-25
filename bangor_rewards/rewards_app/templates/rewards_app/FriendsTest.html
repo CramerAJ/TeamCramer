@@ -138,8 +138,46 @@
     }
 </style>
 
+<script>
+    // The page reloads when the form is submitted, so this stuff
+    //  is to keep track of whether they were searching last time it was loaded
+    var addFriendShown = localStorage.getItem("addFriendShown")
+    console.log(addFriendShown)
+    if (addFriendShown == null)
+        addFriendShown = false;
 
-<body>
+    // Configures the page properly, once it loads
+    // Either shows the friends list or the list of profiles for searching
+    function onceLoaded() {
+        var add = document.getElementById("add");
+        var friends = document.getElementById("friends");
+        if (addFriendShown) {
+            add.style["display"] = ""
+            friends.style["display"] = "none"
+        } else {
+            add.style["display"] = "none"
+            friends.style["display"] = ""
+        }
+    }
+
+    // When the button is clicked, toggle which is shown
+    function addFriend() {
+        var add = document.getElementById("add");
+        var friends = document.getElementById("friends");
+        if (addFriendShown) {
+            add.style["display"] = "none"
+            friends.style["display"] = ""
+        } else {
+            add.style["display"] = ""
+            friends.style["display"] = "none"
+        }
+        addFriendShown = !addFriendShown
+        localStorage.setItem("addFriendShown", addFriendShown)
+    }
+</script>
+
+
+<body onload="onceLoaded()">
 
 
 <div class="navbar navbar-static-top">
@@ -186,7 +224,56 @@
             </div>
         </div>
     </div>
-    <!--{% endfor %}-->
+    {% endfor %}
+</div>
+
+<div id="add" style="display: none" class="container">
+    <form action="/rewards_app/add_friend/" method="post">
+
+    {% csrf_token %}
+    {{ form.friend_name.label }}
+    {{ form.friend_name }}
+
+    <input type="submit" value="Search" name="search"/>
+
+    {% for u in profiles %}
+    <div id="friend" class="container-fluid">
+        <div id="contents">
+            <div class="row">
+                <div class="col-xs-12 col-md-2 col-lg-2"><a href="https://facebook.com"><img src="https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png" alt="Go to user profile"><br /></a></div>
+                <div  class="col-xs-12 col-md-4 col-lg-4">
+                    <div id="friend-name"><a href="https://facebook.com">{{ u.name }}</a></div>
+                    <br />
+                    <div id="title">Level {{ u.get_level }}</div>
+                    <div id="points"> {{ u.current_points }}</div>
+                    <br />
+                </div>
+
+                <input type="submit" value="{{ u.name }}" name="add" />
+
+                <div id="charity" class="col-xs-4 col-centered col-md-2 col-lg-2">
+                    <a href="https://facebook.com"><img src="https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png">
+                    <br />
+                    Homeless Shelter
+                    </a>
+                </div>
+                <div id="charity" class="col-xs-4 col-centered col-md-2 col-lg-2">
+                    <a href="https://facebook.com"><img src="https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png">
+                    <br />
+                    Breast Cancer Coalition
+                    </a>
+                </div>
+                <div id="charity" class="col-xs-4 col-centered col-md-2 col-lg-2">
+                    <a href="https://facebook.com"><img src="https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png">
+                    <br />
+                    Animal Shelter
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+</form>
 </div>
 
 
