@@ -14,6 +14,8 @@ class Charity(models.Model):
 	website = models.URLField(default="http://google.com")
 	latitude = models.FloatField(default=0)
 	longitude = models.FloatField(default=0)
+	facebook_url = models.URLField(default="")
+	twitter_url = models.URLField(default="")
 
 	def __str__(self):
 		return self.name
