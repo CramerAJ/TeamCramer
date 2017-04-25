@@ -44,7 +44,15 @@ class Profile(models.Model):
 
 	def get_level(self):
 		spent = self.total_points - self.current_points
-		return int(math.sqrt(spent))
+		return int((math.sqrt(spent))/10)
+
+	def get_title(self):
+		titleList = ["Benevolent Beginner", "Altruistic Apprentice", "Chief of Charity", "Kingpin of Kindness", "Sovereign of Selflessness", "Potentate of Philanthropy", "Overlord of Offering", "Grandmaster of Giving", "Magnanimous Mogul" ]
+		level = self.get_level()
+		if level < len(titleList):
+			return titleList[level]
+		else:
+			return titleList[len(titleList-1)]
 
 class Achievement(models.Model):
 	name = models.CharField(max_length=64)
