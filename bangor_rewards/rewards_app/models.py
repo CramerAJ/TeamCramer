@@ -1,4 +1,5 @@
 from __future__ import unicode_literals
+import math
 
 from django.db import models
 from django.contrib.auth.models import User
@@ -40,6 +41,9 @@ class Profile(models.Model):
 			Profile.objects.create(user=instance)
 		instance.profile.save()
 
+	def get_level(self):
+		spent = self.total_points - self.current_points
+		return int(math.sqrt(spent))
 
 class Achievement(models.Model):
 	name = models.CharField(max_length=64)

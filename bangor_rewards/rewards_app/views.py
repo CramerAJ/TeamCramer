@@ -19,6 +19,8 @@ from .forms import FriendForm
 
 #forms tutorial...
 def add_friend(request):
+    profiles = None
+    friends = None
 	# /rewards_app/add_friend/ part...
     # if this is a POST request we need to process the form data
     if request.method == 'POST':
@@ -30,7 +32,10 @@ def add_friend(request):
             # ...
             # redirect to a new URL:
             # print("FRIEND FORM IS HERE::"+form.errors.as_data())
-            return HttpResponseRedirect('/thanks/')
+            name = form.cleaned_data['friend_name']
+            profiles = Profile.objects.filter(name__contains=name)
+            if len(profiles) == 0:
+                profiles = "Nothing Found"
 
     # if a GET (or any other method) we'll create a blank form
     else:
@@ -38,14 +43,17 @@ def add_friend(request):
 
 
     # /rewards_app/friends/ part...
-    profiles = Profile.objects.order_by('-name')
+    #profiles = Profile.objects.order_by('-name')
     # friends = request.user.inlines.Profile.friends.objects.order_by('-name')
     # print(request.user.username)
+    u = request.user
+    profile = Profile.objects.get(user=u)
+    friends = profile.friends.all()
 
     context = {
           'form':form,
           'profiles':profiles,
-          # 'friends':friends,
+          'friends':friends,
       }
 
     return render(request, 'rewards_app/FriendsTest.html', context)
