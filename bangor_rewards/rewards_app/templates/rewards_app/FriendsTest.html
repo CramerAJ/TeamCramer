@@ -315,19 +315,19 @@ html { margin-bottom: 100px }
 
 <nav class="navbar navbar-default navbar-fixed-bottom">
   <div class="container-fluid" id="buttons">
-    <div id="seven-percent" class="col-xs-offset-1 col-xs-2 col-md-2 col-lg-2 text-center"><a href="127.0.0.1:8000/rewards_app/friends" data-toggle="tooltip" title="Friends">
+    <div id="seven-percent" class="col-xs-offset-1 col-xs-2 col-md-2 col-lg-2 text-center"><a href="{% url 'leaderboard' %}" data-toggle="tooltip" title="Friends">
       <i class="fa fa-list-ol fa-3x" aria-hidden="true"></i>
     </a></div>
-    <div class="col-xs-2 col-md-2 col-lg-2 text-center"><a href="127.0.0.1:8000/rewards_app/profile" data-toggle="tooltip" title="Profile">
+    <div class="col-xs-2 col-md-2 col-lg-2 text-center"><a href="{% url 'profile' %}" data-toggle="tooltip" title="Profile">
       <i class="fa fa-user-circle-o fa-3x" aria-hidden="true"></i>
     </a></div>
-    <div class="col-xs-2 col-md-2 col-lg-2 text-center"><a href="127.0.0.1:8000/rewards_app/home" data-toggle="tooltip" title="Home">
+    <div class="col-xs-2 col-md-2 col-lg-2 text-center"><a href="{% url 'home' %}" data-toggle="tooltip" title="Home">
       <i class="fa fa-home fa-3x" aria-hidden="true"></i>
     </a></div>
-    <div class="col-xs-2 col-md-2 col-lg-2 text-center"><a href = "127.0.0.1:8000/rewards_app/friends" data-toggle="tooltip" title="Friends">
+    <div class="col-xs-2 col-md-2 col-lg-2 text-center"><a href = "{% url 'friend_name' %}" data-toggle="tooltip" title="Friends">
       <i class="fa fa-group fa-3x" aria-hidden="true"></i>
     </a></div>
-    <div class="col-xs-2 col-md-2 col-lg-2 text-center"><a class="active" href="127.0.0.1:8000/rewards_app/charities" data-toggle="tooltip" title="Charities">
+    <div class="col-xs-2 col-md-2 col-lg-2 text-center"><a class="active" href="{% url 'charities' %}" data-toggle="tooltip" title="Charities">
       <i class="fa fa-handshake-o fa-3x" aria-hidden="true"></i>
     </a></div>
   </div>
