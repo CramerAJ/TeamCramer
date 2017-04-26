@@ -10,213 +10,168 @@
     <link href="https://fonts.googleapis.com/css?family=Roboto:100,200,300|Raleway:100,200,300,400,500,600,700,800,900" rel="stylesheet">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 
 <style>
-    #header{
-        background-color: #fafafa;
-        text-align: center;
-        width:100%;
-        margin: 0;
-        min-height: 100px;
-        border-bottom: 5px solid #939598;
-        display: flex;
-        align-items: center;
-    }
-
-    #header-text{
-        color: #584d51;
-        font-family: 'Raleway', 'Roboto', sans-serif;
-        font-weight: 300;
-        font-size: 500%;
-        text-align: center;
-        margin: 1.5% 0%;
-    }
-
-    @media all and (max-device-width: 500px){
-        #header-text {
-            font-size: 48px;
-        }
-        .btn-circle.btn-lg {
-            width: 20px;
-            height: 20px;
-            padding: 5px 5px;
-            line-height: 1.33;
-            border-radius: 20px;
-        }
-    }
-
-    .btn-circle.btn-lg {
-        width: 60px;
-        height: 60px;
-        padding: 10px 10px;
-        font-size: 18px;
-        line-height: 1.33;
-        border-radius: 40px;
-    }
-
-    #search img{
-        /*max-width: 30px;
-        min-height: 30px;*/
-        max-width: 1.5em;
-        min-height: 1.5em;
-    }
-
-    #add-friend img{
-        max-width: 40px;
-        min-height: 40px;
-    }
-
-    body {
-        background-color: #1251a7;
-        font-family: "Roboto", sans-serif;
-        -webkit-font-smoothing: antialiased;
-        -moz-osx-font-smoothing: grayscale;
-        overflow:scroll;
-    }
-
-    #friend{
-        padding-top: 4px;
-        padding-bottom: 4px;
-        box-sizing: border-box;
-        background: #fafafa;
-        border-radius: 20px;
-        width: 90%;
-        margin: 1.5% auto;
-        min-height: 150px;
-    }
-
-    #friend-name{
-        display: inline-block;
-        font-weight: 400;
-        font-size: 200%;
-        color: #584d51;
-    }
-
-    a{
-        color: #584d51;
-    }
-
-    a:hover{
-        text-decoration: none;
-        color: #a3969b;
-    }
-
-    #friend img{
-        max-width: 90px;
-        min-height:90px;
-        width: 100%;
-        height:100%;
-        border: 1px solid #a3969b;
-        border-radius: 100%;
-        text-align: left;
-    }
-
-    #charity img{
-        max-width: 60px;
-        min-height: 60px;
-        border: 1px solid #a3969b;
-    }
-
-    #contents{
-        margin:1.5em 1.5em;
-    }
-
-    .container-fluid{
-        border-bottom: 5px solid #939598;
-        border-left: 5px solid #939598;
-    }
-
-    .col-centered {
-        text-align:center;
-    }
-
-    .vcenter {
-        margin-top: 2em;
-    }
-
-    @media all and (max-device-width: 500px){
-        #header-text {
-            font-size: 48px;
-        }
-    }
-
-    .row-bottom-margin{
-        line-height: 25px;
-        padding-bottom: 15px;
-    }
-
-    #search-bar{
-        padding-top: 4px;
-        padding-bottom: 4px;
-        box-sizing: border-box;
-        background: #fafafa;
-        border-radius: 20px;
-        width: 90%;
-        margin: 1.5% auto;
-        min-height: 100px;
-        text-align: center;
-    }
-
-.nav ul {
-    list-style: none;
-    background-color: #00338e;
-    text-align: center;
-    padding: 0;
-    margin: 0;
-}
-.nav li {
-    font-family: 'Oswald', sans-serif;
-    font-size: 1.2em;
-    line-height: 40px;
-    height: 40px;
-    border-bottom: 1px solid #888;
+#header{
+  background-color: #fafafa;
+  text-align: center;
+  width:100%;
+  margin: 0;
+  min-height: 100px;
+  border-bottom: 5px solid #939598;
+  display: flex;
+  align-items: center;
 }
 
-.nav a {
-    text-decoration: none;
-    color: #fff;
-    display: block;
-    transition: .3s background-color;
+#header-text{
+  color: #584d51;
+  font-family: 'Raleway', 'Roboto', sans-serif;
+  font-weight: 300;
+  font-size: 500%;
+  text-align: center;
+  margin: 1.5% 0%;
 }
 
-.nav a:hover {
-    background-color: #245580;
+@media all and (max-device-width: 500px){
+  #header-text {
+    font-size: 48px;
+  }
+  .btn-circle.btn-lg {
+    width: 20px;
+    height: 20px;
+    padding: 5px 5px;
+    line-height: 1.33;
+    border-radius: 20px;
+  }
+  /*nav bar css*/
+  #seven-percent {
+    margin-left: 7%;
+  }
+  html { margin-bottom: 65px }
+  /*nav bar css*/
 }
 
-.nav a.active {
-    background-color: #fff;
-    color: #00338e;
-    cursor: default;
+.btn-circle.btn-lg {
+  width: 60px;
+  height: 60px;
+  padding: 10px 10px;
+  font-size: 18px;
+  line-height: 1.33;
+  border-radius: 40px;
 }
 
-@media screen and (min-width: 600px) {
-    .nav li {
-        width: 10%;
-        border-bottom: none;
-        height: 50px;
-        line-height: 50px;
-        font-size: 1.4em;
-    }
-    /* Options 2 - Float
-    .nav li {
-      float: left;
-    }
-    .nav ul {
-      overflow: auto;
-      width: 600px;
-      margin: 0 auto;
-    }
-    .nav {
-      background-color: #444;
-    }
-    */
-     /* Option 1 - Display Inline */
-    .nav li {
-        display: inline-block;
-        margin-right: -4px;
-    }
+#search img{
+  /*max-width: 30px;
+  min-height: 30px;*/
+  max-width: 1.5em;
+  min-height: 1.5em;
 }
+
+#add-friend img{
+  max-width: 40px;
+  min-height: 40px;
+}
+
+body {
+  background-color: #1251a7;
+  font-family: "Roboto", sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow:scroll;
+}
+
+#friend{
+  padding-top: 4px;
+  padding-bottom: 4px;
+  box-sizing: border-box;
+  background: #fafafa;
+  border-radius: 20px;
+  width: 90%;
+  margin: 1.5% auto;
+  min-height: 150px;
+}
+
+#friend-name{
+  display: inline-block;
+  font-weight: 400;
+  font-size: 200%;
+  color: #584d51;
+}
+
+a{
+  color: #584d51;
+}
+
+a:hover{
+  text-decoration: none;
+  color: #a3969b;
+}
+
+#friend img{
+  max-width: 90px;
+  min-height:90px;
+  width: 100%;
+  height:100%;
+  border: 1px solid #a3969b;
+  border-radius: 100%;
+  text-align: left;
+}
+
+#charity img{
+  max-width: 60px;
+  min-height: 60px;
+  border: 1px solid #a3969b;
+}
+
+#contents{
+  margin:1.5em 1.5em;
+}
+
+.container-fluid{
+  border-bottom: 5px solid #939598;
+  border-left: 5px solid #939598;
+}
+
+.col-centered {
+  text-align:center;
+}
+
+.vcenter {
+  margin-top: 2em;
+}
+
+@media all and (max-device-width: 500px){
+  #header-text {
+    font-size: 48px;
+  }
+}
+
+.row-bottom-margin{
+  line-height: 25px;
+  padding-bottom: 15px;
+}
+
+#search-bar{
+  padding-top: 4px;
+  padding-bottom: 4px;
+  box-sizing: border-box;
+  background: #fafafa;
+  border-radius: 20px;
+  width: 90%;
+  margin: 1.5% auto;
+  min-height: 100px;
+  text-align: center;
+}
+
+/*nav bar css*/
+#buttons div {
+  padding-top: 2%;
+  padding-bottom: 2%;
+}
+html { margin-bottom: 100px }
+/*nav bar css*/
 </style>
 
 <script>
@@ -259,17 +214,6 @@
 
 
 <body onload="onceLoaded()">
-
-
-<div class="nav">
-    <ul>
-        <li class="leaderb"><a href="127.0.0.1:8000/rewards_app/friends">Leaderboard</a></li>
-        <li class="prof"><a href="127.0.0.1:8000/rewards_app/profile">Profile</a></li>
-        <li class="home"><a  href="127.0.0.1:8000/rewards_app/home">Home</a></li>
-        <li class="friends"><a class="active" href = "127.0.0.1:8000/rewards_app/friends">Friends</a></li>
-        <li class="char"><a href="127.0.0.1:8000/rewards_app/charities">Charities</a></li>
-    </ul>
-</div>
 
 <div class="navbar navbar-static-top">
     <div id="header" class="row">
@@ -365,7 +309,7 @@
                     Animal Shelter
                     </a>
                 </div>
-            
+
                 <div class="col-xs-12 col-sm-8 col-md-2 col-lg-2 col-centered vcenter">
                     <input class="btn btn-default" type="submit" value="Add {{u.name}}" name="add" /><br /></div>
             </div>
@@ -375,6 +319,25 @@
 </form>
 </div>
 
+<nav class="navbar navbar-default navbar-fixed-bottom">
+  <div class="container-fluid" id="buttons">
+    <div id="seven-percent" class="col-xs-offset-1 col-xs-2 col-md-2 col-lg-2 text-center"><a href="127.0.0.1:8000/rewards_app/friends" data-toggle="tooltip" title="Friends">
+      <i class="fa fa-list-ol fa-3x" aria-hidden="true"></i>
+    </a></div>
+    <div class="col-xs-2 col-md-2 col-lg-2 text-center"><a href="127.0.0.1:8000/rewards_app/profile" data-toggle="tooltip" title="Profile">
+      <i class="fa fa-user-circle-o fa-3x" aria-hidden="true"></i>
+    </a></div>
+    <div class="col-xs-2 col-md-2 col-lg-2 text-center"><a href="127.0.0.1:8000/rewards_app/home" data-toggle="tooltip" title="Home">
+      <i class="fa fa-home fa-3x" aria-hidden="true"></i>
+    </a></div>
+    <div class="col-xs-2 col-md-2 col-lg-2 text-center"><a href = "127.0.0.1:8000/rewards_app/friends" data-toggle="tooltip" title="Friends">
+      <i class="fa fa-group fa-3x" aria-hidden="true"></i>
+    </a></div>
+    <div class="col-xs-2 col-md-2 col-lg-2 text-center"><a class="active" href="127.0.0.1:8000/rewards_app/charities" data-toggle="tooltip" title="Charities">
+      <i class="fa fa-handshake-o fa-3x" aria-hidden="true"></i>
+    </a></div>
+  </div>
+</nav>
 
 </body>
 </html>
