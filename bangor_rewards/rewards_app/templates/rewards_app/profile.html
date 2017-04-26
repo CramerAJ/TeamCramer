@@ -9,280 +9,244 @@
     <link href="https://fonts.googleapis.com/css?family=Roboto:100,200,300|Raleway:100,200,300,400,500,600,700,800,900" rel="stylesheet">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <title>Profile</title>
 </head>
 
 <style>
-    body {
-        background-color: #1251a7; /* fallback for old browsers */
-        font-family: "Roboto", sans-serif;
-        -webkit-font-smoothing: antialiased;
-        -moz-osx-font-smoothing: grayscale;
-        overflow:scroll;
-    }
+body {
+  background-color: #1251a7; /* fallback for old browsers */
+  font-family: "Roboto", sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow:scroll;
+}
 
-    #header{
-        background-color: #fafafa;
-        text-align: center;
-        width:100%;
-        margin: 0;
-        min-height: 100px;
-        border-bottom: 5px solid #939598;
-    }
-    #header-text{
-        color: #584d51;
-        font-family: 'Raleway', 'Roboto', sans-serif;
-        font-size: 500%;
-        font-weight: 300;
-        text-align: center;
-        margin: 1.5% 0%;
-    }
+#header{
+  background-color: #fafafa;
+  text-align: center;
+  width:100%;
+  margin: 0;
+  min-height: 100px;
+  border-bottom: 5px solid #939598;
+}
+#header-text{
+  color: #584d51;
+  font-family: 'Raleway', 'Roboto', sans-serif;
+  font-size: 500%;
+  font-weight: 300;
+  text-align: center;
+  margin: 1.5% 0%;
+}
 
 a.nostyle{
-    color:inherit;
-    text-decoration:none;
-    padding:0;
-    margin:0;
+  color:inherit;
+  text-decoration:none;
+  padding:0;
+  margin:0;
 }
 div.profile{
-    position:relative;
-    height:100%;
-    width:80%;
-    background:rgba(255,255,255,1);
-    border:1px solid rgba(0,0,0,0.7);
-    box-shadow:0px -1px 3px rgba(0,0,0,0.1),
-    0px 2px 6px rgba(0,0,0,0.5);
-    border-radius:6px;
-    margin:auto;
+  position:relative;
+  height:100%;
+  width:80%;
+  background:rgba(255,255,255,1);
+  border:1px solid rgba(0,0,0,0.7);
+  box-shadow:0px -1px 3px rgba(0,0,0,0.1),
+  0px 2px 6px rgba(0,0,0,0.5);
+  border-radius:6px;
+  margin:auto;
 
-    overflow:hidden;
-    z-index:100;
+  overflow:hidden;
+  z-index:100;
 }
 div.profile div.coverphoto{
-    width:100%;
-    height:120px;
-    background:url('http://s3.amazonaws.com/wabi-media/wp-content/uploads/2013/09/01140155/NEWS-BANGOR-SAVINGS-BANK.jpg');
-    background-position:center center;
-    border-top-right-radius:5px;
-    border-top-left-radius:5px;
-    border-bottom:1px solid rgba(0,0,0,0.1);
-    box-shadow:inset 0px 3px 20px rgba(255,255,255,0.3),
-    1px 0px 2px rgba(255,255,255,0.7);
-    z-index:99;
+  width:100%;
+  height:120px;
+  background:url('http://s3.amazonaws.com/wabi-media/wp-content/uploads/2013/09/01140155/NEWS-BANGOR-SAVINGS-BANK.jpg');
+  background-position:center center;
+  border-top-right-radius:5px;
+  border-top-left-radius:5px;
+  border-bottom:1px solid rgba(0,0,0,0.1);
+  box-shadow:inset 0px 3px 20px rgba(255,255,255,0.3),
+  1px 0px 2px rgba(255,255,255,0.7);
+  z-index:99;
 }
 div.profile div.left_col, div.profile div.right_col{
-    float:left;
-    height:340px;
+  float:left;
+  height:340px;
 }
 div.profile div.left_col{
-    width:40%;
-    padding-top:85px;
-    box-sizing:border-box;
+  width:40%;
+  padding-top:85px;
+  box-sizing:border-box;
 
-    padding-right:20px;
+  padding-right:20px;
 }
 div.profile div.right_col{
-    width:60%;
-    background:rgba(245,245,245,1);
-    border-left:1px solid rgba(230,230,230,1);
-    box-shadow:inset 0px 1px 1px rgba(255,255,255,0.7);
-    margin-left:-1px;
-    border-bottom-right-radius:5px;
+  width:60%;
+  background:rgba(245,245,245,1);
+  border-left:1px solid rgba(230,230,230,1);
+  box-shadow:inset 0px 1px 1px rgba(255,255,255,0.7);
+  margin-left:-1px;
+  border-bottom-right-radius:5px;
 }
 div.profile div.profile_picture{
-    width:110px;
-    height:110px;
-    background:rgba(255,255,255,1);
-    position:absolute;
-    top:65px;
-    left:40px;
-    border-radius:100%;
-    background-image: url('cramer.png');
-    background-size:100% 100%;
-    padding:7px;
-    border:4px solid rgba(255,255,255,1)
+  width:110px;
+  height:110px;
+  background:rgba(255,255,255,1);
+  position:absolute;
+  top:65px;
+  left:40px;
+  border-radius:100%;
+  background-image: url('cramer.png');
+  background-size:100% 100%;
+  padding:7px;
+  border:4px solid rgba(255,255,255,1)
 }
 div.profile div.right_col h2.name{
-    font-size:30px;
-    font-weight:300;
-    color: rgba(30,30,30,1);
-    padding:0;
-    margin:20px 10px 0px 30px;
+  font-size:30px;
+  font-weight:300;
+  color: rgba(30,30,30,1);
+  padding:0;
+  margin:20px 10px 0px 30px;
 }
 div.profile div.right_col h3.location{
-    font-size:15px;
-    font-weight:300;
-    color:rgba(170,170,170,1);
-    padding:0;
-    margin:5px 10px 10px 30px;
+  font-size:15px;
+  font-weight:300;
+  color:rgba(170,170,170,1);
+  padding:0;
+  margin:5px 10px 10px 30px;
 }
 div.profile ul.contact_information{
-    margin-top:20px;
-    padding-left:30px;
-    padding-right:30px;
-    list-style-type: none;
+  margin-top:20px;
+  padding-left:30px;
+  padding-right:30px;
+  list-style-type: none;
 
 
 }
 
-    div.profile div.right_col ul.contact_information img{
+div.profile div.right_col ul.contact_information img{
 
-        float: left;
-        width: 40%;
-
-
+  float: left;
+  width: 40%;
 
 
 
 
-    }
-    div.profile  ul.contact_information li{
-        height:25px;
-        width:60%;
-        display:inline-block;
-        margin-top: 20px;
-        font-size:12px;
-        color:rgba(140,140,140,1);
-        text-shadow:1px 1px 1px rgba(255,255,255,0.8);
 
-        background-repeat:no-repeat;
-        background-size:18px 18px;
 
-        box-shadow:0px 1px 1px rgba(255,255,255,0.6);
-        cursor:default;
-    }
+}
+div.profile  ul.contact_information li{
+  height:25px;
+  width:60%;
+  display:inline-block;
+  margin-top: 20px;
+  font-size:12px;
+  color:rgba(140,140,140,1);
+  text-shadow:1px 1px 1px rgba(255,255,255,0.8);
+
+  background-repeat:no-repeat;
+  background-size:18px 18px;
+
+  box-shadow:0px 1px 1px rgba(255,255,255,0.6);
+  cursor:default;
+}
 
 div.profile ul.contact_information li:before{
-    content:"";
-    width:25px;
-    height:25px;
-    display:block;
-    float:left;
-    background-position:center;
-    background-size:18px 18px;
-    background-repeat:no-repeat;
-    margin-right:5px;
-    opacity:0.7;
+  content:"";
+  width:25px;
+  height:25px;
+  display:block;
+  float:left;
+  background-position:center;
+  background-size:18px 18px;
+  background-repeat:no-repeat;
+  margin-right:5px;
+  opacity:0.7;
 }
 div.profile ul.contact_information li:hover:before{
-    opacity:1;
+  opacity:1;
 }
 
 div.profile div.points, div.profile div.following{
 
-    font-weight:300;
-    font-size:16px;
-    color:rgba(30,30,30,1);
-    padding-left:20px;
-    padding-right:20px;
+  font-weight:300;
+  font-size:16px;
+  color:rgba(30,30,30,1);
+  padding-left:20px;
+  padding-right:20px;
 }
 div.profile div.points_given{
-    font-weight:400;
-    font-size:25px;
-    color:rgba(140,140,140,1);
+  font-weight:400;
+  font-size:25px;
+  color:rgba(140,140,140,1);
 
 }
 
-
-.nav ul {
-    list-style: none;
-    background-color: #00338e;
-    text-align: center;
-    padding: 0;
-    margin: 0;
-}
-.nav li {
-    font-family: 'Oswald', sans-serif;
-    font-size: 1.2em;
-    line-height: 40px;
-    height: 40px;
-    border-bottom: 1px solid #888;
+/*nav bar css*/
+#buttons div {
+  padding-top: 2%;
+  padding-bottom: 2%;
 }
 
-.nav a {
-    text-decoration: none;
-    color: #fff;
-    display: block;
-    transition: .3s background-color;
-}
-
-.nav a:hover {
-    background-color: #245580;
-}
-
-.nav a.active {
-    background-color: #fff;
-    color: #00338e;
-    cursor: default;
-}
-
-@media screen and (min-width: 600px) {
-    .nav li {
-        width: 10%;
-        border-bottom: none;
-        height: 50px;
-        line-height: 50px;
-        font-size: 1.4em;
+@media all and (max-device-width: 500px){
+    /*nav bar css*/
+    #seven-percent {
+      margin-left: 7%;
     }
-    /* Options 2 - Float
-    .nav li {
-      float: left;
-    }
-    .nav ul {
-      overflow: auto;
-      width: 600px;
-      margin: 0 auto;
-    }
-    .nav {
-      background-color: #444;
-    }
-    */
-     /* Option 1 - Display Inline */
-    .nav li {
-        display: inline-block;
-        margin-right: -4px;
-    }
+    html { margin-bottom: 65px }
+    /*nav bar css*/
 }
-
-
+html { margin-bottom: 100px }
+/*nav bar css*/
 </style>
 
 <body>
-
-<div class="nav">
-    <ul>
-        <li class="leaderb"><a href="127.0.0.1:8000/rewards_app/friends">Leaderboard</a></li>
-        <li class="prof"><a class = "active" href="127.0.0.1:8000/rewards_app/profile">Profile</a></li>
-        <li class="home"><a  href="127.0.0.1:8000/rewards_app/home">Home</a></li>
-        <li class="friends"><a href="127.0.0.1:8000/rewards_app/friends">Friends</a></li>
-        <li class="char"><a href="127.0.0.1:8000/rewards_app/charities">Charities</a></li>
-    </ul>
-</div>
-
-    <div class="profile">
+  <div class="profile">
 
     <div class="coverphoto"></div>
     <div class="profile_picture"></div>
     <div class="left_col">
-        <div class="points">
-            <div class="points_given">{{profile.total_points}}</div>
-            Points Donated
-        </div>
-        <div class="following">
-            <div class="points_given">1,800</div>
-            Current Points
-        </div>
+      <div class="points">
+        <div class="points_given">{{profile.total_points}}</div>
+        Points Donated
+      </div>
+      <div class="following">
+        <div class="points_given">1,800</div>
+        Current Points
+      </div>
     </div>
     <div class="right_col">
-        <h2 class="name">{{profile.name}}</h2>
-        <h3 class="location"><i>Donating GOD</i></h3>
-        <ul class="contact_information">
-            <img src="blueribbon.png"><li>100 Followers</li>
-            <img src="yellowribbon.png"><li>Volunteer BHS</li>
-            <img src="redribbon.png"><li>First Donation</li>
-        </ul>
+      <h2 class="name">{{profile.name}}</h2>
+      <h3 class="location"><i>Donating GOD</i></h3>
+      <ul class="contact_information">
+        <img src="blueribbon.png"><li>100 Followers</li>
+        <img src="yellowribbon.png"><li>Volunteer BHS</li>
+        <img src="redribbon.png"><li>First Donation</li>
+      </ul>
 
     </div>
-</div>
+  </div>
+
+  <nav class="navbar navbar-default navbar-fixed-bottom">
+    <div class="container-fluid" id="buttons">
+      <div id="seven-percent" class="col-xs-offset-1 col-xs-2 col-md-2 col-lg-2 text-center"><a href="127.0.0.1:8000/rewards_app/friends" data-toggle="tooltip" title="Friends">
+        <i class="fa fa-list-ol fa-3x" aria-hidden="true"></i>
+      </a></div>
+      <div class="col-xs-2 col-md-2 col-lg-2 text-center"><a href="127.0.0.1:8000/rewards_app/profile" data-toggle="tooltip" title="Profile">
+        <i class="fa fa-user-circle-o fa-3x" aria-hidden="true"></i>
+      </a></div>
+      <div class="col-xs-2 col-md-2 col-lg-2 text-center"><a href="127.0.0.1:8000/rewards_app/home" data-toggle="tooltip" title="Home">
+        <i class="fa fa-home fa-3x" aria-hidden="true"></i>
+      </a></div>
+      <div class="col-xs-2 col-md-2 col-lg-2 text-center"><a href = "127.0.0.1:8000/rewards_app/friends" data-toggle="tooltip" title="Friends">
+        <i class="fa fa-group fa-3x" aria-hidden="true"></i>
+      </a></div>
+      <div class="col-xs-2 col-md-2 col-lg-2 text-center"><a class="active" href="127.0.0.1:8000/rewards_app/charities" data-toggle="tooltip" title="Charities">
+        <i class="fa fa-handshake-o fa-3x" aria-hidden="true"></i>
+      </a></div>
+    </div>
+  </nav>
 </body>
 </html>
