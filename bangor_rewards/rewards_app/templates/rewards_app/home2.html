@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:100,200,300|Raleway:100,200,300,400,500,600,700,800,900" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel= "stylesheet" href="home2.css">
+    <script type="text/javascript">
+
+        var points = 1000;
+        var goal = 10000;
+        function addToPoints(increment)
+        {
+            var currentWidth = (points/goal) * 100;
+            points += increment;
+            var desiredWidth = (points/goal) * 100;
+
+            var elem = document.getElementById("bar");
+            var pointsTotal = document.getElementById("pointsTotal");
+            pointsTotal.innerText = points + " points";
+            var id = setInterval(frame, 10);
+            function frame() {
+                if (currentWidth >= desiredWidth)
+                {
+                    clearInterval(id);
+                }
+                else
+                {
+                    currentWidth++;
+                    elem.style.width = currentWidth + '%';
+                }
+            }
+        }
+        function addFriendUpdate()
+        {
+            var colors = ["#be0000", "Blue", "#037d50", "#8E4585", "#40e0d0"];
+            var color = colors[Math.floor(Math.random()*colors.length)];
+
+
+            var parent = document.getElementById("friendFeed");
+            var div = document.createElement('div');
+            div.className = "card friendUpdate";
+            div.style.color = color;
+
+            var user = document.createElement('div');
+            user.className = " text textSmall friendUpdateUsername";
+            user.style.color= color;
+            user.innerText = "Friend's Username";
+
+            var text = document.createElement('div');
+            text.className = " text textSmall gray friendUpdateText";
+            text.innerText = "Friend volunteered at X location"
+
+            var profPic = document.createElement('div');
+            profPic.className = "profilePic";
+            profPic.style.backgroundColor= color;
+
+            div.appendChild(profPic);
+            div.appendChild(user);
+            div.appendChild(text);
+
+            if (parent != null) {
+                if (!parent.hasChildNodes())
+                    parent.appendChild(div);
+                else
+                    parent.insertBefore(div, parent.firstElementChild);
+            }
+            var times = [ 6000, 5000,];
+            var time = times[Math.floor(Math.random()*times.length)];
+            setTimeout(addFriendUpdate, time);
+        }
+        setTimeout(addFriendUpdate, 1000);
+
+    </script>
+</head>
+    <!--<li><a class="active">Settings</a></li>-->
+<div class="navbar navbar-static-top">
+    <div id="header" class="row">
+            <div id="header-text" class="col-xs-12">Home</div>
+         </div>
+    </div>
+
+    <div class="cardmarginBottom">
+        <div class="halfHorizontalDiv">
+            <div class="text textNormal gray"><div class="col-xs-6 col-md-4"><div class="profile_picture"></div></div></div>
+            <div class="text textSmall gray"><div class="col-xs-6 col-md-4">Donating GOD</div></div>
+        </div>
+        <div class="halfHorizontalDiv centerAlign">
+            <div class="text textXLarge blue" style="height:50%; vertical-align: text-bottom;" id="pointsTotal">1000 points</div>
+            <div class="halfVerticalDivDiv">
+                <div class="halfVerticalDiv">
+                    <div class="progressBar">
+                        <div class="progressBackground">
+                            <div id="bar" class="progressForeground greenBackground" style="width:10%"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="halfVerticalDiv">
+                    <div class="text textSmall gray " style="vertical-align: central" >Next Goal: 10,000</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+<div class="cardmarginBottom"><button type="button" class="btn btn-primary btn-lg btn-block" onclick="addToPoints(750)">Check Card Swipes</button>
+    <button type="button" class="btn btn-primary btn-lg btn-block">Check in</button>
+</div>
+
+
+    <div class="cardmarginBottom">
+        <div class="text textLarge blue centerAlign" style=" height: 10%; width:100%;">Friend Feed</div>
+        <div class="card" id="friendFeed"></div>
+    </div>
+
+<nav class="navbar navbar-default navbar-fixed-bottom">
+    <div class="container-fluid" id="buttons">
+        <div id="seven-percent" class="col-xs-offset-1 col-xs-2 col-md-2 col-lg-2 text-center"><a href="127.0.0.1:8000/rewards_app/friends" data-toggle="tooltip" title="Friends">
+            <i class="fa fa-list-ol fa-3x" aria-hidden="true"></i>
+        </a></div>
+        <div class="col-xs-2 col-md-2 col-lg-2 text-center"><a href="127.0.0.1:8000/rewards_app/profile" data-toggle="tooltip" title="Profile">
+            <i class="fa fa-user-circle-o fa-3x" aria-hidden="true"></i>
+        </a></div>
+        <div class="col-xs-2 col-md-2 col-lg-2 text-center"><a href="127.0.0.1:8000/rewards_app/home" data-toggle="tooltip" title="Home">
+            <i class="fa fa-home fa-3x" aria-hidden="true"></i>
+        </a></div>
+        <div class="col-xs-2 col-md-2 col-lg-2 text-center"><a href = "127.0.0.1:8000/rewards_app/friends" data-toggle="tooltip" title="Friends">
+            <i class="fa fa-group fa-3x" aria-hidden="true"></i>
+        </a></div>
+        <div class="col-xs-2 col-md-2 col-lg-2 text-center"><a class="active" href="127.0.0.1:8000/rewards_app/charities" data-toggle="tooltip" title="Charities">
+            <i class="fa fa-handshake-o fa-3x" aria-hidden="true"></i>
+        </a></div>
+    </div>
+</nav>
+</body>
+</html>
