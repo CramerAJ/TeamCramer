@@ -89,7 +89,7 @@
     #friend-name{
         display: inline-block;
         font-weight: 400;
-        font-size: 250%;
+        font-size: 200%;
         color: #584d51;
     }
 
@@ -131,12 +131,32 @@
         text-align:center;
     }
 
+    .vcenter {
+        margin-top: 2em;
+    }
+
     @media all and (max-device-width: 500px){
         #header-text {
             font-size: 48px;
         }
     }
 
+    .row-bottom-margin{
+        line-height: 25px;
+        padding-bottom: 15px;
+    }
+
+    #search-bar{
+        padding-top: 4px;
+        padding-bottom: 4px;
+        box-sizing: border-box;
+        background: #fafafa;
+        border-radius: 20px;
+        width: 90%;
+        margin: 1.5% auto;
+        min-height: 100px;
+        text-align: center;
+    }
 
 .nav ul {
     list-style: none;
@@ -251,6 +271,13 @@
     </ul>
 </div>
 
+<div class="navbar navbar-static-top">
+    <div id="header" class="row">
+        <div id="search" class="col-xs-3 col-md-4 col-lg-4"><button type="button" class="btn btn-default btn-circle btn-lg"><img src="http://www.freeiconspng.com/uploads/search-icon-png-20.png"></button></div>
+        <div id="header-text" class="col-xs-6 col-md-4 col-lg-4">Friends</div>
+        <div id="add-friend" class="col-xs-3 col-md-4 col-lg-4"><button type="button" class="btn btn-default btn-circle btn-lg" onclick="addFriend()"><img src="http://www.freeiconspng.com/uploads/plus-icon-black-2.png"></button></div>
+    </div>
+</div>
 
 <div id="friends" class="container">
     {% for u in friends %}
@@ -291,28 +318,34 @@
 </div>
 
 <div id="add" style="display: none" class="container">
-    <form action="/rewards_app/add_friend/" method="post">
 
-    {% csrf_token %}
-    {{ form.friend_name.label }}
-    {{ form.friend_name }}
+<div id="search-bar" class="container-fluid">
+    <div id="contents">
+        <div class="row">
+            <div class="col-xs-12">
+                <form action="/rewards_app/add_friend/" method="post">
 
-    <input type="submit" value="Search" name="search"/>
+                {% csrf_token %}
+                {{ form.friend_name.label }}
+                {{ form.friend_name }}
+                <input class="btn btn-default" type="submit" value="Search" name="search"/>
+            </div>
+        </div>
+    </div>
+</div>
 
     {% for u in profiles %}
     <div id="friend" class="container-fluid">
         <div id="contents">
             <div class="row">
-                <div class="col-xs-12 col-md-2 col-lg-2"><a href="https://facebook.com"><img src="https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png" alt="Go to user profile"><br /></a></div>
-                <div  class="col-xs-12 col-md-4 col-lg-4">
+                <div class="col-xs-6 col-sm-3 col-md-2 col-lg-2"><a href="https://facebook.com"><img src="https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png" alt="Go to user profile"><br /></a></div>
+
+                <div  class="col-xs-6 col-sm-9 col-md-2 col-lg-2 row-bottom-margin">
                     <div id="friend-name"><a href="https://facebook.com">{{ u.name }}</a></div>
                     <br />
                     <div id="title">Level {{ u.get_level }}</div>
                     <div id="points"> {{ u.current_points }}</div>
-                    <br />
                 </div>
-
-                <input type="submit" value="{{ u.name }}" name="add" />
 
                 <div id="charity" class="col-xs-4 col-centered col-md-2 col-lg-2">
                     <a href="https://facebook.com"><img src="https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png">
@@ -332,6 +365,9 @@
                     Animal Shelter
                     </a>
                 </div>
+            
+                <div class="col-xs-12 col-sm-8 col-md-2 col-lg-2 col-centered vcenter">
+                    <input class="btn btn-default" type="submit" value="Add {{u.name}}" name="add" /><br /></div>
             </div>
         </div>
     </div>

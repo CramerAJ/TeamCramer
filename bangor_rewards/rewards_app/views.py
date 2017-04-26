@@ -38,8 +38,9 @@ def add_friend(request):
                 if len(profiles) == 0:
                     profiles = "Nothing Found"
             else:
-                name = request.POST.getlist("add")[0]
+                name = request.POST.getlist("add")[0][4:]
                 newFriend = Profile.objects.filter(name=name)[0]
+                print newFriend
                 u = request.user
                 p = Profile.objects.get(user=u)
                 p.friends.add(newFriend)
