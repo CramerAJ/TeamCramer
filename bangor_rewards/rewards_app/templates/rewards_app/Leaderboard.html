@@ -144,7 +144,7 @@ html { margin-bottom: 100px }
     <div id="friend" class="container-fluid">
       <div id="contents">
         <div class="row">
-          <div id="num" class="col-xs-2 col-md-1 col-lg-1 vcenter">#1</div>
+          <div id="num" class="col-xs-2 col-md-1 col-lg-1 vcenter">{{ forloop.counter }}</div>
           <div id="prof-pic" class="col-xs-7 col-md-2 col-lg-offset-0 col-lg-2 vcenter"><a href="https://facebook.com"><img src={{ u.image_url }} alt="Go to user profile"></a></div>
           <div id="friend-name" class="col-xs-12 col-md-5 col-lg-5 vcenter"><a href="https://facebook.com">{{ u.name }}</a></div>
           <div id="num" class="col-xs-12 col-md-3 col-lg-3 vcenter"> {{ u.total_points }}</div>
