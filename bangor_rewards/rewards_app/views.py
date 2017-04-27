@@ -80,13 +80,20 @@ def charities(request):
 def leaderboard(request):
     u = request.user
     profile = Profile.objects.get(user=u)
-
+    friends = profile.friends.all()
+    friend_ids = [f.id for f in friends]
     userList = Profile.objects.order_by('-total_points')
-    return render(request, 'rewards_app/Leaderboard.html', {'userList': userList, 'profile': profile})
+    #Get list of top 10 friends by total points
+    friendBoard = Profile.objects.filter(id__in=friend_ids).order_by('-total_points')[:10]
+    #Get list of top 10 users by total points
+    userBoard = Profile.objects.order_by('-total_points')[:10]
+    #Get list of top 10 charities by total points
+    charityBoard = Charity.objects.order_by('-points')[:10]
+    return render(request, 'rewards_app/LeaderboardTabs.html', {'userList': userList, 'profile': profile, 'friendBoard': friendBoard, 'userBoard': userBoard, 'charityBoard': charityBoard})
 
 def profile(request):
     u = request.user
-    profile = Profile.objects.get(user=u)    
+    profile = Profile.objects.get(user=u)
     return render(request, 'rewards_app/profile.html',{'profile': profile})
 
 def index(request):
