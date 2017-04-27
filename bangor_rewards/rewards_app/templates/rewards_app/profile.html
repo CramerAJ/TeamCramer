@@ -1,252 +1,293 @@
 <!DOCTYPE html>
 <html>
-<head>
-    <link rel="stylesheet" type="text/CSS" href="profile.css" />
-    <link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+<head lang="en">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <link href="https://fonts.googleapis.com/css?family=Roboto:100,200,300|Raleway:100,200,300,400,500,600,700,800,900" rel="stylesheet">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <title>Profile</title>
 </head>
-
+ 
 <style>
-body {
-  background-color: #1251a7; /* fallback for old browsers */
-  font-family: "Roboto", sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  overflow:scroll;
-}
-
-#header{
-  background-color: #fafafa;
-  text-align: center;
-  width:100%;
-  margin: 0;
-  min-height: 100px;
-  border-bottom: 5px solid #939598;
-}
-#header-text{
-  color: #584d51;
-  font-family: 'Raleway', 'Roboto', sans-serif;
-  font-size: 500%;
-  font-weight: 300;
-  text-align: center;
-  margin: 1.5% 0%;
-}
-
-a.nostyle{
-  color:inherit;
-  text-decoration:none;
-  padding:0;
-  margin:0;
-}
-div.profile{
-  position:relative;
-  height:100%;
-  width:80%;
-  background:rgba(255,255,255,1);
-  border:1px solid rgba(0,0,0,0.7);
-  box-shadow:0px -1px 3px rgba(0,0,0,0.1),
-  0px 2px 6px rgba(0,0,0,0.5);
-  border-radius:6px;
-  margin:auto;
-
-  overflow:hidden;
-  z-index:100;
-}
-div.profile div.coverphoto{
-  width:100%;
-  height:120px;
-  background:url('http://s3.amazonaws.com/wabi-media/wp-content/uploads/2013/09/01140155/NEWS-BANGOR-SAVINGS-BANK.jpg');
-  background-position:center center;
-  border-top-right-radius:5px;
-  border-top-left-radius:5px;
-  border-bottom:1px solid rgba(0,0,0,0.1);
-  box-shadow:inset 0px 3px 20px rgba(255,255,255,0.3),
-  1px 0px 2px rgba(255,255,255,0.7);
-  z-index:99;
-}
-div.profile div.left_col, div.profile div.right_col{
-  float:left;
-  height:340px;
-}
-div.profile div.left_col{
-  width:40%;
-  padding-top:85px;
-  box-sizing:border-box;
-
-  padding-right:20px;
-}
-div.profile div.right_col{
-  width:60%;
-  background:rgba(245,245,245,1);
-  border-left:1px solid rgba(230,230,230,1);
-  box-shadow:inset 0px 1px 1px rgba(255,255,255,0.7);
-  margin-left:-1px;
-  border-bottom-right-radius:5px;
-}
-div.profile div.profile_picture{
-  width:110px;
-  height:110px;
-  background:rgba(255,255,255,1);
-  position:absolute;
-  top:65px;
-  left:40px;
-  border-radius:100%;
-  background-image: url('cramer.png');
-  background-size:100% 100%;
-  padding:7px;
-  border:4px solid rgba(255,255,255,1)
-}
-div.profile div.right_col h2.name{
-  font-size:30px;
-  font-weight:300;
-  color: rgba(30,30,30,1);
-  padding:0;
-  margin:20px 10px 0px 30px;
-}
-div.profile div.right_col h3.location{
-  font-size:15px;
-  font-weight:300;
-  color:rgba(170,170,170,1);
-  padding:0;
-  margin:5px 10px 10px 30px;
-}
-div.profile ul.contact_information{
-  margin-top:20px;
-  padding-left:30px;
-  padding-right:30px;
-  list-style-type: none;
-
-
-}
-
-div.profile div.right_col ul.contact_information img{
-
-  float: left;
-  width: 40%;
-
-
-
-
-
-
-}
-div.profile  ul.contact_information li{
-  height:25px;
-  width:60%;
-  display:inline-block;
-  margin-top: 20px;
-  font-size:12px;
-  color:rgba(140,140,140,1);
-  text-shadow:1px 1px 1px rgba(255,255,255,0.8);
-
-  background-repeat:no-repeat;
-  background-size:18px 18px;
-
-  box-shadow:0px 1px 1px rgba(255,255,255,0.6);
-  cursor:default;
-}
-
-div.profile ul.contact_information li:before{
-  content:"";
-  width:25px;
-  height:25px;
-  display:block;
-  float:left;
-  background-position:center;
-  background-size:18px 18px;
-  background-repeat:no-repeat;
-  margin-right:5px;
-  opacity:0.7;
-}
-div.profile ul.contact_information li:hover:before{
-  opacity:1;
-}
-
-div.profile div.points, div.profile div.following{
-
-  font-weight:300;
-  font-size:16px;
-  color:rgba(30,30,30,1);
-  padding-left:20px;
-  padding-right:20px;
-}
-div.profile div.points_given{
-  font-weight:400;
-  font-size:25px;
-  color:rgba(140,140,140,1);
-
-}
-
-/*nav bar css*/
-#buttons div {
-  padding-top: 2%;
-  padding-bottom: 2%;
-}
-
-@media all and (max-device-width: 500px){
-    /*nav bar css*/
-    #seven-percent {
-      margin-left: 7%;
+    body {
+        background-color: #1251a7; /* fallback for old browsers */
+        font-family: "Roboto", sans-serif;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+        overflow:scroll;
     }
-    html { margin-bottom: 65px }
-    /*nav bar css*/
-}
-html { margin-bottom: 100px }
-/*nav bar css*/
+ 
+    #header{
+        background-color: #fafafa;
+        text-align: center;
+        width:100%;
+        margin: 0;
+        min-height: 100px;
+        border-bottom: 5px solid #939598;
+    }
+    #header-text{
+        color: #584d51;
+        font-family: 'Raleway', 'Roboto', sans-serif;
+        font-size: 400%;
+        font-weight: 300;
+        text-align: center;
+        margin: 1.5% 0%;
+    }
+ 
+    a {
+        color:inherit;
+        text-decoration:none;
+        padding:0;
+        margin:0;
+    }
+ 
+    .profile{
+        position:relative;
+        height:100%;
+        width:90%;
+        background:rgba(255,255,255,1);
+        border:1px solid rgba(0,0,0,0.7);
+        box-shadow:0px -1px 3px rgba(0,0,0,0.1),
+        0px 2px 6px rgba(0,0,0,0.5);
+        border-radius:6px;
+        margin:auto;
+        overflow:hidden;
+        z-index:100;
+    }
+ 
+    div.profile div.coverphoto{
+        width:100%;
+        height:120px;
+        background:url('http://s3.amazonaws.com/wabi-media/wp-content/uploads/2013/09/01140155/NEWS-BANGOR-SAVINGS-BANK.jpg');
+        background-position:center center;
+        border-top-right-radius:5px;
+        border-top-left-radius:5px;
+        border-bottom:1px solid rgba(0,0,0,0.1);
+        box-shadow:inset 0px 3px 20px rgba(255,255,255,0.3),
+        1px 0px 2px rgba(255,255,255,0.7);
+        z-index:99;
+    }
+ 
+    @media all and (max-width: 330px) {
+        #charities {
+            font-size: .7em;
+            align-content: center;
+            text-align: center;
+            margin-left: -3.2em;
+            min-width: 200px;
+        }
+    }
+ 
+    @media all and (min-width: 330px) and (max-width: 400px){
+        #charities{
+            font-size: .8em;
+            align-content: center;
+            text-align: center;
+            margin-left:-2em;
+            min-width: 200px;
+        }
+        .charity{
+            margin-top:-10%;
+        }
+    }
+ 
+    @media all and (min-width: 401px) and (max-width: 700px){
+        #charities{
+            font-size: .9em;
+            align-content: center;
+            text-align: center;
+            margin-left:-2.3em;
+            min-width: 250px;
+        }
+        .charity{
+            margin-top:-10%;
+            align-content: center;
+            text-align: center;
+        }
+    }
+ 
+    @media all and (min-width: 700px){
+        #left-col{
+            text-align: center;
+        }
+        #right-col{
+            padding: 2em 4em;
+        }
+        #profile-picture img{
+            width:60%;
+            height:60%;
+        }
+ 
+        #person-name{
+            font-size:600px;
+        }
+ 
+        .profile{
+            width: 80%;
+        }
+ 
+        #charities{
+            align-content: center;
+            text-align: center;
+        }
+    }
+ 
+    #left-col{
+        text-align: center;
+    }
+ 
+    #right-col{
+        background:rgba(245,245,245,1);
+        border-left:1px solid rgba(230,230,230,1);
+        padding-bottom: 2em;
+        padding-top: 2em;
+        z-index: 200;
+    }
+ 
+    #profile-picture img{
+        width:100px;
+        height:100px;
+        background:rgba(255,255,255,1);
+        margin-top: -50px;
+        margin-bottom: 20px;
+        margin-left: -2px;
+        border-radius:100%;
+        border:5px solid rgba(255,255,255,1);
+        z-index: 100000;
+        text-align:center;
+    }
+ 
+    #person-name{
+        font-size:2.2em;
+        font-weight:300;
+    }
+ 
+    .title{
+        font-size:1.5em;
+        font-weight:300;
+        color:rgba(140,140,140,1);
+    }
+ 
+    .points, .following{
+ 
+        font-weight:300;
+        font-size:1.18em;
+        color:rgba(30,30,30,1);
+        padding-left:20px;
+    }
+ 
+    .points_given{
+        font-weight:400;
+        font-size:1.5em;
+        color:rgba(140,140,140,1);
+ 
+    }
+ 
+    #award{
+        margin: .25em auto;
+    }
+ 
+    #award img{
+        max-width: 2em;
+        min-height: 2em;
+    }
+ 
+    h3{
+        font-size: 1.5em;
+    }
+ 
+    .charity{
+        font-size: 1em;
+    }
+ 
+    #charities{
+        margin-top:3em;
+    }
+ 
+    .charity img{
+        max-width: 3em;
+        min-height: 3em;
+        border: 1px solid #a3969b;
+        border-radius: 100%;
+        text-align: center;
+    }
+ 
+    .row-bottom-margin {
+        line-height: 30px;
+    }
+ 
 </style>
-
+ 
 <body>
-  <div class="profile">
-
+ 
+<div class="navbar navbar-static-top">
+    <div id="header" class="row">
+        <div id="header-text" class="col-xs-12">Profile</div>
+    </div>
+</div>
+ 
+<div class="profile">
     <div class="coverphoto"></div>
-    <div class="profile_picture"></div>
-    <div class="left_col">
-      <div class="points">
-        <div class="points_given">{{profile.total_points}}</div>
-        Points Donated
-      </div>
-      <div class="following">
-        <div class="points_given">1,800</div>
-        Current Points
-      </div>
+    <div class="row">
+        <div id="left-col" class="col-xs-5 col-sm-4 col-md-3 col-lg-3">
+            <div id="profile-picture" class="col-xs-12 col-sm-12 col-md-12 col-lg-12"><img src={{ profile.image_url }}></div>
+            <div class="points">
+                <div class="points_given">{{profile.total_points}}</div>
+                Points Donated
+            </div>
+            <div class="following">
+                <div class="points_given">{{profile.current_points}}</div>
+                Current Points
+            </div>
+        </div>
+ 
+        <div id="right-col" class="col-xs-7 col-sm-8 col-md-9 col-lg-9">
+            <div class="col-xs-12 col-md-6 col-lg-6">
+                <div class="row row-bottom-margin">
+                    <div id="person-name" class="col-xs-12">{{profile.name}}</div>
+                </div>
+                <div class="title"><i>{{profile.get_title}}</i></div>
+ 
+                <h3>Achievements</h3>
+                <div id="award" class="col-xs-12">
+                    <div class="row">
+                        <div class="col-xs-4 col-md-1 col-lg-1"><img src="https://cdn1.iconfinder.com/data/icons/hawcons/32/700404-icon-34-award-128.png"></div>
+                        <div class="col-xs-8 col-md-10 col-lg-10">100 Followers</div>
+                    </div>
+                </div>
+ 
+                <div id="award" class="col-xs-12">
+                    <div class="row">
+                        <div class="col-xs-4 col-md-1 col-lg-1"><img src="https://cdn1.iconfinder.com/data/icons/hawcons/32/700404-icon-34-award-128.png"></div>
+                        <div class="col-xs-8 col-md-10 col-lg-10">Volunteer BHS</div>
+                    </div>
+                </div>
+            </div>
+ 
+            <div id="charities" class="col-xs-12 col-md-6 col-lg-6">
+                <div class="charity col-xs-4 col-centered">
+                    <a href="https://facebook.com"><img src="https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png">
+                        <br />
+                        Homeless Shelter
+                    </a>
+                </div>
+                <div class=" charity col-xs-4 col-centered">
+                    <a href="https://facebook.com"><img src="https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png">
+                        <br />
+                        Breast Cancer Coalition
+                    </a>
+                </div>
+                <div class="charity col-xs-4 col-centered">
+                    <a href="https://facebook.com"><img src="https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png">
+                        <br />
+                        Animal Shelter
+                    </a>
+                </div>
+            </div>
+        </div>
     </div>
-    <div class="right_col">
-      <h2 class="name">{{profile.name}}</h2>
-      <h3 class="location"><i>Donating GOD</i></h3>
-      <ul class="contact_information">
-        <img src="blueribbon.png"><li>100 Followers</li>
-        <img src="yellowribbon.png"><li>Volunteer BHS</li>
-        <img src="redribbon.png"><li>First Donation</li>
-      </ul>
-
-    </div>
-  </div>
-
-  <nav class="navbar navbar-default navbar-fixed-bottom">
-    <div class="container-fluid" id="buttons">
-      <div id="seven-percent" class="col-xs-offset-1 col-xs-2 col-md-2 col-lg-2 text-center"><a href="{% url 'leaderboard' %}" data-toggle="tooltip" title="Friends">
-        <i class="fa fa-list-ol fa-3x" aria-hidden="true"></i>
-      </a></div>
-      <div class="col-xs-2 col-md-2 col-lg-2 text-center"><a href="{% url 'profile' %}" data-toggle="tooltip" title="Profile">
-        <i class="fa fa-user-circle-o fa-3x" aria-hidden="true"></i>
-      </a></div>
-      <div class="col-xs-2 col-md-2 col-lg-2 text-center"><a href="{% url 'home' %}" data-toggle="tooltip" title="Home">
-        <i class="fa fa-home fa-3x" aria-hidden="true"></i>
-      </a></div>
-      <div class="col-xs-2 col-md-2 col-lg-2 text-center"><a href = "{% url 'friend_name' %}" data-toggle="tooltip" title="Friends">
-        <i class="fa fa-group fa-3x" aria-hidden="true"></i>
-      </a></div>
-      <div class="col-xs-2 col-md-2 col-lg-2 text-center"><a class="active" href="{% url 'charities' %}" data-toggle="tooltip" title="Charities">
-        <i class="fa fa-handshake-o fa-3x" aria-hidden="true"></i>
-      </a></div>
-    </div>
-  </nav>
+</div>
 </body>
 </html>
