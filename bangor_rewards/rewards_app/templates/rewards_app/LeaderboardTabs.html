@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html>
+<!--{% load static %}-->
+<head lang="en">
+
+    <meta charset="UTF-8">
+    <!-- ><script src="Leaderboard.js"></script><-->
+    <meta name="viewport" content="width=device-width">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:100,200,300|Raleway:100,200,300,400,500,600,700,800,900" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+    <title>Leaderboards</title> <!-- >Gives a name in the tab on the browser<-->
+</head>
+
+<style>
+    #header{
+        background-color: #fafafa;
+        text-align: center;
+        width:100%;
+        margin: 0;
+        min-height: 100px;
+        border-bottom: 5px solid #939598;
+        display: flex;
+        align-items: center;
+    }
+
+    #header-text{
+        color: #584d51;
+        font-family: 'Raleway', 'Roboto', sans-serif;
+        font-size: 450%;
+        font-weight: 300;
+        text-align: center;
+        margin: 1.5% 0%;
+    }
+
+    @media all and (max-device-width: 800px){
+        #header-text {
+            font-size: 35px;  /*changes header font size when on mobile */
+        }
+        #friend-name{
+            text-align: center;    /*changes name centering on mobile */
+        }
+        .col-xs-7{
+            width: 65.4%;  /*offsets the prof pic just slightly when in iPad */
+        }
+    }
+
+    body {
+        background-color: #1251a7;
+        font-family: "Roboto", sans-serif;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+        overflow:scroll;
+    }
+
+    .tab-bar{
+        margin-top: -1.5%;
+    }
+
+    .tab{
+        font-size: 1.5em;
+        border: 1px solid white;
+        border-radius:3px;
+        background-color: rgba(255,255,255,.2);
+        text-align:center;
+    }
+
+    #friend{
+        padding-top: 4px;
+        padding-bottom: 4px;
+        box-sizing: border-box;
+        background: #fafafa;
+        border-radius: 20px;
+        width: 90%;
+        margin: 1.5% auto;
+        min-height: 130px;
+    }
+
+    #num{
+        font-size: 2em;
+        color: #584d51;
+        text-align:center;
+    }
+
+    #prof-pic{
+        text-align:center;
+    }
+
+    #friend-name{
+        display: inline-block;
+        font-weight: 400;
+        font-size: 250%;
+        color: #584d51;
+    }
+
+    #contents{
+        margin:1.5em 1.5em;
+    }
+
+    #contents img{
+        max-width: 65px;
+        min-height:65px;
+        width: 100%;
+        height:100%;
+        border-radius: 100%;
+        text-align: left;
+    }
+
+    .container-fluid{
+        display: inline-block;
+        border-bottom: 5px solid #939598;
+        border-left: 5px solid #939598;
+    }
+
+    .vcenter{
+        display: inline-block;
+        vertical-align: middle;
+        float: none;
+    }
+
+    .tab a{
+        color: #fafafa;
+    }
+
+</style>
+
+<body>
+<div class="navbar navbar-static-top">
+    <div id="header" class="row">
+        <div id="header-text" class="col-xs-12 col-md-12 col-lg-12">Leaderboards</div>
+    </div>
+</div>
+
+<div class="tab-bar col-xs-12">
+    <ul class="nav nav-tabs nav-justified">
+        <li class="active tab"><a data-toggle="tab" href="#friends">Friends</a></li>
+        <li class="tab"><a data-toggle="tab" href="#allUsers">All Users</a></li>
+        <li class="tab"><a data-toggle="tab" href="#charities">Charities</a></li>
+    </ul>
+</div>
+
+<div class="container">
+
+    <div class="tab-content">
+        <!--Friends Leaderboards Tab-->
+        <div id="friends" class="tab-pane fade in active">
+            <ul class="leader">
+                <!--{% for line in friendBoard %}-->
+                <div id="friend" class="container-fluid">
+                    <div id="contents">
+                        <div class="row">
+                            <div id="num" class="list_num col-xs-2 col-md-1 col-lg-1 vcenter"><!--{{forloop.counter}}-->#1</div>
+                            <div id="prof-pic" class="col-xs-7 col-md-2 col-lg-2 vcenter"><a href="https://facebook.com"><img src="https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png" alt="Go to user profile"></a></div>
+                            <div id="friend-name" class="col-xs-12 col-md-5 col-lg-5 vcenter"><a href="https://facebook.com">{{ line.name }}</a></div>
+                            <div id="num" class="col-xs-12 col-md-3 col-lg-3 vcenter">{{line.total_points}}</div>
+                        </div>
+                    </div>
+                </div>
+                <!--{% endfor %}-->
+
+            </ul>
+        </div>
+
+        <!--All Users Leaderboards Tab-->
+        <div id="allUsers" class="tab-pane fade">
+            <div class="table">
+                <div class="table-cell">
+                    <ul class="leader">
+                        <!--{% for line in userBoard %}-->
+                        <li>
+                            <span class="list_num">{{forloop.counter}}</span>
+                            <img src="https://scontent.fzty2-1.fna.fbcdn.net/v/t1.0-1/p50x50/17352380_10210296445705985_1842584503715947657_n.jpg?oh=844de14015721e9220c6762735a07fb7&oe=5961F7D0">
+                            <h2>{{ line.name }}<span class="number">{{line.total_points}}</span></h2>
+                        </li>
+                       <!-- {% endfor %}-->
+
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!--Charities Leaderboards Tab-->
+        <div id="charities" class="tab-pane fade">
+            <div class="table">
+                <div class="table-cell">
+                    <ul class="leader">
+                        <!--{% for line in charityBoard %}-->
+                        <li>
+                            <span class="list_num">{{forloop.counter}}</span>
+                            <img src="https://scontent.fzty2-1.fna.fbcdn.net/v/t1.0-1/p50x50/17352380_10210296445705985_1842584503715947657_n.jpg?oh=844de14015721e9220c6762735a07fb7&oe=5961F7D0">
+                            <h2>{{ line.name }}<span class="number">{{line.points}}</span></h2>
+                        </li>
+                       <!-- {% endfor %}-->
+
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+
+
+</body>
+</html>
