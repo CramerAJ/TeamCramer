@@ -52,40 +52,12 @@ html {
 }
 
 
-ul.topnav {
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-    overflow: hidden;
-    position: fixed;
-    top: 0;
-    width: 100%;
-    z-index: 3;
-    background-color:#00338e;
-}
 
-ul.topnav li {float: left;}
-
-ul.topnav li a {
-    display: block;
-    color:white;
-
-    text-align: left;
-    padding: 14px 16px;
-    text-decoration: none;
-}
 /*nav bar css*/
 #buttons div {
     padding-top: 2%;
     padding-bottom: 2%;
 }
-
-
-ul.topnav li a:hover:not(.active) {background-color: #111;}
-
-ul.topnav li a.active {background-color: white; color:#00338e}
-
-ul.topnav li.right {float: right;}
 
 .profilePic{
     width:50px;
@@ -197,9 +169,8 @@ html {
     box-sizing: border-box;
     min-height: 100px;
     border-radius: 20px;
-    width: 40%;
     margin: 1.5% auto;
-    padding:20px;
+    padding:10px;
     text-align: left;
     float: left;
 
@@ -210,9 +181,8 @@ html {
     box-sizing: border-box;
     min-height: 100px;
     border-radius: 20px;
-    width: 40%;
     margin: 1.5% auto;
-    padding:20px;
+    padding:10px;
     text-align: left;
     float: right;
 
@@ -223,32 +193,7 @@ html {
     margin: 1.5% auto;
 
 }
-.cardmarginBottom{
-    background: #fafafa;
-    box-sizing: border-box;
-    min-height: 100px;
-    border-radius: 20px;
-    width: 90%;
-    margin: 1.5% auto;
-    padding:10px;
 
-
-}
-
-.nav ul {
-    list-style: none;
-    background-color: #00338e;
-    text-align: center;
-    padding: 0;
-    margin: 0;
-}
-.nav li {
-    font-family: 'Oswald', sans-serif;
-    font-size: 1.2em;
-    line-height: 40px;
-    height: 40px;
-    border-bottom: 1px solid #888;
-}
 .nav a {
     text-decoration: none;
     color: #fff;
@@ -263,33 +208,7 @@ html {
     color: #00338e;
     cursor: default;
 }
-@media screen and (min-width: 600px) {
-    .nav li {
-        width: 10%;
-        border-bottom: none;
-        height: 50px;
-        line-height: 50px;
-        font-size: 1.4em;
-    }
-    /* Options 2 - Float
-    .nav li {
-      float: left;
-    }
-    .nav ul {
-      overflow: auto;
-      width: 600px;
-      margin: 0 auto;
-    }
-    .nav {
-      background-color: #444;
-    }
-    */
-    /* Option 1 - Display Inline */
-    .nav li {
-        display: inline-block;
-        margin-right: -4px;
-    }
-}
+
 body {
     background-color: #1251a7;
 
@@ -300,30 +219,15 @@ body {
     padding: 0;
     overflow:scroll;
 }
-.halfVerticalDiv
-{
 
-    width:100%;
-    height:50%;
-}
 
-.progressBackground
-{
-    background-color: #eeeeee;
-    width:100%;
-    height:100%;
-}
 .progressForeground
 {
-    width: 1%;
+    width: 10%;
     height:100%;
 
 }
-.progressBar
-{
-    width:100%;
-    height:40px;
-}
+
 .rightAlign
 {
     text-align: right;
@@ -342,7 +246,8 @@ body {
     margin: 1.5% auto;
     padding:20px;
     text-align: left;
-
+    border-bottom: 5px solid #939598;
+    border-left: 5px solid #939598;
     box-shadow: 1px 1px 5px #CCCCCC;
 
     padding: 5px;
@@ -365,12 +270,7 @@ body {
 .gray{
     color:darkgray;
 }
-.green{
 
-}
-.greenBackground{
-    background-color: #00338e;
-}
 
 @media screen and (max-width: 600px){
     ul.topnav li.right,
@@ -429,11 +329,12 @@ body {
 div.profile_picture {
     width: 110px;
     height: 110px;
-    background: rgba(255,255,255,1);
+    background: rgba(255, 255, 255, 1);
     position: absolute;
 
     border-radius: 100%;
-    background-image: url(cramer.png);
+    background-image: url(https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png);
     background-size: 100% 100%;
 
-    border: 4px solid rgba(255,255,255,1);
+    border: 4px solid rgba(255, 255, 255, 1);
+}
