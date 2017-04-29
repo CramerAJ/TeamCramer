@@ -69,7 +69,7 @@
         }
         function addFriendUpdate()
         {
-            var colors = ["#be0000", "Blue", "#037d50", "#8E4585", "#40e0d0"];
+            var colors = ["#1251a7","#939598", "#584d51"];
             var color = colors[Math.floor(Math.random()*colors.length)];
 
 
@@ -88,7 +88,7 @@
             text.innerText = "Friend volunteered at X location"
 
             var profPic = document.createElement('div');
-            profPic.className = "profilePic";
+            profPic.className = "friendProfPic";
             profPic.style.backgroundColor= color;
 
             div.appendChild(profPic);
@@ -113,6 +113,7 @@
 
 <style>
 
+
     body {
         margin: 0;
         width:100%;
@@ -132,25 +133,31 @@
 
     .row{
         margin:2em auto;
-        border: 1px solid black;
     }
 
     .progressBar {
         width:80%;
         height:35px;
-        border: 1px solid magenta;
         margin-left: 10%;
+        border: 4px solid #939598;
+        border-radius: 8px;
     }
 
-    .bar-points{
-        margin-top: 5%;
-        margin-left: 10%;
+    .barBackground{
+        background-color: #1251a7;
+    }
+
+    .friendProfPic{
+        width:50px;
+        height:50px;
+        border-radius: 50%;
+        position:absolute;
     }
 
     .cardmarginBottom{
         background: #fafafa;
         box-sizing: border-box;
-        min-height: 100px;
+        min-height: 90px;
         border-radius: 20px;
         width: 90%;
         margin: 1.5% auto;
@@ -158,6 +165,27 @@
         border-bottom: 5px solid #939598;
         border-left: 5px solid #939598;
     }
+
+    .vcenter{
+        vertical-align: middle;
+    }
+
+    .profile{
+        min-height:100px;
+    }
+
+    .profile_picture {
+        width: 110px;
+        height: 110px;
+        background: rgba(255, 255, 255, 1);
+        border-radius: 100%;
+        background-image: url(https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png);
+        background-size: 100% 100%;
+        border: 4px solid rgba(255, 255, 255, 1);
+        margin-top:-8%;
+        margin-left:20%;
+    }
+
 </style>
 
 <body>
@@ -169,34 +197,40 @@
 </div>
 
 <!--Profile and Progress Box-->
-<div class="cardmarginBottom row">
+<div class="cardmarginBottom profile vcenter">
 
-    <!--Prof Pic-->
-    <div class="text textNormal gray"><div class="col-xs-3 col-md-2"><div class="profile_picture"></div></div></div>
+    <div class="row vcenter">
+        <!--Prof Pic-->
+        <div class="col-xs-3 col-md-2"><div class="profile_picture"></div></div>
 
-    <!--Profile-->
-        <div id="person-name" class="col-xs-6">Andrew Cramer</div>
-        <div class="text textSmall gray"><div class="col-xs-3 col-md-2">Donating GOD</div></div>
+        <!--Profile-->
+        <div class="col-xs-4">
+            <div id="person-name">Andrew Cramer</div>
+            <div class="text textSmall gray">Donating GOD</div>
+        </div>
 
-    <!--Progress Bar-->
-    <div class="centerAlign bar-points">
-        <div class="text textXLarge blue col-xs-12" style="height:50%; vertical-align: text-bottom;" id="pointsTotal">1000 points</div>
-            <div class="progressBar col-xs-12">
-                <div id="bar" class="progressForeground blueBackground" style="width:10%; max-width:100% "></div>
+        <!--Progress Bar-->
+        <div class="centerAlign col-xs-6">
+            <div class="text textXLarge blue" style="height:50%; vertical-align: text-bottom;" id="pointsTotal">1000 points</div>
+
+            <div class="progressBar">
+                <div id="bar" class="progressForeground barBackground" style="width:10%; max-width:100% "></div>
             </div>
 
-            <div class="col-xs-12">
-                <div class="text textSmall gray " style="vertical-align: central" >Next Goal: 10,000</div>
-            </div>
+            <div class="text textSmall gray " style="vertical-align: central" >Next Goal: 10,000</div>
         </div>
     </div>
 </div>
 
-<div class="cardmarginBottom row" style="max-height: 1500px;">
+<!--Swipe/Check-in Buttons-->
+<div class="cardmarginBottom" style="max-height: 1500px;">
+    <div class="row vcenter">
     <div class="col-xs-6"><button type="button" class="btn btn-primary btn-lg btn-block" onclick="addToPoints(750)">Check Card Swipes</button></div>
     <div class="col-xs-6"><button type="button" class="btn btn-primary btn-lg btn-block">Check in</button></div>
+    </div>
 </div>
 
+<!--Friend Feed-->
 <div class="cardmarginBottom">
     <div class="text textLarge centerAlign" style=" height: 10%; width:100%;">Friend Activity Feed</div>
     <div id="friendFeed" style="max-height: 1500px"></div>
