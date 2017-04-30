@@ -28,8 +28,8 @@ class Profile(models.Model):
 	name = models.CharField(max_length=64)
 	current_points = models.IntegerField(default=0)
 	total_points = models.IntegerField(default=0)
-	image_url = models.URLField(default="http://google.com")
-	cover_image_url = models.URLField(default="http://google.com")
+	image_url = models.URLField(default="http://simpleicon.com/wp-content/uploads/account.png")
+	cover_image_url = models.URLField(default="http://blog.entheosweb.com/wp-content/uploads/2012/03/fbs23_byentheosweb.jpg")
 	friends = models.ManyToManyField("self",blank=True)
 	achievements = models.ManyToManyField("Achievement",blank=True)
 	user = models.OneToOneField(User, on_delete=models.CASCADE) # connected to admin user
