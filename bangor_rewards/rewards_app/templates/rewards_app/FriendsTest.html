@@ -242,7 +242,7 @@
     <div id="friend" class="container-fluid">
         <div id="contents">
             <div class="row">
-                <div class="col-xs-12 col-sm-3 col-md-2 col-lg-2"><a href="https://facebook.com"><img src="https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png" alt="Go to user profile"><br /></a></div>
+                <div class="col-xs-12 col-sm-3 col-md-2 col-lg-2"><a href="https://facebook.com"><img src={{u.image_url}} alt="Go to user profile"><br /></a></div>
                     <div id="friend-info" class="col-xs-12 col-sm-3 col-md-4 col-lg-4">
                         <div id="friend-name"><a href="https://facebook.com">{{ u.name }}</a></div>
                         <br />
@@ -250,25 +250,15 @@
                         <div id="points"> {{ u.total_points }}</div>
                     </div>
 
+                {% for c in u.get_top_three_charities %}
+                <div id="charity" class="col-xs-4 col-centered col-sm-2 col-md-2 col-lg-2">
+                    <a href="https://facebook.com"><img src={{c.image_url}}>
+                        <br />
+                        {{c.name}}
+                    </a>
+                </div>
+                {% endfor %}
 
-                <div id="charity" class="col-xs-4 col-centered col-sm-2 col-md-2 col-lg-2">
-                    <a href="https://facebook.com"><img src="https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png">
-                        <br />
-                        Homeless Shelter
-                    </a>
-                </div>
-                <div id="charity" class="col-xs-4 col-centered col-sm-2 col-md-2 col-lg-2">
-                    <a href="https://facebook.com"><img src="https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png">
-                        <br />
-                        Breast Cancer Coalition
-                    </a>
-                </div>
-                <div id="charity" class="col-xs-4 col-centered col-sm-2 col-md-2 col-lg-2">
-                    <a href="https://facebook.com"><img src="https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png">
-                        <br />
-                        Animal Shelter
-                    </a>
-                </div>
             </div>
         </div>
     </div>

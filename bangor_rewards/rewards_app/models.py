@@ -5,6 +5,7 @@ from django.db import models
 from django.contrib.auth.models import User
 from django.db.models.signals import post_save
 from django.dispatch import receiver
+from django.db.models import Sum
 
 # Create your models here.
 class Charity(models.Model):
@@ -54,7 +55,15 @@ class Profile(models.Model):
 			return titleList[level]
 		else:
 			return titleList[len(titleList-1)]
-
+        def get_top_three_charities(self):
+                usersDonations = Activity.objects.filter(profile__in=[self]).filter(act__in='Donation')
+                topThreePointTotals = (usersDonations.values('charity').annotate(s = Sum('points')).order_by('-s'))[:3]             
+                topThreeCharities = []
+                for x in topThreePointTotals:
+                        charityID = x['charity']
+                        topThreeCharities.append(Charity.objects.get(id=charityID))
+                return topThreeCharities
+        
 class Achievement(models.Model):
 	name = models.CharField(max_length=64)
 	description = models.CharField(max_length=360)
