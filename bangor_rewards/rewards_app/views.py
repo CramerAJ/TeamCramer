@@ -103,4 +103,4 @@ def index(request):
     friends = profile.friends.all()
     friend_ids = [f.id for f in friends]
     feed = Activity.objects.filter(profile_id__in=friend_ids).order_by('timestamp')[::-1]
-    return render(request, 'rewards_app/home.html', {'feed': feed, 'name': profile.name, 'points': profile.current_points})
+    return render(request, 'rewards_app/home.html', {'feed': feed, 'name': profile.name, 'points': profile.current_points, 'profile': profile})
