@@ -252,7 +252,7 @@
 
                 {% for c in u.get_top_three_charities %}
                 <div id="charity" class="col-xs-4 col-centered col-sm-2 col-md-2 col-lg-2">
-                    <a href="https://facebook.com"><img src={{c.image_url}}>
+                    <a href={{c.facebook_url}}><img src={{c.image_url}}>
                         <br />
                         {{c.name}}
                     </a>
