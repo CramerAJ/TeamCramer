@@ -14,158 +14,175 @@
 </head>
 
 <style>
-#header{
-  background-color: #fafafa;
-  text-align: center;
-  width:100%;
-  margin: 0;
-  min-height: 100px;
-  border-bottom: 5px solid #939598;
-  display: flex;
-  align-items: center;
-}
+    #header{
+        background-color: #fafafa;
+        text-align: center;
+        width:100%;
+        margin: 0;
+        min-height: 100px;
+        border-bottom: 5px solid #939598;
+        display: flex;
+        align-items: center;
+    }
 
-#header-text{
-  color: #584d51;
-  font-family: 'Raleway', 'Roboto', sans-serif;
-  font-weight: 300;
-  font-size: 500%;
-  text-align: center;
-  margin: 1.5% 0%;
-}
+    #header-text{
+        color: #584d51;
+        font-family: 'Raleway', 'Roboto', sans-serif;
+        font-weight: 300;
+        font-size: 500%;
+        text-align: center;
+        margin: 1.5% 0%;
+    }
 
-@media all and (max-device-width: 500px){
-  #header-text {
-    font-size: 48px;
-  }
-  .btn-circle.btn-lg {
-    width: 20px;
-    height: 20px;
-    padding: 5px 5px;
-    line-height: 1.33;
-    border-radius: 20px;
-  }
-  /*nav bar css*/
-  #seven-percent {
-    margin-left: 7%;
-  }
-  html { margin-bottom: 65px }
-  /*nav bar css*/
-}
+    /*Resizing for mobile devices css*/
+    @media all and (max-device-width: 500px){
+        #header-text {
+            font-size: 48px;
+        }
+        .btn-circle.btn-lg {
+            width: 20px;
+            height: 20px;
+            padding: 5px 5px;
+            line-height: 1.33;
+            border-radius: 20px;
+        }
 
-.btn-circle.btn-lg {
-  width: 60px;
-  height: 60px;
-  padding: 10px 10px;
-  font-size: 18px;
-  line-height: 1.33;
-  border-radius: 40px;
-}
+        /*nav bar css*/
+        #seven-percent {
+            margin-left: 7%;
+        }
+        html { margin-bottom: 65px }
+        /*nav bar css*/
+    }
 
-#search img{
-  /*max-width: 30px;
-  min-height: 30px;*/
-  max-width: 1.5em;
-  min-height: 1.5em;
-}
+    @media all and (max-device-width: 1000px){
+        #contents{
+            text-align: center;
+        }
+        #friend-info{
+            margin-bottom:15px;
+        }
+    }
 
-#add-friend img{
-  max-width: 40px;
-  min-height: 40px;
-}
+    .btn-circle.btn-lg {
+        width: 60px;
+        height: 60px;
+        padding: 10px 10px;
+        font-size: 18px;
+        line-height: 1.33;
+        border-radius: 40px;
+    }
 
-body {
-  background-color: #1251a7;
-  font-family: "Roboto", sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  overflow:scroll;
-}
+    #add-friend img{
+        max-width: 40px;
+        min-height: 40px;
+    }
 
-#friend{
-  padding-top: 4px;
-  padding-bottom: 4px;
-  box-sizing: border-box;
-  background: #fafafa;
-  border-radius: 20px;
-  width: 90%;
-  margin: 1.5% auto;
-  min-height: 150px;
-}
+    body {
+        background-color: #1251a7;
+        font-family: "Roboto", sans-serif;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+        overflow:scroll;
+    }
 
-#friend-name{
-  display: inline-block;
-  font-weight: 400;
-  font-size: 200%;
-  color: #584d51;
-}
+    #friend{
+        padding-top: 4px;
+        padding-bottom: 4px;
+        box-sizing: border-box;
+        background: #fafafa;
+        border-radius: 20px;
+        width: 90%;
+        margin: 1.5% auto;
+        min-height: 150px;
+    }
 
-a{
-  color: #584d51;
-}
+    #friend-name{
+        display: inline-block;
+        font-weight: 400;
+        font-size: 200%;
+        color: #584d51;
+    }
 
-a:hover{
-  text-decoration: none;
-  color: #a3969b;
-}
+    .title{
+        font-size:1.3em;
+        font-weight:300;
+        color:rgba(140,140,140,1);
+    }
 
-#friend img{
-  max-width: 90px;
-  min-height:90px;
-  width: 100%;
-  height:100%;
-  border: 1px solid #a3969b;
-  border-radius: 100%;
-  text-align: left;
-}
+    a{
+        color: #584d51;
+    }
 
-#charity img{
-  max-width: 60px;
-  min-height: 60px;
-  border: 1px solid #a3969b;
-}
+    a:hover{
+        text-decoration: none;
+        color: #a3969b;
+    }
 
-#contents{
-  margin:1.5em 1.5em;
-}
+    #friend img{
+        max-width: 90px;
+        min-height:90px;
+        width: 100%;
+        height:100%;
+        border: 1px solid #a3969b;
+        border-radius: 100%;
+        text-align: left;
+    }
 
-#friend{
-  border-bottom: 5px solid #939598;
-  border-left: 5px solid #939598;
-}
+    #charity img{
+        max-width: 50px;
+        min-height: 50px;
+        border: 1px solid #a3969b;
+    }
 
-.col-centered {
-  text-align:center;
-}
+    #contents{
+        margin:1.5em 1.5em;
+    }
 
-.vcenter {
-  margin-top: 2em;
-}
+    #friend{
+        border-bottom: 5px solid #939598;
+        border-left: 5px solid #939598;
+    }
 
-.row-bottom-margin{
-  line-height: 25px;
-  padding-bottom: 15px;
-}
+    .col-centered {
+        text-align:center;
+    }
 
-#search-bar{
-  padding-top: 4px;
-  padding-bottom: 4px;
-  box-sizing: border-box;
-  background: #fafafa;
-  border-radius: 20px;
-  width: 90%;
-  margin: 1.5% auto;
-  min-height: 100px;
-  text-align: center;
-}
+    .vcenter {
+        margin-top: 2em;
+    }
 
-/*nav bar css*/
-#buttons div {
-  padding-top: 2%;
-  padding-bottom: 2%;
-}
-html { margin-bottom: 100px }
-/*nav bar css*/
+    .row-bottom-margin{
+        line-height: 25px;
+        padding-bottom: 15px;
+    }
+
+    #search-bar{
+        padding-top: 4px;
+        padding-bottom: 4px;
+        box-sizing: border-box;
+        background: #fafafa;
+        border-radius: 20px;
+        width: 90%;
+        margin: 1.5% auto;
+        min-height: 100px;
+        text-align: center;
+    }
+
+    @media all and (min-device-width: 1000px) {
+        .col-lg-1 {
+            width: 12.5%;
+        }
+    }
+
+    /*nav bar css*/
+    #buttons div {
+        padding-top: 2%;
+        padding-bottom: 2%;
+    }
+
+    html { margin-bottom: 100px }
+    /*nav bar css*/
 </style>
 
 <script>
@@ -211,126 +228,128 @@ html { margin-bottom: 100px }
 
 <div class="navbar navbar-static-top">
     <div id="header" class="row">
-        <div id="search" class="col-xs-3 col-md-4 col-lg-4"><button type="button" class="btn btn-default btn-circle btn-lg"><img src="http://www.freeiconspng.com/uploads/search-icon-png-20.png"></button></div>
+        <div class="col-xs-3 col-md-4 col-lg-4"></div>
         <div id="header-text" class="col-xs-6 col-md-4 col-lg-4">Friends</div>
         <div id="add-friend" class="col-xs-3 col-md-4 col-lg-4"><button type="button" class="btn btn-default btn-circle btn-lg" onclick="addFriend()"><img src="http://www.freeiconspng.com/uploads/plus-icon-black-2.png"></button></div>
     </div>
 </div>
 
 <div id="friends" class="container">
-    {% for u in friends %}
+    <!--{% for u in friends %}-->
     <div id="friend" class="container-fluid">
         <div id="contents">
             <div class="row">
-                <div class="col-xs-12 col-md-2 col-lg-2"><a href="https://facebook.com"><img src="https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png" alt="Go to user profile"><br /></a></div>
-                <div  class="col-xs-12 col-md-4 col-lg-4">
-                    <div id="friend-name"><a href="https://facebook.com">{{ u.name }}</a></div>
-                    <br />
-                    <div id="title">Level {{ u.get_level }}</div>
-                    <div id="points"> {{ u.current_points }}</div>
-                    <br />
-                </div>
+                <div class="col-xs-12 col-sm-3 col-md-2 col-lg-2"><a href="https://facebook.com"><img src="https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png" alt="Go to user profile"><br /></a></div>
+                    <div id="friend-info" class="col-xs-12 col-sm-3 col-md-4 col-lg-4">
+                        <div id="friend-name"><a href="https://facebook.com">{{ u.name }}</a></div>
+                        <br />
+                        <div class="title"><i>{{ u.get_title }}</i></div>
+                        <div id="points"> {{ u.total_points }}</div>
+                    </div>
 
-                <div id="charity" class="col-xs-4 col-centered col-md-2 col-lg-2">
+
+                <div id="charity" class="col-xs-4 col-centered col-sm-2 col-md-2 col-lg-2">
                     <a href="https://facebook.com"><img src="https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png">
-                    <br />
-                    Homeless Shelter
+                        <br />
+                        Homeless Shelter
                     </a>
                 </div>
-                <div id="charity" class="col-xs-4 col-centered col-md-2 col-lg-2">
+                <div id="charity" class="col-xs-4 col-centered col-sm-2 col-md-2 col-lg-2">
                     <a href="https://facebook.com"><img src="https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png">
-                    <br />
-                    Breast Cancer Coalition
+                        <br />
+                        Breast Cancer Coalition
                     </a>
                 </div>
-                <div id="charity" class="col-xs-4 col-centered col-md-2 col-lg-2">
+                <div id="charity" class="col-xs-4 col-centered col-sm-2 col-md-2 col-lg-2">
                     <a href="https://facebook.com"><img src="https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png">
-                    <br />
-                    Animal Shelter
+                        <br />
+                        Animal Shelter
                     </a>
                 </div>
             </div>
         </div>
     </div>
-    {% endfor %}
+    <!--{% endfor %}-->
 </div>
 
 <div id="add" style="display: none" class="container">
+    <div id="search-bar" class="container-fluid">
+        <div id="contents">
+            <div class="row">
+                <div class="col-xs-12">
+                    <form action="/rewards_app/add_friend/" method="post">
 
-<div id="search-bar" class="container-fluid">
-    <div id="contents">
-        <div class="row">
-            <div class="col-xs-12">
-                <form action="/rewards_app/add_friend/" method="post">
-
-                {% csrf_token %}
-                {{ form.friend_name.label }}
-                {{ form.friend_name }}
-                <input class="btn btn-default" type="submit" value="Search" name="search"/>
+                        {% csrf_token %}
+                        {{ form.friend_name.label }}
+                        {{ form.friend_name }}
+                        <input class="btn btn-default" type="submit" value="Search" name="search"/>
+                    </form>
+                </div>
             </div>
         </div>
     </div>
-</div>
 
-    {% for u in profiles %}
+    <!--{% for u in profiles %}-->
     <div id="friend" class="container-fluid">
         <div id="contents">
             <div class="row">
-                <div class="col-xs-6 col-sm-3 col-md-2 col-lg-2"><a href="https://facebook.com"><img src="https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png" alt="Go to user profile"><br /></a></div>
-
-                <div  class="col-xs-6 col-sm-9 col-md-2 col-lg-2 row-bottom-margin">
+                <div class="col-xs-12 col-sm-12 col-md-2 col-lg-2"><a href="https://facebook.com"><img src="https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png" alt="Go to user profile"><br /></a></div>
+                <div id="friend-info" class="col-xs-12 col-sm-12 col-md-12 col-lg-3">
                     <div id="friend-name"><a href="https://facebook.com">{{ u.name }}</a></div>
                     <br />
-                    <div id="title">Level {{ u.get_level }}</div>
-                    <div id="points"> {{ u.current_points }}</div>
+                    <div class="title"><i>{{ u.get_title }}</i></div>
+                    <div id="points"> {{ u.total_points }}</div>
                 </div>
 
-                <div id="charity" class="col-xs-4 col-centered col-md-2 col-lg-2">
+                <div id="charity" class="col-xs-4 col-centered col-sm-4 col-md-4 col-lg-1">
                     <a href="https://facebook.com"><img src="https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png">
-                    <br />
-                    Homeless Shelter
-                    </a>
-                </div>
-                <div id="charity" class="col-xs-4 col-centered col-md-2 col-lg-2">
-                    <a href="https://facebook.com"><img src="https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png">
-                    <br />
-                    Breast Cancer Coalition
-                    </a>
-                </div>
-                <div id="charity" class="col-xs-4 col-centered col-md-2 col-lg-2">
-                    <a href="https://facebook.com"><img src="https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png">
-                    <br />
-                    Animal Shelter
+                        <br />
+                        Homeless Shelter
                     </a>
                 </div>
 
-                <div class="col-xs-12 col-sm-8 col-md-2 col-lg-2 col-centered vcenter">
-                    <input class="btn btn-default" type="submit" value="Add {{u.name}}" name="add" /><br /></div>
+                <div id="charity" class="col-xs-4 col-centered col-sm-4 col-md-4 col-lg-1">
+                    <a href="https://facebook.com"><img src="https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png">
+                        <br />
+                        Breast Cancer Coalition
+                    </a>
+                </div>
+
+                <div id="charity" class="col-xs-4 col-centered col-sm-4 col-md-4 col-lg-1">
+                    <a href="https://facebook.com"><img src="https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png">
+                        <br />
+                        Animal Shelter
+                    </a>
+                </div>
+
+                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-2 col-centered vcenter">
+                    <input class="btn btn-default" type="submit" value="Add {{u.name}}" name="add" /><br />
+                </div>
             </div>
         </div>
     </div>
-    {% endfor %}
-</form>
+    <!--{% endfor %}-->
+    </form>
 </div>
 
 <nav class="navbar navbar-default navbar-fixed-bottom">
-  <div class="container-fluid" id="buttons">
-    <div id="seven-percent" class="col-xs-offset-1 col-xs-2 col-md-2 col-lg-2 text-center"><a href="{% url 'leaderboard' %}" data-toggle="tooltip" title="Friends">
-      <i class="fa fa-list-ol fa-3x" aria-hidden="true"></i>
-    </a></div>
-    <div class="col-xs-2 col-md-2 col-lg-2 text-center"><a href="{% url 'profile' %}" data-toggle="tooltip" title="Profile">
-      <i class="fa fa-user-circle-o fa-3x" aria-hidden="true"></i>
-    </a></div>
-    <div class="col-xs-2 col-md-2 col-lg-2 text-center"><a href="{% url 'home' %}" data-toggle="tooltip" title="Home">
-      <i class="fa fa-home fa-3x" aria-hidden="true"></i>
-    </a></div>
-    <div class="col-xs-2 col-md-2 col-lg-2 text-center"><a href = "{% url 'friend_name' %}" data-toggle="tooltip" title="Friends">
-      <i class="fa fa-group fa-3x" aria-hidden="true"></i>
-    </a></div>
-    <div class="col-xs-2 col-md-2 col-lg-2 text-center"><a class="active" href="{% url 'charities' %}" data-toggle="tooltip" title="Charities">
-      <i class="fa fa-handshake-o fa-3x" aria-hidden="true"></i>
-    </a></div>
-  </div>
+    <div class="container-fluid" id="buttons">
+        <div id="seven-percent" class="col-xs-offset-1 col-xs-2 col-md-2 col-lg-2 text-center"><a href="{% url 'leaderboard' %}" data-toggle="tooltip" title="Friends">
+            <i class="fa fa-list-ol fa-3x" aria-hidden="true"></i>
+        </a></div>
+        <div class="col-xs-2 col-md-2 col-lg-2 text-center"><a href="{% url 'profile' %}" data-toggle="tooltip" title="Profile">
+            <i class="fa fa-user-circle-o fa-3x" aria-hidden="true"></i>
+        </a></div>
+        <div class="col-xs-2 col-md-2 col-lg-2 text-center"><a href="{% url 'home' %}" data-toggle="tooltip" title="Home">
+            <i class="fa fa-home fa-3x" aria-hidden="true"></i>
+        </a></div>
+        <div class="col-xs-2 col-md-2 col-lg-2 text-center"><a href = "{% url 'friend_name' %}" data-toggle="tooltip" title="Friends">
+            <i class="fa fa-group fa-3x" aria-hidden="true"></i>
+        </a></div>
+        <div class="col-xs-2 col-md-2 col-lg-2 text-center"><a class="active" href="{% url 'charities' %}" data-toggle="tooltip" title="Charities">
+            <i class="fa fa-handshake-o fa-3x" aria-hidden="true"></i>
+        </a></div>
+    </div>
 </nav>
 
 </body>
