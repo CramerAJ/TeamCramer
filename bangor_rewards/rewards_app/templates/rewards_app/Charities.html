@@ -133,6 +133,9 @@
         padding-bottom: 2%;
     }
     html { margin-bottom: 100px }
+    #active .fa {
+      color: #1251a7;
+    }
     /*nav bar css*/
 
     /*donate button css*/
@@ -190,7 +193,7 @@
         <div class="col-xs-2 col-md-2 col-lg-2 text-center"><a href = "{% url 'friend_name' %}" data-toggle="tooltip" title="Friends">
             <i class="fa fa-group fa-3x" aria-hidden="true"></i>
         </a></div>
-        <div class="col-xs-2 col-md-2 col-lg-2 text-center"><a class="active" href="{% url 'charities' %}" data-toggle="tooltip" title="Charities">
+        <div class="col-xs-2 col-md-2 col-lg-2 text-center"><a id="active" href="{% url 'charities' %}" data-toggle="tooltip" title="Charities">
             <i class="fa fa-handshake-o fa-3x" aria-hidden="true"></i>
         </a></div>
     </div>

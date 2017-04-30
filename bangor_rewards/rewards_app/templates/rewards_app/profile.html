@@ -7,9 +7,10 @@
     <link href="https://fonts.googleapis.com/css?family=Roboto:100,200,300|Raleway:100,200,300,400,500,600,700,800,900" rel="stylesheet">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <title>Profile</title>
 </head>
- 
+
 <style>
     body {
         background-color: #1251a7; /* fallback for old browsers */
@@ -18,7 +19,7 @@
         -moz-osx-font-smoothing: grayscale;
         overflow:scroll;
     }
- 
+
     #header{
         background-color: #fafafa;
         text-align: center;
@@ -35,14 +36,14 @@
         text-align: center;
         margin: 1.5% 0%;
     }
- 
+
     a {
         color:inherit;
         text-decoration:none;
         padding:0;
         margin:0;
     }
- 
+
     .profile{
         position:relative;
         height:100%;
@@ -56,7 +57,7 @@
         overflow:hidden;
         z-index:100;
     }
- 
+
     div.profile div.coverphoto{
         width:100%;
         height:120px;
@@ -69,7 +70,7 @@
         1px 0px 2px rgba(255,255,255,0.7);
         z-index:99;
     }
- 
+
     @media all and (max-width: 330px) {
         #charities {
             font-size: .7em;
@@ -79,7 +80,7 @@
             min-width: 200px;
         }
     }
- 
+
     @media all and (min-width: 330px) and (max-width: 400px){
         #charities{
             font-size: .8em;
@@ -92,7 +93,7 @@
             margin-top:-10%;
         }
     }
- 
+
     @media all and (min-width: 401px) and (max-width: 700px){
         #charities{
             font-size: .9em;
@@ -107,7 +108,7 @@
             text-align: center;
         }
     }
- 
+
     @media all and (min-width: 700px){
         #left-col{
             text-align: center;
@@ -119,25 +120,25 @@
             width:60%;
             height:60%;
         }
- 
+
         #person-name{
             font-size:600px;
         }
- 
+
         .profile{
             width: 80%;
         }
- 
+
         #charities{
             align-content: center;
             text-align: center;
         }
     }
- 
+
     #left-col{
         text-align: center;
     }
- 
+
     #right-col{
         background:rgba(245,245,245,1);
         border-left:1px solid rgba(230,230,230,1);
@@ -145,7 +146,7 @@
         padding-top: 2em;
         z-index: 200;
     }
- 
+
     #profile-picture img{
         width:100px;
         height:100px;
@@ -158,54 +159,54 @@
         z-index: 100000;
         text-align:center;
     }
- 
+
     #person-name{
         font-size:2.2em;
         font-weight:300;
     }
- 
+
     .title{
         font-size:1.5em;
         font-weight:300;
         color:rgba(140,140,140,1);
     }
- 
+
     .points, .following{
- 
+
         font-weight:300;
         font-size:1.18em;
         color:rgba(30,30,30,1);
         padding-left:20px;
     }
- 
+
     .points_given{
         font-weight:400;
         font-size:1.5em;
         color:rgba(140,140,140,1);
- 
+
     }
- 
+
     #award{
         margin: .25em auto;
     }
- 
+
     #award img{
         max-width: 2em;
         min-height: 2em;
     }
- 
+
     h3{
         font-size: 1.5em;
     }
- 
+
     .charity{
         font-size: 1em;
     }
- 
+
     #charities{
         margin-top:3em;
     }
- 
+
     .charity img{
         max-width: 3em;
         min-height: 3em;
@@ -213,21 +214,39 @@
         border-radius: 100%;
         text-align: center;
     }
- 
+
     .row-bottom-margin {
         line-height: 30px;
     }
- 
+    /*nav bar css*/
+    #active .fa {
+      color: #1251a7;
+    }
+    #buttons div {
+      padding-top: 2%;
+      padding-bottom: 2%;
+    }
+    html { margin-bottom: 100px }
+    @media all and (max-device-width: 500px){
+        /*nav bar css*/
+        #seven-percent {
+          margin-left: 7%;
+        }
+        html { margin-bottom: 65px }
+        /*nav bar css*/
+    }
+    html { margin-bottom: 100px }
+    /*nav bar css*/
 </style>
- 
+
 <body>
- 
+
 <div class="navbar navbar-static-top">
     <div id="header" class="row">
         <div id="header-text" class="col-xs-12">Profile</div>
     </div>
 </div>
- 
+
 <div class="profile">
     <div class="coverphoto"></div>
     <div class="row">
@@ -242,14 +261,14 @@
                 Current Points
             </div>
         </div>
- 
+
         <div id="right-col" class="col-xs-7 col-sm-8 col-md-9 col-lg-9">
             <div class="col-xs-12 col-md-6 col-lg-6">
                 <div class="row row-bottom-margin">
                     <div id="person-name" class="col-xs-12">{{profile.name}}</div>
                 </div>
                 <div class="title"><i>{{profile.get_title}}</i></div>
- 
+
                 <h3>Achievements</h3>
                 <div id="award" class="col-xs-12">
                     <div class="row">
@@ -257,7 +276,7 @@
                         <div class="col-xs-8 col-md-10 col-lg-10">100 Followers</div>
                     </div>
                 </div>
- 
+
                 <div id="award" class="col-xs-12">
                     <div class="row">
                         <div class="col-xs-4 col-md-1 col-lg-1"><img src="https://cdn1.iconfinder.com/data/icons/hawcons/32/700404-icon-34-award-128.png"></div>
@@ -265,7 +284,7 @@
                     </div>
                 </div>
             </div>
- 
+
             <div id="charities" class="col-xs-12 col-md-6 col-lg-6">
                 <div class="charity col-xs-4 col-centered">
                     <a href="https://facebook.com"><img src="https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png">
@@ -289,5 +308,26 @@
         </div>
     </div>
 </div>
+
+<nav class="navbar navbar-default navbar-fixed-bottom">
+    <div class="container-fluid" id="buttons">
+        <div id="seven-percent" class="col-xs-offset-1 col-xs-2 col-md-2 col-lg-2 text-center"><a href="{% url 'leaderboard' %}" data-toggle="tooltip" title="Friends">
+            <i class="fa fa-list-ol fa-3x" aria-hidden="true"></i>
+        </a></div>
+        <div class="col-xs-2 col-md-2 col-lg-2 text-center"><a id="active" href="{% url 'profile' %}" data-toggle="tooltip" title="Profile">
+            <i class="fa fa-user-circle-o fa-3x" aria-hidden="true"></i>
+        </a></div>
+        <div class="col-xs-2 col-md-2 col-lg-2 text-center"><a href="{% url 'home' %}" data-toggle="tooltip" title="Home">
+            <i class="fa fa-home fa-3x" aria-hidden="true"></i>
+        </a></div>
+        <div class="col-xs-2 col-md-2 col-lg-2 text-center"><a href = "{% url 'friend_name' %}" data-toggle="tooltip" title="Friends">
+            <i class="fa fa-group fa-3x" aria-hidden="true"></i>
+        </a></div>
+        <div class="col-xs-2 col-md-2 col-lg-2 text-center"><a class="active" href="{% url 'charities' %}" data-toggle="tooltip" title="Charities">
+            <i class="fa fa-handshake-o fa-3x" aria-hidden="true"></i>
+        </a></div>
+    </div>
+</nav>
+
 </body>
 </html>

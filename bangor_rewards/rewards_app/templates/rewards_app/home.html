@@ -142,6 +142,28 @@
         margin-top:-8%;
         margin-left:20%;
     }
+    /*nav bar css*/
+    #active .fa {
+      color: #1251a7;
+    }
+    #buttons div {
+      padding-top: 2%;
+      padding-bottom: 2%;
+    }
+    html { margin-bottom: 100px }
+    @media all and (max-device-width: 500px){
+        /*nav bar css*/
+        #seven-percent {
+          margin-left: 7%;
+        }
+        html { margin-bottom: 65px }
+        /*nav bar css*/
+    }
+    html { margin-bottom: 100px }
+    nav a {
+      color: inherit;
+    }
+    /*nav bar css*/
 </style>
 
 <body>
@@ -193,23 +215,23 @@
 </div>
 
 <nav class="navbar navbar-default navbar-fixed-bottom">
-    <div class="container-fluid" id="buttons">
-        <div id="seven-percent" class="col-xs-offset-1 col-xs-2 col-md-2 col-lg-2 text-center"><a href="127.0.0.1:8000/rewards_app/friends" data-toggle="tooltip" title="Friends">
-            <i class="fa fa-list-ol fa-3x" aria-hidden="true"></i>
-        </a></div>
-        <div class="col-xs-2 col-md-2 col-lg-2 text-center"><a href="127.0.0.1:8000/rewards_app/profile" data-toggle="tooltip" title="Profile">
-            <i class="fa fa-user-circle-o fa-3x" aria-hidden="true"></i>
-        </a></div>
-        <div class="col-xs-2 col-md-2 col-lg-2 text-center"><a href="127.0.0.1:8000/rewards_app/home" data-toggle="tooltip" title="Home">
-            <i class="fa fa-home fa-3x" aria-hidden="true"></i>
-        </a></div>
-        <div class="col-xs-2 col-md-2 col-lg-2 text-center"><a href = "127.0.0.1:8000/rewards_app/friends" data-toggle="tooltip" title="Friends">
-            <i class="fa fa-group fa-3x" aria-hidden="true"></i>
-        </a></div>
-        <div class="col-xs-2 col-md-2 col-lg-2 text-center"><a class="active" href="127.0.0.1:8000/rewards_app/charities" data-toggle="tooltip" title="Charities">
-            <i class="fa fa-handshake-o fa-3x" aria-hidden="true"></i>
-        </a></div>
-    </div>
+  <div class="container-fluid" id="buttons">
+    <div id="seven-percent" class="col-xs-offset-1 col-xs-2 col-md-2 col-lg-2 text-center"><a href="{% url 'leaderboard' %}" data-toggle="tooltip" title="Friends">
+      <i class="fa fa-list-ol fa-3x" aria-hidden="true"></i>
+    </a></div>
+    <div class="col-xs-2 col-md-2 col-lg-2 text-center"><a href="{% url 'profile' %}" data-toggle="tooltip" title="Profile">
+      <i class="fa fa-user-circle-o fa-3x" aria-hidden="true"></i>
+    </a></div>
+    <div class="col-xs-2 col-md-2 col-lg-2 text-center"><a id="active" href="{% url 'home' %}" data-toggle="tooltip" title="Home">
+      <i class="fa fa-home fa-3x" aria-hidden="true"></i>
+    </a></div>
+    <div class="col-xs-2 col-md-2 col-lg-2 text-center"><a href = "{% url 'friend_name' %}" data-toggle="tooltip" title="Friends">
+      <i class="fa fa-group fa-3x" aria-hidden="true"></i>
+    </a></div>
+    <div class="col-xs-2 col-md-2 col-lg-2 text-center"><a href="{% url 'charities' %}" data-toggle="tooltip" title="Charities">
+      <i class="fa fa-handshake-o fa-3x" aria-hidden="true"></i>
+    </a></div>
+  </div>
 </nav>
 </body>
 </html>
