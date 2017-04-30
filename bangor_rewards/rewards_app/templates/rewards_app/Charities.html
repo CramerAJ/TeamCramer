@@ -48,7 +48,7 @@
     #header-text{
         color: #584d51;
         font-family: 'Raleway', 'Roboto', sans-serif;
-        font-size: 500%;
+        font-size: 450%;
         font-weight: 300;
         text-align: center;
         margin: 1.5% 0%;
@@ -134,7 +134,7 @@
     }
     html { margin-bottom: 100px }
     #active .fa {
-      color: #1251a7;
+        color: #1251a7;
     }
     /*nav bar css*/
 
@@ -177,7 +177,12 @@
 </style>
 
 <body>
-<!--Header, Profile pic, Name-->
+<!--Header-->
+<div class="navbar navbar-static-top">
+    <div id="header" class="row">
+        <div id="header-text" class="col-xs-12 col-md-12 col-lg-12">Charities</div>
+    </div>
+</div>
 
 <nav class="navbar navbar-default navbar-fixed-bottom">
     <div class="container-fluid" id="buttons">
@@ -208,7 +213,7 @@
                 <div class="row">
                     <div class="col-xs-12 col-md-2 col-lg-2"><img src= {{ c.image_url }}></img></div>
                     <div class="col-xs-12 col-md-8 col-lg-8">
-                        <h3 style="margin-top: 10px">{{ c.name }}   <small><a href="{{ c.website }}" class="fa-external-link"></a></small></h3>
+                        <h3 style="margin-top: 10px">{{ c.name }}   <small><a href="{{ c.website }}" class="fa fa-external-link"></a></small></h3>
                         <p>{{ c.description }}</p>
                         <a href={{ c.facebook_url }}><i class="fa fa-facebook-official" style="font-size:24px"></i></a>
                         <a href={{ c.twitter_url }}><i class="fa fa fa-twitter" style="font-size:24px"></i></a>
