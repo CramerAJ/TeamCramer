@@ -185,7 +185,7 @@ html { margin-bottom: 100px }
               <div id="contents">
                   <div class="row">
                       <div id="num" class="col-xs-2 col-md-1 col-lg-1 vcenter">{{forloop.counter}}</div>
-                      <div id="prof-pic" class="col-xs-7 col-md-2 col-lg-2 vcenter"><a href="https://facebook.com"><img src="https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png" alt="Go to user profile"></a></div>
+                      <div id="prof-pic" class="col-xs-7 col-md-2 col-lg-2 vcenter"><a href="https://facebook.com"><img src={{ line.image_url }} alt="Go to user profile"></a></div>
                       <div id="friend-name" class="col-xs-12 col-md-5 col-lg-5 vcenter"><a href="https://facebook.com">{{ line.name }}</a></div>
                       <div id="num" class="col-xs-12 col-md-3 col-lg-3 vcenter">{{line.total_points}}</div>
                   </div>
