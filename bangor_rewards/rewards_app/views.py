@@ -94,7 +94,8 @@ def leaderboard(request):
 def profile(request):
     u = request.user
     profile = Profile.objects.get(user=u)
-    return render(request, 'rewards_app/profile.html',{'profile': profile})
+    achievements = profile.achievements.all()
+    return render(request, 'rewards_app/profile.html',{'profile': profile, 'achievements' : achievements})
 
 def index(request):
     u = request.user
