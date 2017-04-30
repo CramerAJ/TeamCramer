@@ -10,132 +10,191 @@
     <link rel="stylesheet" href="static/bootstrap-social.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <title>Charities</title>
+    <script>
+        /* When the user clicks on the button,
+         toggle between hiding and showing the dropdown content */
+        function dropDown() {
+            document.getElementById("myDropdown").classList.toggle("show");
+        }
+
+        // Close the dropdown if the user clicks outside of it
+        window.onclick = function(event) {
+            if (!event.target.matches('.dropbtn')) {
+
+                var dropdowns = document.getElementsByClassName("dropdown-content");
+                var i;
+                for (i = 0; i < dropdowns.length; i++) {
+                    var openDropdown = dropdowns[i];
+                    if (openDropdown.classList.contains('show')) {
+                        openDropdown.classList.remove('show');
+                    }
+                }
+            }
+        }
+    </script
 </head>
 
 <style>
-#header{
-    background-color: #fafafa;
-    text-align: center;
-    width:100%;
-    margin: 0;
-    min-height: 100px;
-    border-bottom: 5px solid #939598;
-    display: flex;
-    align-items: center;
-}
-
-#header-text{
-    color: #584d51;
-    font-family: 'Raleway', 'Roboto', sans-serif;
-    font-size: 500%;
-    font-weight: 300;
-    text-align: center;
-    margin: 1.5% 0%;
-}
-
-@media all and (max-device-width: 500px){
-    #header-text {
-        font-size: 48px;
+    #header{
+        background-color: #fafafa;
+        text-align: center;
+        width:100%;
+        margin: 0;
+        min-height: 100px;
+        border-bottom: 5px solid #939598;
+        display: flex;
+        align-items: center;
     }
-    /*nav bar css*/
-    #seven-percent {
-      margin-left: 7%;
+
+    #header-text{
+        color: #584d51;
+        font-family: 'Raleway', 'Roboto', sans-serif;
+        font-size: 500%;
+        font-weight: 300;
+        text-align: center;
+        margin: 1.5% 0%;
     }
-    html { margin-bottom: 65px }
+
+    @media all and (max-device-width: 500px){
+        #header-text {
+            font-size: 48px;
+        }
+        /*nav bar css*/
+        #seven-percent {
+            margin-left: 7%;
+        }
+        html { margin-bottom: 65px }
+        /*nav bar css*/
+
+    }
+
+    .btn-circle.btn-lg {
+        width: 60px;
+        height: 60px;
+        padding: 10px 10px;
+        font-size: 18px;
+        line-height: 1.33;
+        border-radius: 40px;
+    }
+
+    #search img{
+        /*max-width: 30px;
+        min-height: 30px;*/
+        max-width: 1.5em;
+        min-height: 1.5em;
+    }
+
+    body {
+        background-color: #1251a7; /* fallback for old browsers */
+        font-family: "Roboto", sans-serif;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+        overflow:scroll;
+    }
+    #name {
+        padding-top: 4px;
+        padding-bottom: 4px;
+        box-sizing: border-box;
+        background: #fafafa;
+        border-radius: 20px;
+        width: 90%;
+        margin: 1.5% auto;
+        min-height: 150px;
+    }
+    #contents{
+        margin:1.5em 1.5em;
+    }
+
+    #contents img{
+        max-width: 90px;
+        min-height:90px;
+        width: 100%;
+        height:100%;
+        border-radius: 100%;
+        text-align: left;
+    }
+
+    #name{
+        border-bottom: 5px solid #939598;
+        border-left: 5px solid #939598;
+    }
+
+    a{
+        color: #584d51;
+    }
+
+    a:hover{
+        text-decoration: none;
+        color: #a3969b;
+    }
+
+    /*nav bar css*/
+    #buttons div {
+        padding-top: 2%;
+        padding-bottom: 2%;
+    }
+    html { margin-bottom: 100px }
     /*nav bar css*/
 
-}
+    /*donate button css*/
+    .dropdown a:hover {background-color: #f1f1f1}
 
-.btn-circle.btn-lg {
-    width: 60px;
-    height: 60px;
-    padding: 10px 10px;
-    font-size: 18px;
-    line-height: 1.33;
-    border-radius: 40px;
-}
+    .dropdown-content a {
+        color: black;
+        padding: 12px 16px;
+        text-decoration: none;
+        display: block;
+        font-family: "Roboto", sans-serif;
+    }
+    .dropdown-content {
+        display: none;
+        position: absolute;
+        background-color: #f9f9f9;
+        min-width: 160px;
+        overflow: auto;
+        box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+        z-index: 1;
+    }
+    .dropbtn:hover, .dropbtn:focus {
+        background-color: #00338e;
+    }
 
-#search img{
-    /*max-width: 30px;
-    min-height: 30px;*/
-    max-width: 1.5em;
-    min-height: 1.5em;
-}
-
-body {
-    background-color: #1251a7; /* fallback for old browsers */
-    font-family: "Roboto", sans-serif;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-    overflow:scroll;
-}
-#name {
-    padding-top: 4px;
-    padding-bottom: 4px;
-    box-sizing: border-box;
-    background: #fafafa;
-    border-radius: 20px;
-    width: 90%;
-    margin: 1.5% auto;
-    min-height: 150px;
-}
-#contents{
-    margin:1.5em 1.5em;
-}
-
-#contents img{
-    max-width: 90px;
-    min-height:90px;
-    width: 100%;
-    height:100%;
-    border-radius: 100%;
-    text-align: left;
-}
-
-#name{
-    border-bottom: 5px solid #939598;
-    border-left: 5px solid #939598;
-}
-
-a{
-    color: #584d51;
-}
-
-a:hover{
-    text-decoration: none;
-    color: #a3969b;
-}
-
-/*nav bar css*/
-#buttons div {
-  padding-top: 2%;
-  padding-bottom: 2%;
-}
-html { margin-bottom: 100px }
-/*nav bar css*/
+    .dropdown {
+        position: relative;
+        display: inline-block;
+    }
+    .dropbtn {
+        background-color: #1251a7;
+        color: white;
+        padding: 16px;
+        font-size: 16px;
+        border: none;
+        cursor: pointer;
+        font-family: "Roboto", sans-serif;
+    }
 </style>
 
 <body>
 <!--Header, Profile pic, Name-->
 
 <nav class="navbar navbar-default navbar-fixed-bottom">
-  <div class="container-fluid" id="buttons">
-    <div id="seven-percent" class="col-xs-offset-1 col-xs-2 col-md-2 col-lg-2 text-center"><a href="{% url 'leaderboard' %}" data-toggle="tooltip" title="Friends">
-      <i class="fa fa-list-ol fa-3x" aria-hidden="true"></i>
-    </a></div>
-    <div class="col-xs-2 col-md-2 col-lg-2 text-center"><a href="{% url 'profile' %}" data-toggle="tooltip" title="Profile">
-      <i class="fa fa-user-circle-o fa-3x" aria-hidden="true"></i>
-    </a></div>
-    <div class="col-xs-2 col-md-2 col-lg-2 text-center"><a href="{% url 'home' %}" data-toggle="tooltip" title="Home">
-      <i class="fa fa-home fa-3x" aria-hidden="true"></i>
-    </a></div>
-    <div class="col-xs-2 col-md-2 col-lg-2 text-center"><a href = "{% url 'friend_name' %}" data-toggle="tooltip" title="Friends">
-      <i class="fa fa-group fa-3x" aria-hidden="true"></i>
-    </a></div>
-    <div class="col-xs-2 col-md-2 col-lg-2 text-center"><a class="active" href="{% url 'charities' %}" data-toggle="tooltip" title="Charities">
-      <i class="fa fa-handshake-o fa-3x" aria-hidden="true"></i>
-    </a></div>
-  </div>
+    <div class="container-fluid" id="buttons">
+        <div id="seven-percent" class="col-xs-offset-1 col-xs-2 col-md-2 col-lg-2 text-center"><a href="{% url 'leaderboard' %}" data-toggle="tooltip" title="Friends">
+            <i class="fa fa-list-ol fa-3x" aria-hidden="true"></i>
+        </a></div>
+        <div class="col-xs-2 col-md-2 col-lg-2 text-center"><a href="{% url 'profile' %}" data-toggle="tooltip" title="Profile">
+            <i class="fa fa-user-circle-o fa-3x" aria-hidden="true"></i>
+        </a></div>
+        <div class="col-xs-2 col-md-2 col-lg-2 text-center"><a href="{% url 'home' %}" data-toggle="tooltip" title="Home">
+            <i class="fa fa-home fa-3x" aria-hidden="true"></i>
+        </a></div>
+        <div class="col-xs-2 col-md-2 col-lg-2 text-center"><a href = "{% url 'friend_name' %}" data-toggle="tooltip" title="Friends">
+            <i class="fa fa-group fa-3x" aria-hidden="true"></i>
+        </a></div>
+        <div class="col-xs-2 col-md-2 col-lg-2 text-center"><a class="active" href="{% url 'charities' %}" data-toggle="tooltip" title="Charities">
+            <i class="fa fa-handshake-o fa-3x" aria-hidden="true"></i>
+        </a></div>
+    </div>
 </nav>
 
 
@@ -143,7 +202,7 @@ html { margin-bottom: 100px }
 <!--Scrollable charities-->
 <div id="charities" class="container">
     <div id="charity-scroll">
-       {% for c in charities %}
+        {% for c in charities %}
         <div id="name" class="container-fluid">
             <div id="contents">
                 <div class="row">
@@ -155,12 +214,21 @@ html { margin-bottom: 100px }
                         <a href={{ c.twitter_url }}><i class="fa fa fa-twitter" style="font-size:24px"></i></a>
                     </div>
                     <div class="col-xs-offset-4 col-xs-4 col-sm-2 col-sm-offset-5 col-md-2 col-md-offset-0 col-lg-2 col-lg-offset-0" style="padding-top: 30px">
-                        <button class="btn btn-default">Donate</button>
+                        <div class="dropdown">
+                            <button onclick="dropDown()" class="dropbtn">Donate</button>
+                            <div id="myDropdown" class="dropdown-content">
+                                <a href="#small">10 pts</a>
+                                <a href="#medium">50 pts</a>
+                                <a href="#large">100 pts</a>
+                                <a href="#largest">250 pts</a>
+                                <input type="text" placeholder="Custom" id="myInput">
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
-       {% endfor %}
+        {% endfor %}
 
     </div>
 </div>
