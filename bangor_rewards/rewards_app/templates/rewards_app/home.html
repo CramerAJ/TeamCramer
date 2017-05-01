@@ -43,7 +43,7 @@
         }
         function addFriendUpdate()
         {
-            var colors = ["#be0000", "Blue", "#037d50", "#8E4585", "#40e0d0"];
+            var colors = ["#1251a7", "#584d51", "#939598"];
             var color = colors[Math.floor(Math.random()*colors.length)];
 
 
@@ -53,7 +53,7 @@
             div.style.color = color;
 
             var user = document.createElement('div');
-            user.className = " text textSmall friendUpdateUsername";
+            user.className = " friendUpdateUsername";
             user.style.color= color;
             user.innerText = "Friend's Username";
 
@@ -61,11 +61,11 @@
             text.className = " text textSmall gray friendUpdateText";
             text.innerText = "Friend volunteered at X location"
 
-            var profPic = document.createElement('div');
-            profPic.className = "profilePic";
-            profPic.style.backgroundColor= color;
+            var friendProfPic = document.createElement('div');
+            friendProfPic.className = "friendProfilePic";
+            friendProfPic.style.backgroundColor= color;
 
-            div.appendChild(profPic);
+            div.appendChild(friendProfPic);
             div.appendChild(user);
             div.appendChild(text);
 
@@ -161,12 +161,41 @@
     .barBackground{
         background-color: #1251a7;
     }
+
+    #friendFeed{
+        overflow: scroll;
+    }
+
     .friendProfPic{
         width:50px;
         height:50px;
         border-radius: 50%;
         position:absolute;
     }
+
+    .friendUpdateText{
+        width: 100%;
+        height:60%;
+        padding-top: 3%;
+        padding-left: 60px;
+        box-sizing: border-box;
+        font-family: "Roboto", sans-serif;
+        font-size:1em;
+        font-weight:bold;
+        font-style: italic;
+        color:rgba(140,140,140,1);
+    }
+
+    .friendUpdateUsername{
+        width:100%;
+        font-family: "Roboto", sans-serif;
+        font-size:1.5em;
+        font-weight:bold;
+        box-sizing: border-box;
+        padding-left:60px;
+        height:30%;
+    }
+
     .cardmarginBottom{
         background: #fafafa;
         box-sizing: border-box;
