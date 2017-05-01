@@ -208,21 +208,24 @@
     // The page reloads when the form is submitted, so this stuff
     //  is to keep track of whether they were searching last time it was loaded
     var addFriendShown = localStorage.getItem("addFriendShown")
-    console.log(addFriendShown)
     if (addFriendShown == null)
         addFriendShown = false;
+    addFriendShown = addFriendShown === "true"
 
     // Configures the page properly, once it loads
     // Either shows the friends list or the list of profiles for searching
     function onceLoaded() {
         var add = document.getElementById("add");
         var friends = document.getElementById("friends");
+        var buttonImg = document.getElementById("add_button")
         if (addFriendShown) {
             add.style["display"] = ""
             friends.style["display"] = "none"
+            //buttonImg.src = ""
         } else {
             add.style["display"] = "none"
             friends.style["display"] = ""
+            //buttonImg.src = "http://www.freeiconspng.com/uploads/plus-icon-black-2.png"
         }
     }
 
@@ -249,7 +252,7 @@
     <div id="header" class="row">
         <div class="col-xs-3 col-md-4 col-lg-4"></div>
         <div id="header-text" class="col-xs-6 col-md-4 col-lg-4">Friends</div>
-        <div id="add-friend" class="col-xs-3 col-md-4 col-lg-4"><button type="button" class="btn btn-default btn-circle btn-lg" onclick="addFriend()"><img src="http://www.freeiconspng.com/uploads/plus-icon-black-2.png"></button></div>
+        <div id="add-friend" class="col-xs-3 col-md-4 col-lg-4"><button type="button" class="btn btn-default btn-circle btn-lg" onclick="addFriend()"><img id="add_button" src="http://www.freeiconspng.com/uploads/plus-icon-black-2.png"></button></div>
     </div>
 </div>
 
@@ -282,17 +285,16 @@
 </div>
 
 <div id="add" style="display: none" class="container">
+    <form action="/rewards_app/add_friend/" method="post">
     <div id="search-bar" class="container-fluid">
         <div id="contents">
             <div class="row">
                 <div class="col-xs-12">
-                    <form action="/rewards_app/add_friend/" method="post">
 
                         {% csrf_token %}
                         {{ form.friend_name.label }}
                         {{ form.friend_name }}
                         <input class="btn btn-default" type="submit" value="Search" name="search"/>
-                    </form>
                 </div>
             </div>
         </div>
@@ -302,7 +304,7 @@
     <div id="friend" class="container-fluid">
         <div id="contents">
             <div class="row">
-                <div class="col-xs-12 col-sm-12 col-md-2 col-lg-2"><a href="https://facebook.com"><img src="https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png" alt="Go to user profile"><br /></a></div>
+                <div class="col-xs-12 col-sm-12 col-md-2 col-lg-2"><a href="https://facebook.com"><img src={{u.image_url}} alt="Go to user profile"><br /></a></div>
                 <div id="friend-info" class="col-xs-12 col-sm-12 col-md-12 col-lg-3">
                     <div id="friend-name"><a href="https://facebook.com">{{ u.name }}</a></div>
                     <br />
@@ -310,29 +312,18 @@
                     <div id="points"> {{ u.total_points }}</div>
                 </div>
 
-                <div id="charity" class="col-xs-4 col-centered col-sm-4 col-md-4 col-lg-1">
-                    <a href="https://facebook.com"><img src="https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png">
+                {% for c in u.get_top_three_charities %}
+                <div id="charity" class="col-xs-4 col-centered col-sm-2 col-md-2 col-lg-2">
+                    <a href={{c.facebook_url}}><img src={{c.image_url}}>
                         <br />
-                        Homeless Shelter
+                        {{c.name}}
                     </a>
                 </div>
-
-                <div id="charity" class="col-xs-4 col-centered col-sm-4 col-md-4 col-lg-1">
-                    <a href="https://facebook.com"><img src="https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png">
-                        <br />
-                        Breast Cancer Coalition
-                    </a>
-                </div>
-
-                <div id="charity" class="col-xs-4 col-centered col-sm-4 col-md-4 col-lg-1">
-                    <a href="https://facebook.com"><img src="https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png">
-                        <br />
-                        Animal Shelter
-                    </a>
-                </div>
+                {% endfor %}
 
                 <div class="col-xs-12 col-sm-12 col-md-12 col-lg-2 col-centered vcenter">
-                    <input class="btn btn-default" type="submit" value="Add {{u.name}}" name="add" /><br />
+
+                        <input class="btn btn-default" type="submit" value="Add {{u.name}}" name="add" /><br />
                 </div>
             </div>
         </div>
