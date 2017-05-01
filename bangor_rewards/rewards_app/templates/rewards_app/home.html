@@ -85,6 +85,18 @@
 </head>
 
 <style>
+    #profile-picture img{
+        width:100px;
+        height:100px;
+        background:rgba(255,255,255,1);
+                margin-bottom: 20px;
+        margin-left: -2px;
+        border-radius:100%;
+        border:5px solid rgba(255,255,255,1);
+        z-index: 100000;
+        text-align:center;
+    }
+
     #header{
         background-color: #fafafa;
         text-align: center;
@@ -176,7 +188,6 @@
         height: 110px;
         background: rgba(255, 255, 255, 1);
         border-radius: 100%;
-        background-image: url(https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png);
         background-size: 100% 100%;
         border: 4px solid rgba(255, 255, 255, 1);
         margin-top:-8%;
@@ -228,7 +239,7 @@
 
     <div class="row vcenter">
         <!--Prof Pic-->
-        <div class="col-xs-3 col-md-2"><div class="profile_picture"></div></div>
+            <div id="profile-picture" class="col-xs-12 col-sm-12 col-md-12 col-lg-12"><img src={{ profile.image_url }}></div>
 
         <!--Profile-->
         <div class="col-xs-2">
