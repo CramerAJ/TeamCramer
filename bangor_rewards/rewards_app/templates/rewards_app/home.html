@@ -12,23 +12,29 @@
     <link rel= "stylesheet" href="home.css">
     <script type="text/javascript">
 
-        var points = 1000;
-        var goal = 10000;
+        //var points = {{profile.total_points}};
+
         function addToPoints(increment)
         {
-            var currentWidth = (points/goal) * 100;
-            points += increment;
-            var desiredWidth = (points/goal) * 100;
-            if(points >= goal){
-                goal += 10000;
-            }
+
+
             var elem = document.getElementById("bar");
             var pointsTotal = document.getElementById("pointsTotal");
-            pointsTotal.innerText = points + " points";
+            pointsTotal = parseInt('{{profile.total_points}}') + increment;     //adds 750 to current total ammount
+            var goal =  (((pointsTotal + 9999) / 10000 ) * 10000) - (pointsTotal - 1);  //sets goal to be the next 10,000 to the current points
+
+            if(points >= goal){            //this checks if the points are higher than the goal and if so increments
+                goal += 10000;
+            }
+
+            pointsTotal.innerText = pointsTotal + " points";  //sets new total points
             var goalyo = document.getElementById("goal");
-            goalyo.innerText = "Next Goal: " + goal;
+            goalyo.innerText = "Next Goal: " + goal;          //sets goal into html
             var id = setInterval(frame, 10);
 
+            var currentWidth = (points/goal) * 100;
+
+            var desiredWidth = (points/goal) * 100;
             function frame() {
                 if (currentWidth >= desiredWidth)
                 {
@@ -45,30 +51,23 @@
         {
             var colors = ["#1251a7", "#584d51", "#939598"];
             var color = colors[Math.floor(Math.random()*colors.length)];
-
-
             var parent = document.getElementById("friendFeed");
             var div = document.createElement('div');
             div.className = "card friendUpdate";
             div.style.color = color;
-
             var user = document.createElement('div');
             user.className = " friendUpdateUsername";
             user.style.color= color;
             user.innerText = "Friend's Username";
-
             var text = document.createElement('div');
             text.className = " text textSmall gray friendUpdateText";
             text.innerText = "Friend volunteered at X location"
-
             var friendProfPic = document.createElement('div');
             friendProfPic.className = "friendProfilePic";
             friendProfPic.style.backgroundColor= color;
-
             div.appendChild(friendProfPic);
             div.appendChild(user);
             div.appendChild(text);
-
             if (parent != null) {
                 if (!parent.hasChildNodes())
                     parent.appendChild(div);
@@ -80,12 +79,10 @@
             setTimeout(addFriendUpdate, time);
         }
         setTimeout(addFriendUpdate, 1000);
-
     </script>
 </head>
 
 <style>
-
     #header{
         background-color: #fafafa;
         text-align: center;
@@ -96,7 +93,6 @@
         display: flex;
         align-items: center;
     }
-
     #header-text{
         color: #584d51;
         font-family: 'Raleway', 'Roboto', sans-serif;
@@ -105,34 +101,27 @@
         text-align: center;
         margin: 1.5% 0%;
     }
-
     @media all and (max-device-width: 500px) {
         #header-text {
             font-size: 48px;
         }
-
         .vcenter{
             text-align:center;
         }
-
         /*nav bar css*/
         #seven-percent {
             margin-left: 7%;
         }
-
         html {
             margin-bottom: 65px
         }
-
         /*nav bar css*/
     }
-
     @media all and (min-device-width:1000px){
         .profile_picture img{
             margin-left: 17%;
         }
     }
-
     body {
         margin: 0;
         width:100%;
@@ -161,18 +150,15 @@
     .barBackground{
         background-color: #1251a7;
     }
-
     #friendFeed{
         overflow: scroll;
     }
-
     .friendProfPic{
         width:50px;
         height:50px;
         border-radius: 50%;
         position:absolute;
     }
-
     .friendUpdateText{
         width: 100%;
         height:60%;
@@ -185,7 +171,6 @@
         font-style: italic;
         color:rgba(140,140,140,1);
     }
-
     .friendUpdateUsername{
         width:100%;
         font-family: "Roboto", sans-serif;
@@ -195,7 +180,6 @@
         padding-left:60px;
         height:30%;
     }
-
     .cardmarginBottom{
         background: #fafafa;
         box-sizing: border-box;
@@ -206,7 +190,6 @@
         padding:10px;
         border-bottom: 5px solid #939598;
         border-left: 5px solid #939598;
-
     }
     .vcenter{
         vertical-align: middle;
@@ -222,7 +205,6 @@
         border: 4px solid rgba(255, 255, 255, 1);
         margin-top:-8%;
     }
-
     #feed{
         font-size:2.2em;
         font-weight:300;
@@ -231,7 +213,6 @@
         -webkit-font-smoothing: antialiased;
         -moz-osx-font-smoothing: grayscale;
     }
-
     /*nav bar css*/
     #active .fa {
         color: #1251a7;
@@ -240,7 +221,6 @@
         padding-top: 2%;
         padding-bottom: 2%;
     }
-
     html { margin-bottom: 100px }
     nav a {
         color: inherit;
