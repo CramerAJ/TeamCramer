@@ -19,6 +19,9 @@ class Charity(models.Model):
 	facebook_url = models.URLField(default="")
 	twitter_url = models.URLField(default="")
 
+	def pay(self, amt):
+		self.points += amt
+
 	def __str__(self):
 		return self.name
 
@@ -58,14 +61,18 @@ class Profile(models.Model):
 			return titleList[level]
 		else:
 			return titleList[len(titleList-1)]
-        def get_top_three_charities(self):
-                usersDonations = Activity.objects.filter(profile__in=[self]).filter(act__in='Donation')
-                topThreePointTotals = (usersDonations.values('charity').annotate(s = Sum('points')).order_by('-s'))[:3]             
-                topThreeCharities = []
-                for x in topThreePointTotals:
-                        charityID = x['charity']
-                        topThreeCharities.append(Charity.objects.get(id=charityID))
-                return topThreeCharities
+
+	def pay(self, amt):
+		self.current_points -= amt
+
+	def get_top_three_charities(self):
+		usersDonations = Activity.objects.filter(profile__in=[self]).filter(act__in='Donation')
+		topThreePointTotals = (usersDonations.values('charity').annotate(s = Sum('points')).order_by('-s'))[:3]             
+		topThreeCharities = []
+		for x in topThreePointTotals:
+			charityID = x['charity']
+			topThreeCharities.append(Charity.objects.get(id=charityID))
+		return topThreeCharities
         
 class Achievement(models.Model):
 	name = models.CharField(max_length=64)

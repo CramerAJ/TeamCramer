@@ -73,9 +73,27 @@ def charities(request):
     u = request.user
     profile = Profile.objects.get(user=u)
 
+    error = ''
+
+    if request.method == 'POST':
+        points = 0
+        charityPK = 0
+        for k in request.POST.iterkeys():
+            if k[:7] == "donate_":
+                charityPK = int(k[7:])
+                points = int(request.POST[k])
+        charity = Charity.objects.filter(pk=charityPK)[0]
+        if points <= profile.current_points:
+            profile.pay(points)
+            charity.pay(points)
+            profile.save()
+            charity.save()
+        else:
+            error = "You don't have enough points for that"
+
     charities = Charity.objects.order_by('-points')
 
-    return render(request, 'rewards_app/Charities.html', {'charities': charities, 'profile': profile})
+    return render(request, 'rewards_app/Charities.html', {'charities': charities, 'profile': profile, 'error': error})
 
 
 def leaderboard(request):

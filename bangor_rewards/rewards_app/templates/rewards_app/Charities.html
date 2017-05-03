@@ -12,12 +12,12 @@
     <title>Charities</title>
     <script>
 
-        function dropDown() {
-            document.getElementById("myDropdown").classList.toggle("show");
+        function dropDown(pk) {
+            document.getElementById("myDropdown"+pk).classList.toggle("show");
         }
 
         // Close the dropdown if the user clicks outside of it
-        window.onclick = function(event) {
+        /*window.onclick = function(event) {
             if (!event.target.matches('.dropbtn')) {
 
                 var dropdowns = document.getElementsByClassName("dropdown-content");
@@ -29,7 +29,7 @@
                     }
                 }
             }
-        }
+        }*/
     </script>
 </head>
 
@@ -169,7 +169,7 @@
         display: none;
         position: absolute;
         background-color: #f9f9f9;
-        min-width: 160px;
+        min-width: 80px;
         overflow: auto;
         box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
         z-index: 1;
@@ -223,6 +223,17 @@
     </div>
 </nav>
 
+<div id="current-info" class="container-fluid">
+    <div id="contents">
+        <div class="row">
+            <div class="col-xs-12">
+            You have {{ profile.current_points }} points to spend.<br />
+            {{ error }}
+            </div>
+        </div>
+    </div>
+</div>
+
 <!--Scrollable charities-->
 <div id="charities" class="container">
     <div id="charity-scroll">
@@ -239,13 +250,15 @@
                     </div>
                     <div class="col-xs-offset-4 col-xs-4 col-sm-2 col-sm-offset-5 col-md-2 col-md-offset-0 col-lg-2 col-lg-offset-0" style="padding-top: 30px">
                         <div class="dropdown">
-                            <button onclick="dropDown()" class="dropbtn">Donate</button>
-                            <div id="myDropdown" class="dropdown-content">
-                                <a href="#small">10 pts</a>
-                                <a href="#medium">50 pts</a>
-                                <a href="#large">100 pts</a>
-                                <a href="#largest">250 pts</a>
-                                <input type="text" placeholder="Custom" id="myInput">
+                            <button onclick="dropDown({{ c.pk }})" class="dropbtn">Donate</button>
+                            <div id="myDropdown{{ c.pk }}" class="dropdown-content">
+                                <form action="/rewards_app/charities/" method="post">
+                                    {% csrf_token %}
+                                    <input type="submit" name="donate_{{c.pk}}" value="10" /><br />
+                                    <input type="submit" name="donate_{{c.pk}}" value="50" /><br />
+                                    <input type="submit" name="donate_{{c.pk}}" value="100" /><br />
+                                    <input type="submit" name="donate_{{c.pk}}" value="250" />
+                                </form>
                             </div>
                         </div>
                     </div>
