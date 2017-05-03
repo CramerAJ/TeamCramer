@@ -293,12 +293,11 @@
         {% for f in feed %}
         <div class="card friendUpdate">
             <div class="row">
-                <!--<div class="col-xs-2 col-sm-2 col-md-1 col-lg-1 centerAlign"><img src={{ f.profile.image_url }} class="friendProfPic"></div>-->
-                <div class="col-xs-2 col-sm-2 col-md-1 col-lg-1 centerAlign"><img src="https://maxcdn.icons8.com/Share/icon/Users//user_male_circle_filled1600.png" class="friendProfPic"></div>
+                <div class="col-xs-2 col-sm-2 col-md-1 col-lg-1 centerAlign"><img src={{ f.profile.image_url }} class="friendProfPic"></div>
 
                 <div class="col-xs-10 col-sm-10 col-md-11 col-lg-11">
-                    <div class="col-xs-12 friendUpdateUsername"><!--{{ f.profile.name }}-->Katie Manzo</div>
-                    <div class="col-xs-12 friendUpdateText"><!--{{ f }}-->Got a latte</div>
+                    <div class="col-xs-12 friendUpdateUsername">{{ f.profile.name }}</div>
+                    <div class="col-xs-12 friendUpdateText">{{ f }}</div>
                 </div>
             </div>
         </div>
