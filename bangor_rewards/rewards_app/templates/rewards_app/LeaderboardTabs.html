@@ -111,7 +111,45 @@
         border-radius: 100%;
         text-align: left;
     }
+/*
+The css for the top 3 placers in the leaderboard. place1 is first place 
+*/
+    #place1{
+        margin:1.5em 1.5em;
+    }
 
+    #place1 img{
+        max-width: 90px;
+        min-height:90px;
+        width: 100%;
+        height:100%;
+        border-radius: 100%;
+        text-align: left;
+    }
+    #place2{
+        margin:1.5em 1.5em;
+    }
+
+    #place2 img{
+        max-width: 90px;
+        min-height:90px;
+        width: 100%;
+        height:100%;
+        border-radius: 100%;
+        text-align: left;
+    }
+    #place3{
+        margin:1.5em 1.5em;
+    }
+
+    #place3 img{
+        max-width: 90px;
+        min-height:90px;
+        width: 100%;
+        height:100%;
+        border-radius: 100%;
+        text-align: left;
+    }
     #slot{
         border-bottom: 5px solid #939598;
         border-left: 5px solid #939598;
@@ -221,15 +259,25 @@
     <div class="tab-content">
         <!--Friends Leaderboards Tab-->
         <div id="friends" class="tab-pane fade in active">
-            {% for line in friendBoard %}
+                {% for line in friendBoard %}
             <div id="slot" class="container-fluid">
                 <div id="contents">
                     <div class="row">
-                        <div id="num" class="col-xs-2 col-md-1 col-lg-1 vcenter">
-                        {{forloop.counter}}</div>
-                        <div id="prof-pic" class="col-xs-7 col-md-2 col-lg-2 vcenter"><a href="https://facebook.com"><img src={{ line.image_url }} alt="Go to user profile"></a></div>
-                        <div id="friend-name" class="col-xs-12 col-md-5 col-lg-5 vcenter"><a href="https://facebook.com">{{ line.name }}</a></div>
-                        <div id="num" class="col-xs-12 col-md-3 col-lg-3 vcenter">{{line.total_points}}</div>
+                        {% if forloop.counter == 1 %}
+                        <div id="place1">
+                        {% elif forloop.counter == 2 %}
+                        <div id="place2">
+                        {% elif forloop.counter == 3 %}
+                        <div id="place3">
+                        {% else %}
+                        <div id="regplace">
+                        {% endif %}
+                            <div id="num" class="col-xs-2 col-md-1 col-lg-1 vcenter">
+                            {{forloop.counter}}</div>
+                            <div id="prof-pic" class="col-xs-7 col-md-2 col-lg-2 vcenter"><a href="https://facebook.com"><img src={{ line.image_url }} alt="Go to user profile"></a></div>
+                            <div id="friend-name" class="col-xs-12 col-md-5 col-lg-5 vcenter"><a href="https://facebook.com">{{ line.name }}</a></div>
+                            <div id="num" class="col-xs-12 col-md-3 col-lg-3 vcenter">{{line.total_points}}</div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -242,10 +290,20 @@
             <div id="slot" class="container-fluid">
                 <div id="contents">
                     <div class="row">
-                        <div id="num" class="list_num col-xs-2 col-md-1 col-lg-1 vcenter">{{forloop.counter}}</div>
-                        <div id="prof-pic" class="col-xs-7 col-md-2 col-lg-2 vcenter"><a href="https://facebook.com"><img src={{ line.image_url }} alt="Go to user profile"></a></div>
-                        <div id="friend-name" class="col-xs-12 col-md-5 col-lg-5 vcenter"><a href="https://facebook.com">{{ line.name }}</a></div>
-                        <div id="num" class="col-xs-12 col-md-3 col-lg-3 vcenter">{{line.total_points}}</div>
+                        {% if forloop.counter == 1 %}
+                        <div id="place1">
+                        {% elif forloop.counter == 2 %}
+                        <div id="place2">
+                        {% elif forloop.counter == 3 %}
+                        <div id="place3">
+                        {% else %}
+                        <div id="regplace">
+                        {% endif %}
+                            <div id="num" class="list_num col-xs-2 col-md-1 col-lg-1 vcenter">{{forloop.counter}}</div>
+                            <div id="prof-pic" class="col-xs-7 col-md-2 col-lg-2 vcenter"><a href="https://facebook.com"><img src={{ line.image_url }} alt="Go to user profile"></a></div>
+                            <div id="friend-name" class="col-xs-12 col-md-5 col-lg-5 vcenter"><a href="https://facebook.com">{{ line.name }}</a></div>
+                            <div id="num" class="col-xs-12 col-md-3 col-lg-3 vcenter">{{line.total_points}}</div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -258,10 +316,19 @@
             <div id="slot" class="container-fluid">
                 <div id="contents">
                     <div class="row">
-                        <div id="num" class="list_num col-xs-2 col-md-1 col-lg-1 vcenter">{{forloop.counter}}</div>
-                        <div id="prof-pic" class="col-xs-7 col-md-2 col-lg-2 vcenter"><a href="https://facebook.com"><img src={{ line.image_url }} alt="Go to user profile"></a></div>
-                        <div id="charity-name" class="col-xs-12 col-md-5 col-lg-5 vcenter"><a href="https://facebook.com">{{ line.name }}</a></div>
-                        <div id="num" class="col-xs-12 col-md-3 col-lg-3 vcenter">{{line.points}}</div>
+                        {% if forloop.counter == 1 %}
+                        <div id="place1">
+                        {% elif forloop.counter == 2 %}
+                        <div id="place2">
+                        {% elif forloop.counter == 3 %}
+                        <div id="place3">
+                        {% else %}
+                        <div id="regplace">
+                        {% endif %}
+                            <div id="num" class="list_num col-xs-2 col-md-1 col-lg-1 vcenter">{{forloop.counter}}</div>
+                            <div id="prof-pic" class="col-xs-7 col-md-2 col-lg-2 vcenter"><a href="https://facebook.com"><img src={{ line.image_url }} alt="Go to user profile"></a></div>
+                            <div id="charity-name" class="col-xs-12 col-md-5 col-lg-5 vcenter"><a href="https://facebook.com">{{ line.name }}</a></div>
+                            <div id="num" class="col-xs-12 col-md-3 col-lg-3 vcenter">{{line.points}}</div>
                     </div>
                 </div>
             </div>
