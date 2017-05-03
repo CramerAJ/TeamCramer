@@ -44,6 +44,9 @@ class Profile(models.Model):
 			Profile.objects.create(user=instance)
 		instance.profile.save()
 
+	def spent(self):
+		return self.total_points - self.current_points
+
 	def get_level(self):
 		spent = self.total_points - self.current_points
 		return int((math.sqrt(spent))/10)

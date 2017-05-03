@@ -218,14 +218,15 @@
         var add = document.getElementById("add");
         var friends = document.getElementById("friends");
         var buttonImg = document.getElementById("add_button")
+
         if (addFriendShown) {
             add.style["display"] = ""
             friends.style["display"] = "none"
-            //buttonImg.src = ""
+            buttonImg.src = "https://i.imgur.com/rZsuvFE.png"
         } else {
             add.style["display"] = "none"
             friends.style["display"] = ""
-            //buttonImg.src = "http://www.freeiconspng.com/uploads/plus-icon-black-2.png"
+            buttonImg.src = "http://www.freeiconspng.com/uploads/plus-icon-black-2.png"
         }
     }
 
@@ -233,12 +234,15 @@
     function addFriend() {
         var add = document.getElementById("add");
         var friends = document.getElementById("friends");
+        var buttonImg = document.getElementById("add_button")
         if (addFriendShown) {
             add.style["display"] = "none"
             friends.style["display"] = ""
+            buttonImg.src = "http://www.freeiconspng.com/uploads/plus-icon-black-2.png"
         } else {
             add.style["display"] = ""
             friends.style["display"] = "none"
+            buttonImg.src = "https://i.imgur.com/rZsuvFE.png"
         }
         addFriendShown = !addFriendShown
         localStorage.setItem("addFriendShown", addFriendShown)
