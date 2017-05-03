@@ -119,8 +119,13 @@
     #top-place img{
         max-width: 40px;
         min-height:50px;
-        width: 100%;
-        height:100%;
+    }
+
+    @media all and (max-device-width:700px){
+        #top-place img{
+            width:40px;
+            min-height:60%;
+        }
     }
 
     #slot{
@@ -231,8 +236,9 @@
 
 <div id="main" class="container">
 
-    <!--Friends Leaderboards Tab-->
+
     <div class="tab-content">
+        <!--Friends Leaderboards Tab-->
         <div id="friends" class="tab-pane fade in active">
             {% for line in friendBoard %}
             <div id="slot" class="container-fluid">
@@ -265,70 +271,73 @@
         </div>
         {% endfor %}
 
-    <!--All Users Leaderboards Tab-->
-    <div id="allUsers" class="tab-pane fade">
-        {% for line in userBoard %}
-        <div id="slot" class="container-fluid">
-            <div id="contents">
-                <div class="row">
-                    <!--First place number-->
-                    {% if forloop.counter == 1 %}
-                    <div id="top-place" class="col-xs-2 col-md-1 col-lg-1 vcenter"><img src="http://imgur.com/qUsC0RU.jpg"></div>
 
-                    <!--Second place number-->
-                    {% elif forloop.counter == 2 %}
-                    <div id="top-place" class="col-xs-2 col-md-1 col-lg-1 vcenter"><img src="http://imgur.com/Xjbc53b.jpg"></div>
+        <!--All Users Leaderboards Tab-->
+        <div id="allUsers" class="tab-pane fade">
+            {% for line in userBoard %}
+            <div id="slot" class="container-fluid">
+                <div id="contents">
+                    <div class="row">
+                        <!--First place number-->
+                        {% if forloop.counter == 1 %}
+                        <div id="top-place" class="col-xs-2 col-md-1 col-lg-1 vcenter"><img src="http://imgur.com/qUsC0RU.jpg"></div>
 
-                    <!--Third place number-->
-                    {% elif forloop.counter == 3 %}
-                    <div id="top-place" class="col-xs-2 col-md-1 col-lg-1 vcenter"><img src="http://imgur.com/FujBTor.jpg"></div>
+                        <!--Second place number-->
+                        {% elif forloop.counter == 2 %}
+                        <div id="top-place" class="col-xs-2 col-md-1 col-lg-1 vcenter"><img src="http://imgur.com/Xjbc53b.jpg"></div>
 
-                    <!--Everyone else's number-->
-                    {% else %}
-                    <div id="num" class="col-xs-2 col-md-1 col-lg-1 vcenter">{{forloop.counter}}</div>
-                    {% endif %}
+                        <!--Third place number-->
+                        {% elif forloop.counter == 3 %}
+                        <div id="top-place" class="col-xs-2 col-md-1 col-lg-1 vcenter"><img src="http://imgur.com/FujBTor.jpg"></div>
 
-                    <!--Prof Pic, Name, Points-->
-                    <div id="prof-pic" class="col-xs-7 col-md-2 col-lg-2 vcenter"><a href="https://facebook.com"><img src={{ line.image_url }} alt="Go to user profile"></a></div>
-                    <div id="friend-name" class="col-xs-12 col-md-5 col-lg-5 vcenter"><a href="https://facebook.com">{{ line.name }}</a></div>
-                    <div id="num" class="col-xs-12 col-md-3 col-lg-3 vcenter">{{line.total_points}}</div>
+                        <!--Everyone else's number-->
+                        {% else %}
+                        <div id="num" class="col-xs-2 col-md-1 col-lg-1 vcenter">{{forloop.counter}}</div>
+                        {% endif %}
+
+                        <!--Prof Pic, Name, Points-->
+                        <div id="prof-pic" class="col-xs-7 col-md-2 col-lg-2 vcenter"><a href="https://facebook.com"><img src={{ line.image_url }} alt="Go to user profile"></a></div>
+                        <div id="friend-name" class="col-xs-12 col-md-5 col-lg-5 vcenter"><a href="https://facebook.com">{{ line.name }}</a></div>
+                        <div id="num" class="col-xs-12 col-md-3 col-lg-3 vcenter">{{line.total_points}}</div>
+                    </div>
                 </div>
             </div>
+            {% endfor %}
         </div>
-        {% endfor %}
-    </div>
 
-    <!--Charities Leaderboards Tab-->
-    <div id="charities" class="tab-pane fade">
-        {% for line in charityBoard %}
-        <div id="slot" class="container-fluid">
-            <div id="contents">
-                <div class="row">
-                    <!--First place number-->
-                    {% if forloop.counter == 1 %}
-                    <div id="top-place" class="col-xs-2 col-md-1 col-lg-1 vcenter"><img src="http://imgur.com/qUsC0RU.jpg"></div>
+        <!--Charities Leaderboards Tab-->
+        <div id="charities" class="tab-pane fade">
+            {% for line in charityBoard %}
+            <div id="slot" class="container-fluid">
+                <div id="contents">
+                    <div class="row">
+                        <!--First place number-->
+                        {% if forloop.counter == 1 %}
+                        <div id="top-place" class="col-xs-2 col-md-1 col-lg-1 vcenter"><img src="http://imgur.com/qUsC0RU.jpg"></div>
 
-                    <!--Second place number-->
-                    {% elif forloop.counter == 2 %}
-                    <div id="top-place" class="col-xs-2 col-md-1 col-lg-1 vcenter"><img src="http://imgur.com/Xjbc53b.jpg"></div>
+                        <!--Second place number-->
+                        {% elif forloop.counter == 2 %}
+                        <div id="top-place" class="col-xs-2 col-md-1 col-lg-1 vcenter"><img src="http://imgur.com/Xjbc53b.jpg"></div>
 
-                    <!--Third place number-->
-                    {% elif forloop.counter == 3 %}
-                    <div id="top-place" class="col-xs-2 col-md-1 col-lg-1 vcenter"><img src="http://imgur.com/FujBTor.jpg"></div>
+                        <!--Third place number-->
+                        {% elif forloop.counter == 3 %}
+                        <div id="top-place" class="col-xs-2 col-md-1 col-lg-1 vcenter"><img src="http://imgur.com/FujBTor.jpg"></div>
 
-                    <!--Everyone else's number-->
-                    {% else %}
-                    <div id="num" class="col-xs-2 col-md-1 col-lg-1 vcenter">{{forloop.counter}}</div>
-                    {% endif %}
+                        <!--Everyone else's number-->
+                        {% else %}
+                        <div id="num" class="col-xs-2 col-md-1 col-lg-1 vcenter">{{forloop.counter}}</div>
+                        {% endif %}
 
-                    <!--Prof Pic, Name, Points-->
-                    <div id="prof-pic" class="col-xs-7 col-md-2 col-lg-2 vcenter"><a href="https://facebook.com"><img src={{ line.image_url }} alt="Go to user profile"></a></div>
-                    <div id="charity-name" class="col-xs-12 col-md-5 col-lg-5 vcenter"><a href="https://facebook.com">{{ line.name }}</a></div>
-                    <div id="num" class="col-xs-12 col-md-3 col-lg-3 vcenter">{{line.points}}</div>
+                        <!--Prof Pic, Name, Points-->
+                        <div id="prof-pic" class="col-xs-7 col-md-2 col-lg-2 vcenter"><a href="https://facebook.com"><img src={{ line.image_url }} alt="Go to user profile"></a></div>
+                        <div id="charity-name" class="col-xs-12 col-md-5 col-lg-5 vcenter"><a href="https://facebook.com">{{ line.name }}</a></div>
+                        <div id="num" class="col-xs-12 col-md-3 col-lg-3 vcenter">{{line.points}}</div>
+                    </div>
                 </div>
             </div>
+            {% endfor %}
         </div>
-        {% endfor %}
+        
     </div>
 </div>
 
