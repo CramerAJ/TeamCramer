@@ -17,7 +17,7 @@
         }
 
         // Close the dropdown if the user clicks outside of it
-        /*window.onclick = function(event) {
+        window.onclick = function(event) {
             if (!event.target.matches('.dropbtn')) {
 
                 var dropdowns = document.getElementsByClassName("dropdown-content");
@@ -29,7 +29,7 @@
                     }
                 }
             }
-        }*/
+        }
     </script>
 </head>
 
@@ -227,8 +227,7 @@
     <div id="contents" style="margin-top: -0.5em; margin-bottom:0em;">
         <div class="row">
             <div class="col-xs-12">
-            <h4><strong style="color: white;">You have {{ profile.current_points }} points to spend.<br /></strong></h4>
-            {{ error }}
+            <h4><strong style="color: white;">You have {{ profile.current_points }} points to spend.<br />{{ error }}</strong></h4>
             </div>
         </div>
     </div>
