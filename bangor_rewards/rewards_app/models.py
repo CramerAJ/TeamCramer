@@ -91,7 +91,7 @@ class Activity(models.Model):
 	charity = models.ForeignKey("Charity", on_delete=models.CASCADE, blank=True, null=True)
 	act = models.CharField(max_length=20, choices=act_types)
 	points = models.IntegerField(default=0)
-	timestamp = models.DateField(auto_now=True)
+	timestamp = models.DateTimeField(auto_now_add=True)
 
 
 
