@@ -88,6 +88,12 @@ def charities(request):
             charity.pay(points)
             profile.save()
             charity.save()
+            a = Activity()
+            a.profile = profile
+            a.charity = charity
+            a.act = 'D'
+            a.points = points
+            a.save()
         else:
             error = "You don't have enough points for that"
 
