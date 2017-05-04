@@ -1,11 +1,13 @@
 from __future__ import unicode_literals
 import math
+from random import randint
 
 from django.db import models
 from django.contrib.auth.models import User
 from django.db.models.signals import post_save
 from django.dispatch import receiver
 from django.db.models import Sum
+
 
 # Create your models here.
 class Charity(models.Model):
@@ -64,6 +66,11 @@ class Profile(models.Model):
 
 	def pay(self, amt):
 		self.current_points -= amt
+
+	def swipe(self):
+		newInt = randint(0,500)
+		self.current_points += newInt
+		self.total_points += newInt
 
 	def get_top_three_charities(self):
 		usersDonations = Activity.objects.filter(profile__in=[self]).filter(act__in='Donation')

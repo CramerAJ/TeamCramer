@@ -249,7 +249,7 @@
 
         <!--Progress Bar-->
         <div class="centerAlign col-xs-12 col-md-6 col-lg-6">
-            <div style="height:50%; vertical-align: text-bottom;" id="pointsTotal">840 points</div>
+            <div style="height:50%; vertical-align: text-bottom;" id="pointsTotal">{{profile.total_points}}</div>
 
             <div class="progressBar">
                 <div id="bar" class="progressForeground barBackground" style="width:10%; max-width:100% "></div>
@@ -263,6 +263,11 @@
 <!--Swipe/Check-in Buttons-->
 <div class="cardmarginBottom" style="max-height: 1500px;">
     <div class="row vcenter">
+    <form action="/rewards_app/home/" method="post">
+        {% csrf_token %}
+         <div class="col-xs-6"><input type="submit" name="swipe" value="swipe" /><br /></div>
+    </form>
+
         <div class="col-xs-6"><button type="button" class="btn btn-primary btn-lg btn-block" onclick="addToPoints(20)"style="white-space:normal">Check Card Swipes</button></div>
         <div class="col-xs-6"><button type="button" class="btn btn-primary btn-lg btn-block" style="white-space:normal">Location Check-in</button></div>
     </div>

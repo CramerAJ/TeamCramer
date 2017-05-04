@@ -128,4 +128,8 @@ def index(request):
     friends = profile.friends.all()
     friend_ids = [f.id for f in friends]
     feed = Activity.objects.filter(profile_id__in=friend_ids).order_by('timestamp')[::-1]
+    if request.method =='POST':
+        if request.POST.get('swipe'):
+            profile.swipe()
+            profile.save()
     return render(request, 'rewards_app/home.html', {'feed': feed, 'name': profile.name, 'points': profile.current_points, 'profile': profile})
