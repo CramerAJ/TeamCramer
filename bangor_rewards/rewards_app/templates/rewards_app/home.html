@@ -11,29 +11,18 @@
     <title>Home</title> <!-- >Gives a name in the tab on the browser<-->
     <script type="text/javascript">
 
-        //var points = {{profile.total_points}};
-
+        var points = 840;
+        var goal = 10000;
         function addToPoints(increment)
         {
-
+            var currentWidth = (points/goal) * 100;
+            points += increment;
+            var desiredWidth = (points/goal) * 100;
 
             var elem = document.getElementById("bar");
             var pointsTotal = document.getElementById("pointsTotal");
-            pointsTotal = parseInt('{{profile.total_points}}') + increment;     //adds 750 to current total amount
-            var goal =  (((pointsTotal + 9999) / 10000 ) * 10000) - (pointsTotal - 1);  //sets goal to be the next 10,000 to the current points
-
-            if(points >= goal){            //this checks if the points are higher than the goal and if so increments
-                goal += 10000;
-            }
-
-            pointsTotal.innerText = pointsTotal + " points";  //sets new total points
-            var goalyo = document.getElementById("goal");
-            goalyo.innerText = "Next Goal: " + goal;          //sets goal into html
+            pointsTotal.innerText = points + " points";
             var id = setInterval(frame, 10);
-
-            var currentWidth = (points/goal) * 100;
-
-            var desiredWidth = (points/goal) * 100;
             function frame() {
                 if (currentWidth >= desiredWidth)
                 {
@@ -46,6 +35,7 @@
                 }
             }
         }
+
         function addFriendUpdate()
         {
             var colors = ["#1251a7", "#584d51", "#939598"];
@@ -139,8 +129,6 @@
     .row{
         margin:2em auto;
     }
-
-
     /*Progress bar CSS*/
     .progressForeground
     {
@@ -157,8 +145,6 @@
     .barBackground{
         background-color: #1251a7;
     }
-
-
     /*Friend Feed CSS*/
     #friendFeed{
         overflow: scroll;
@@ -188,8 +174,6 @@
         box-sizing: border-box;
         padding-left:50px;
     }
-
-
     .cardmarginBottom{
         background: #fafafa;
         box-sizing: border-box;
@@ -223,12 +207,10 @@
         -webkit-font-smoothing: antialiased;
         -moz-osx-font-smoothing: grayscale;
     }
-
     .centerAlign
     {
         text-align: center;
     }
-
     /*nav bar css*/
     #active .fa {
         color: #1251a7;
@@ -267,13 +249,13 @@
 
         <!--Progress Bar-->
         <div class="centerAlign col-xs-12 col-md-6 col-lg-6">
-            <div style="height:50%; vertical-align: text-bottom;" id="pointsTotal">{{profile.total_points}} points</div>
+            <div style="height:50%; vertical-align: text-bottom;" id="pointsTotal">840 points</div>
 
             <div class="progressBar">
                 <div id="bar" class="progressForeground barBackground" style="width:10%; max-width:100% "></div>
             </div>
 
-            <div class="text textSmall gray" style="vertical-align: central"  id="goal">Next Goal: {{profile.total_points }}</div>
+            <div class="text textSmall gray" style="vertical-align: central"  id="goal">Next Goal: 10000</div>
         </div>
     </div>
 </div>
@@ -281,7 +263,7 @@
 <!--Swipe/Check-in Buttons-->
 <div class="cardmarginBottom" style="max-height: 1500px;">
     <div class="row vcenter">
-        <div class="col-xs-6"><button type="button" class="btn btn-primary btn-lg btn-block" onclick="addToPoints(750)"style="white-space:normal">Check Card Swipes</button></div>
+        <div class="col-xs-6"><button type="button" class="btn btn-primary btn-lg btn-block" onclick="addToPoints(20)"style="white-space:normal">Check Card Swipes</button></div>
         <div class="col-xs-6"><button type="button" class="btn btn-primary btn-lg btn-block" style="white-space:normal">Location Check-in</button></div>
     </div>
 </div>
