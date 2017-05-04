@@ -11,19 +11,20 @@
     <title>Home</title> <!-- >Gives a name in the tab on the browser<-->
     <script type="text/javascript">
 
-        var points = 820;
-        var goal = 10000;
+        //var points = 820;
+        var goal = 1000;
         function addToPoints(increment)
         {
+            var pointsTotal = document.getElementById("pointsTotal");
 
             var currentWidth = (points/goal) * 100;
-            points += increment;
+            pointsTotal += increment;
             var desiredWidth = (points/goal) * 100;
 
             var elem = document.getElementById("bar");
-            var pointsTotal = document.getElementById("pointsTotal");
-            pointsTotal.innerText = points + " points";
+
             var id = setInterval(frame, 10);
+            pointsTotal.innerText = points + " points";
             function frame() {
                 if (currentWidth >= desiredWidth)
                 {
@@ -250,13 +251,13 @@
 
         <!--Progress Bar-->
         <div class="centerAlign col-xs-12 col-md-6 col-lg-6">
-            <div style="height:50%; vertical-align: text-bottom;" id="pointsTotal">820 points</div>
+            <div style="height:50%; vertical-align: text-bottom;" id="pointsTotal">{{profile.total_points}}</div>
 
             <div class="progressBar">
-                <div id="bar" class="progressForeground barBackground" style="width:8%; max-width:100% "></div>
+                <div id="bar" class="progressForeground barBackground" style="width:80%; max-width:100% "></div>
             </div>
 
-            <div class="text textSmall gray" style="vertical-align: central"  id="goal">Next Goal: 10000</div>
+            <div class="text textSmall gray" style="vertical-align: central"  id="goal">Next Goal: 1000</div>
         </div>
     </div>
 </div>
