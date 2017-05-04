@@ -10,19 +10,15 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <title>Home</title> <!-- >Gives a name in the tab on the browser<-->
     <script type="text/javascript">
-
         //var points = 820;
         var goal = 1000;
         function addToPoints(increment)
         {
             var pointsTotal = document.getElementById("pointsTotal");
-
-            var currentWidth = (points/goal) * 100;
+            var currentWidth = (pointsTotal/goal) * 100;
             pointsTotal += increment;
-            var desiredWidth = (points/goal) * 100;
-
+            var desiredWidth = (pointsTotal/goal) * 100;
             var elem = document.getElementById("bar");
-
             var id = setInterval(frame, 10);
             pointsTotal.innerText = points + " points";
             function frame() {
@@ -37,7 +33,6 @@
                 }
             }
         }
-
         function addFriendUpdate()
         {
             var colors = ["#1251a7", "#584d51", "#939598"];
@@ -265,17 +260,17 @@
 <!--Swipe/Check-in Buttons-->
 <div class="cardmarginBottom" style="max-height: 1500px;">
     <div class="row vcenter">
-        <div class="col-xs-6">    
-            <form action="/rewards_app/home/" method="post">
-                {% csrf_token %}
-                <div class="col-xs-6"><input type="submit" name="swipe" value="swipe" onclick="addToPoints(40)"></div>
-            </form>
-        </div>
-        
         <div class="col-xs-6">
             <form action="/rewards_app/home/" method="post">
                 {% csrf_token %}
-                <div class="col-xs-6"><input type="submit" name="location reward" value="location reward" onclick="addToPoints(40)"></div>
+                <div class="col-xs-6"><button type="button" name="swipe" value="swipe" class="btn btn-primary btn-lg btn-block" onclick="addToPoints(40)"style="white-space:normal">Check Card Swipes</button></div>
+            </form>
+        </div>
+
+        <div class="col-xs-6">
+            <form action="/rewards_app/home/" method="post">
+                {% csrf_token %}
+                <div class="col-xs-6"><button type="button" class="btn btn-primary btn-lg btn-block" name="location reward" value="location reward" style="white-space:normal">Location Check-in</button></div>
             </form>
         </div>
     </div>
