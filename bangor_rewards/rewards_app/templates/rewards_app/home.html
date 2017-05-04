@@ -11,10 +11,11 @@
     <title>Home</title> <!-- >Gives a name in the tab on the browser<-->
     <script type="text/javascript">
 
-        var points = 840;
+        var points = 820;
         var goal = 10000;
         function addToPoints(increment)
         {
+
             var currentWidth = (points/goal) * 100;
             points += increment;
             var desiredWidth = (points/goal) * 100;
@@ -249,10 +250,10 @@
 
         <!--Progress Bar-->
         <div class="centerAlign col-xs-12 col-md-6 col-lg-6">
-            <div style="height:50%; vertical-align: text-bottom;" id="pointsTotal">{{profile.total_points}}</div>
+            <div style="height:50%; vertical-align: text-bottom;" id="pointsTotal">820 points</div>
 
             <div class="progressBar">
-                <div id="bar" class="progressForeground barBackground" style="width:10%; max-width:100% "></div>
+                <div id="bar" class="progressForeground barBackground" style="width:8%; max-width:100% "></div>
             </div>
 
             <div class="text textSmall gray" style="vertical-align: central"  id="goal">Next Goal: 10000</div>
@@ -263,12 +264,7 @@
 <!--Swipe/Check-in Buttons-->
 <div class="cardmarginBottom" style="max-height: 1500px;">
     <div class="row vcenter">
-    <form action="/rewards_app/home/" method="post">
-        {% csrf_token %}
-         <div class="col-xs-6"><input type="submit" name="swipe" value="swipe" /><br /></div>
-    </form>
-
-        <div class="col-xs-6"><button type="button" class="btn btn-primary btn-lg btn-block" onclick="addToPoints(20)"style="white-space:normal">Check Card Swipes</button></div>
+        <div class="col-xs-6"><button type="button" class="btn btn-primary btn-lg btn-block" onclick="addToPoints(40)"style="white-space:normal">Check Card Swipes</button></div>
         <div class="col-xs-6"><button type="button" class="btn btn-primary btn-lg btn-block" style="white-space:normal">Location Check-in</button></div>
     </div>
 </div>
